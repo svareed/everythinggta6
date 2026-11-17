@@ -1,7 +1,11 @@
 .DS_Store
 .env
 .env.*
+!scraper/.env.example
 node_modules/
 dist/
 build/
 *.log
+venv/
+scraper/data/
+__pycache__/

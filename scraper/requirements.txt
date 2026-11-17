@@ -1,0 +1,5 @@
+requests
+feedparser
+youtube-transcript-api
+beautifulsoup4
+python-dotenv
