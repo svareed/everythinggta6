@@ -505,6 +505,22 @@ nav.primary .soon {
   color: var(--fg);
   font-weight: 600;
 }
+.radio-btn {
+  background: var(--bg-panel-2);
+  border: 1px solid var(--line);
+  color: var(--fg);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+.radio-btn:hover {
+  border-color: var(--pop);
+  color: var(--pop);
+}
 
 .section {
   padding-block: 38px;
@@ -601,6 +617,71 @@ footer {
   text-align: center;
 }
 
+/* ---- trailers ---- */
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-panel);
+  margin-bottom: 14px;
+}
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+@media (max-width: 720px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.video-card {
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+}
+.video-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+.video-card .play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+.video-card p {
+  margin: 0;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  color: var(--fg);
+  font-family: var(--font-serif), Georgia, serif;
+}
+
 /* ---- sources / citations ---- */
 .cite-grid {
   display: grid;
@@ -622,6 +703,14 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  overflow: hidden;
+}
+.cite-thumb {
+  width: calc(100% + 36px);
+  margin: -18px -18px 2px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--bg-panel-2);
 }
 .cite-card .src {
   font-size: 10px;

@@ -9,6 +9,7 @@ export type ScrapedRecord = {
   author: string;
   published_at: string;
   content: string;
+  image?: string;
   scraped_at: string;
 };
 

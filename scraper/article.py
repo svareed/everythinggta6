@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import os
 from typing import Any
+from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
@@ -55,6 +56,9 @@ def fetch_article(url: str) -> dict[str, Any] | None:
     published_meta = soup.find("meta", attrs={"property": "article:published_time"})
     published_at = published_meta.get("content", "") if published_meta else ""
 
+    image_meta = soup.find("meta", attrs={"property": "og:image"})
+    image = urljoin(url, image_meta["content"]) if image_meta and image_meta.get("content") else ""
+
     return {
         "source": "article",
         "type": "article",
@@ -63,6 +67,7 @@ def fetch_article(url: str) -> dict[str, Any] | None:
         "author": author,
         "published_at": published_at,
         "content": content,
+        "image": image,
         "scraped_at": now_iso(),
     }
 

@@ -12,6 +12,7 @@ import {
   formatDate,
   excerptOf,
 } from "@/lib/sources";
+import Comments from "@/components/Comments";
 
 export function generateStaticParams() {
   return getAllRecords().map((r) => ({ slug: itemSlug(r) }));
@@ -61,6 +62,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
         </div>
 
         <div className="cite-card" style={{ maxWidth: 720, marginBottom: 32 }}>
+          {item.image && <img className="cite-thumb" src={item.image} alt="" loading="lazy" />}
           <p style={{ fontSize: 15 }}>{excerptOf(item, 600)}</p>
           <div className="meta">
             <a className="out" href={item.url} target="_blank" rel="noopener noreferrer nofollow">
@@ -77,6 +79,7 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
             <div className="cite-grid">
               {related.map((r) => (
                 <div className="cite-card" key={r.url}>
+                  {r.image && <img className="cite-thumb" src={r.image} alt="" loading="lazy" />}
                   <span className="src">{outletFor(r)}</span>
                   <h3>
                     <Link href={`/sources/item/${itemSlug(r)}`}>{r.title}</Link>
@@ -87,6 +90,8 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
             </div>
           </section>
         )}
+
+        <Comments />
       </div>
     </main>
   );

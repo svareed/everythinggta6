@@ -87,6 +87,9 @@ def _extract(url: str, site_name: str) -> tuple[dict[str, Any] | None, set[str]]
     published_meta = soup.find("meta", attrs={"property": "article:published_time"})
     published_at = published_meta.get("content", "") if published_meta else ""
 
+    image_meta = soup.find("meta", attrs={"property": "og:image"})
+    image = urljoin(url, image_meta["content"]) if image_meta and image_meta.get("content") else ""
+
     same_domain_topic_links: set[str] = set()
     for a in soup.find_all("a", href=True):
         href = urljoin(url, a["href"]).split("#")[0]
@@ -110,6 +113,7 @@ def _extract(url: str, site_name: str) -> tuple[dict[str, Any] | None, set[str]]
             "author": author,
             "published_at": published_at,
             "content": excerpt,
+            "image": image,
             "scraped_at": now_iso(),
         }
     return record, same_domain_topic_links

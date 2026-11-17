@@ -11,6 +11,7 @@ import {
   excerptOf,
   type CategoryId,
 } from "@/lib/sources";
+import Comments from "@/components/Comments";
 
 export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ category: c.id }));
@@ -68,6 +69,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           <div className="cite-grid" style={{ paddingBottom: 48 }}>
             {items.map((c) => (
               <div className="cite-card" key={c.url}>
+                {c.image && <img className="cite-thumb" src={c.image} alt="" loading="lazy" />}
                 <span className="src">
                   <Link href={`/sources/outlet/${outletSlug(outletFor(c))}`}>{outletFor(c)}</Link>
                 </span>
@@ -85,6 +87,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
             ))}
           </div>
         )}
+
+        <Comments />
       </div>
     </main>
   );

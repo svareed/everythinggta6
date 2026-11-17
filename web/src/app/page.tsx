@@ -2,6 +2,8 @@ import Link from "next/link";
 import Countdown from "@/components/Countdown";
 import VisitorCounter from "@/components/VisitorCounter";
 import HeroSkyline from "@/components/HeroSkyline";
+import RadioLeonida from "@/components/RadioLeonida";
+import Comments from "@/components/Comments";
 import { getAllRecords, itemSlug, outletFor, categoryOf, formatDate, type CategoryId } from "@/lib/sources";
 
 const CATEGORY_TAGS: Record<CategoryId, string> = {
@@ -11,6 +13,15 @@ const CATEGORY_TAGS: Record<CategoryId, string> = {
 };
 
 const LATEST = getAllRecords().slice(0, 4);
+
+// Real, currently-live videos on Rockstar's own YouTube channel, the same
+// seed list verified in scraper/youtube_transcripts.py.
+const FEATURED_TRAILER = { id: "rz1B4B2yBZY", title: "Grand Theft Auto VI — Launch Trailer" };
+const MORE_TRAILERS = [
+  { id: "VQRLujxTm3c", title: "Grand Theft Auto VI — Trailer 2" },
+  { id: "tJbzMqJGH4k", title: "Grand Theft Auto VI: An Extended Look" },
+  { id: "EiQEBYDox_k", title: "Grand Theft Auto VI: Official Cover Art Reveal" },
+];
 
 const MODULES = [
   {
@@ -62,6 +73,35 @@ export default function Home() {
         </section>
       </div>
 
+      <section className="section wrap">
+        <div className="section-head">
+          <h2>Official Trailers</h2>
+        </div>
+        <div className="video-embed">
+          <iframe
+            src={`https://www.youtube.com/embed/${FEATURED_TRAILER.id}`}
+            title={FEATURED_TRAILER.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+        <div className="video-grid">
+          {MORE_TRAILERS.map((v) => (
+            <a
+              className="video-card"
+              href={`https://www.youtube.com/watch?v=${v.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={v.id}
+            >
+              <img src={`https://img.youtube.com/vi/${v.id}/hqdefault.jpg`} alt="" loading="lazy" />
+              <span className="play">▶</span>
+              <p>{v.title}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
       <div className="wrap dash">
         <div className="panel">
           <div className="panel-head">
@@ -102,22 +142,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="panel">
-            <div className="panel-head">
-              <span className="label">Radio Leonida</span>
-              <span className="chip">Now Playing</span>
-            </div>
-            <div className="eq">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-            </div>
-            <p className="radio-now">
-              Guessed lineup &middot; <b>Synthwave Sunset FM</b> &middot; dummy track data
-            </p>
-          </div>
+          <RadioLeonida />
         </div>
       </div>
 
@@ -140,6 +165,10 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <div className="wrap">
+        <Comments />
+      </div>
     </main>
   );
 }

@@ -11,6 +11,7 @@ import {
   formatDate,
   excerptOf,
 } from "@/lib/sources";
+import Comments from "@/components/Comments";
 
 export function generateStaticParams() {
   return getAllOutlets().map((o) => ({ outlet: outletSlug(o) }));
@@ -56,6 +57,7 @@ export default async function OutletPage({ params }: { params: Promise<{ outlet:
             const cat = CATEGORIES.find((cc) => cc.id === categoryOf(c))!;
             return (
               <div className="cite-card" key={c.url}>
+                {c.image && <img className="cite-thumb" src={c.image} alt="" loading="lazy" />}
                 <span className="src">
                   <Link href={`/sources/${cat.id}`}>{cat.label}</Link>
                 </span>
@@ -73,6 +75,8 @@ export default async function OutletPage({ params }: { params: Promise<{ outlet:
             );
           })}
         </div>
+
+        <Comments />
       </div>
     </main>
   );

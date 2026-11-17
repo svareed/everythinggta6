@@ -12,6 +12,7 @@ import {
   formatDate,
   excerptOf,
 } from "@/lib/sources";
+import Comments from "@/components/Comments";
 
 export const metadata: Metadata = {
   title: "Sources — Vice City Dispatch",
@@ -84,6 +85,7 @@ export default function SourcesPage() {
           <div className="cite-grid">
             {latest.map((c) => (
               <div className="cite-card" key={c.url}>
+                {c.image && <img className="cite-thumb" src={c.image} alt="" loading="lazy" />}
                 <span className="src">{outletFor(c)}</span>
                 <h3>
                   <Link href={`/sources/item/${itemSlug(c)}`}>{c.title}</Link>
@@ -99,6 +101,8 @@ export default function SourcesPage() {
             ))}
           </div>
         </section>
+
+        <Comments />
       </div>
     </main>
   );

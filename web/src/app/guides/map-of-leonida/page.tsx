@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Comments from "@/components/Comments";
 
 export const metadata: Metadata = {
   title: "Map of Leonida — Vice City Dispatch",
@@ -62,6 +63,7 @@ export default function MapOfLeonidaGuide() {
           <Link href="/sources/hidden-gems">trailer easter eggs</Link>, or the{" "}
           <Link href="/sources">full Sources hub</Link>.
         </p>
+        <Comments />
       </div>
     </main>
   );
