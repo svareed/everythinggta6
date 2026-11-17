@@ -1,0 +1,26 @@
+import Link from "next/link";
+
+export default function SiteHeader() {
+  return (
+    <div className="topbar">
+      <div
+        className="wrap"
+        style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, width: "100%" }}
+      >
+        <Link href="/" className="brand">
+          <span className="dot" />
+          The Leonida Dispatch
+        </Link>
+        <nav className="primary">
+          <Link href="/">News</Link>
+          <Link href="/guides/map-of-leonida">Map</Link>
+          <Link href="/sources">Sources</Link>
+          <span className="soon">Characters</span>
+          <span className="soon">Vehicles</span>
+          <span className="soon">Soundtrack</span>
+        </nav>
+        <span className="issue-tag">Preview Edition</span>
+      </div>
+    </div>
+  );
+}

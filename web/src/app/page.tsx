@@ -2,13 +2,15 @@ import Link from "next/link";
 import Countdown from "@/components/Countdown";
 import VisitorCounter from "@/components/VisitorCounter";
 import HeroSkyline from "@/components/HeroSkyline";
+import { getAllRecords, itemSlug, outletFor, categoryOf, formatDate, type CategoryId } from "@/lib/sources";
 
-const FEED = [
-  { tag: "Leaks", text: "Four new district names surface from dataminers", time: "2h" },
-  { tag: "Guides", text: "Every confirmed location, mapped to the trailers", time: "5h" },
-  { tag: "Radio", text: "Station lineup theories, ranked by plausibility", time: "9h" },
-  { tag: "Wardrobe", text: "Lucia's looks, catalogued outfit by outfit", time: "13h" },
-];
+const CATEGORY_TAGS: Record<CategoryId, string> = {
+  news: "News",
+  tips: "Guides",
+  "hidden-gems": "Hidden Gems",
+};
+
+const LATEST = getAllRecords().slice(0, 4);
 
 const MODULES = [
   {
@@ -18,46 +20,28 @@ const MODULES = [
     body: "Vice City, Port Gellhorn, the Keys — and the rumored fourth zone.",
   },
   {
-    href: "/",
-    tag: "Characters",
-    title: "Jason & Lucia",
-    body: "Backstories, voice credits, theory tracker.",
+    href: "/sources/tips",
+    tag: "Guides",
+    title: "Tips & Guides",
+    body: "Real walkthroughs and how-tos, pulled from across the web.",
   },
   {
-    href: "/",
-    tag: "Garage",
-    title: "Vehicle spotter",
-    body: "Every car, bike, boat tagged by district.",
+    href: "/sources/hidden-gems",
+    tag: "Hidden Gems",
+    title: "Easter eggs & secrets",
+    body: "Trailer details and references the community has dug up.",
   },
   {
-    href: "/",
+    href: "/sources/news",
     tag: "News & Leaks",
-    title: "Trailer 3 watch",
-    body: "Frame-by-frame breakdowns, dataminer threads worth trusting.",
+    title: "News & Leaks",
+    body: "Launch coverage, rumor reports, and dev interviews.",
   },
 ];
 
 export default function Home() {
   return (
     <main>
-      <div className="topbar">
-        <div className="wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, width: "100%" }}>
-          <Link href="/" className="brand">
-            <span className="dot" />
-            The Leonida Dispatch
-          </Link>
-          <nav className="primary">
-            <Link href="/">News</Link>
-            <Link href="/guides/map-of-leonida">Map</Link>
-            <Link href="/sources">Sources</Link>
-            <span className="soon">Characters</span>
-            <span className="soon">Vehicles</span>
-            <span className="soon">Soundtrack</span>
-          </nav>
-          <span className="issue-tag">Preview Edition</span>
-        </div>
-      </div>
-
       <div className="hero-bg">
         <HeroSkyline />
         <section className="cover wrap">
@@ -82,15 +66,22 @@ export default function Home() {
         <div className="panel">
           <div className="panel-head">
             <span className="label">Incoming Feed</span>
-            <span className="chip">Sample</span>
+            <span className="chip">Live</span>
           </div>
           <div className="feed-list">
-            {FEED.map((item) => (
-              <div className="feed-item" key={item.text}>
-                <span className="tag">{item.tag}</span>
-                <p>{item.text}</p>
-                <time>{item.time}</time>
-              </div>
+            {LATEST.map((item) => (
+              <Link
+                className="feed-item"
+                href={`/sources/item/${itemSlug(item)}`}
+                key={item.url}
+                style={{ textDecoration: "none" }}
+              >
+                <span className="tag">{CATEGORY_TAGS[categoryOf(item)]}</span>
+                <p>
+                  {item.title} <span style={{ color: "var(--fg-dim)" }}>— {outletFor(item)}</span>
+                </p>
+                <time>{formatDate(item.published_at) || formatDate(item.scraped_at)}</time>
+              </Link>
             ))}
           </div>
         </div>
@@ -149,11 +140,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      <footer>
-        Dummy content for a design prototype &middot; not an official Rockstar Games product
-        &middot; background scene is a generative animation, not real trailer footage
-      </footer>
     </main>
   );
 }

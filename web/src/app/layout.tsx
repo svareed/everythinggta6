@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Anton, Inter, JetBrains_Mono, Source_Serif_4 } from "next/font/google";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 import "./globals.css";
 
 const anton = Anton({ variable: "--font-anton", weight: "400", subsets: ["latin"] });
@@ -19,7 +21,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       className={`${anton.variable} ${inter.variable} ${bodySerif.variable} ${mono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }

@@ -38,24 +38,6 @@ const REGIONS = [
 export default function MapOfLeonidaGuide() {
   return (
     <main>
-      <div className="topbar">
-        <div className="wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, width: "100%" }}>
-          <Link href="/" className="brand">
-            <span className="dot" />
-            The Leonida Dispatch
-          </Link>
-          <nav className="primary">
-            <Link href="/">News</Link>
-            <Link href="/guides/map-of-leonida">Map</Link>
-            <Link href="/sources">Sources</Link>
-            <span className="soon">Characters</span>
-            <span className="soon">Vehicles</span>
-            <span className="soon">Soundtrack</span>
-          </nav>
-          <span className="issue-tag">Preview Edition</span>
-        </div>
-      </div>
-
       <div className="wrap">
         <div className="guide-head">
           <Link href="/" className="back">
@@ -75,9 +57,12 @@ export default function MapOfLeonidaGuide() {
             </div>
           ))}
         </div>
+        <p style={{ marginTop: 24 }}>
+          More real coverage: <Link href="/sources/news">latest news</Link>,{" "}
+          <Link href="/sources/hidden-gems">trailer easter eggs</Link>, or the{" "}
+          <Link href="/sources">full Sources hub</Link>.
+        </p>
       </div>
-
-      <footer>Dummy content for a design prototype &middot; not an official Rockstar Games product</footer>
     </main>
   );
 }
