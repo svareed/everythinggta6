@@ -14,11 +14,12 @@ from typing import Any
 import article
 import newswire
 import reddit
+import site_crawler
 import youtube_transcripts
 
 DATA_DIR = Path(__file__).parent / "data"
 
-SOURCE_MODULES = [reddit, newswire, youtube_transcripts, article]
+SOURCE_MODULES = [reddit, newswire, youtube_transcripts, article, site_crawler]
 
 
 def run_all() -> list[dict[str, Any]]:

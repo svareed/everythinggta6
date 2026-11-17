@@ -43,9 +43,10 @@ site (`SCRAPER_REQUEST_DELAY_SECONDS` in `.env`, default 2s).
   YouTube Data API (`channels.list` + `search.list`) instead of scraping
   channel pages or the RSS feed, since both of those paths run into
   youtube.com's robots.txt. It needs `YOUTUBE_API_KEY` set in `.env` --
-  with no key, it contributes 0 records, same as before. Also: the
-  `jellywtf` handle guessed for "Jelly" 404s -- it's wrong and needs the
-  real handle confirmed before it'll resolve at all.
+  with no key, it contributes 0 records, same as before. Verified against
+  the live API on 2026-11-17: both handles in `CHANNEL_HANDLES` resolve
+  correctly now (`jelly` -> Jelly, 23.3M subs; `flyingkittyyy` -> FlyingKitty,
+  3.27M subs) -- the earlier guesses (`jellywtf`, `FlyingKitty`) 404ed.
 - `newswire.py`: rockstargames.com/newswire has no RSS feed, and its listing
   page is a client-rendered single-page app -- the server sends back an
   empty `<body>` with JS bundle references, no article content, so a plain

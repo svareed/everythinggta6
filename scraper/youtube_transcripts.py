@@ -42,8 +42,8 @@ VIDEO_IDS = {
 CHANNEL_HANDLES = {
     "TypicalGamer": "Typical Gamer",
     "MrBossFTW": "MrBossFTW",
-    "jellywtf": "Jelly",
-    "FlyingKitty": "FlyingKittyyy",
+    "jelly": "Jelly",
+    "flyingkittyyy": "FlyingKitty",
     "any_austin": "any_austin",
     "KaiCenat": "Kai Cenat",
 }

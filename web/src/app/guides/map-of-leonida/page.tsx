@@ -47,6 +47,7 @@ export default function MapOfLeonidaGuide() {
           <nav className="primary">
             <Link href="/">News</Link>
             <Link href="/guides/map-of-leonida">Map</Link>
+            <Link href="/sources">Sources</Link>
             <span className="soon">Characters</span>
             <span className="soon">Vehicles</span>
             <span className="soon">Soundtrack</span>
