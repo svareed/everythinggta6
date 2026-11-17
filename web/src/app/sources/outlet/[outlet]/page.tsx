@@ -20,8 +20,12 @@ function findOutlet(slug: string): string | undefined {
   return getAllOutlets().find((o) => outletSlug(o) === slug);
 }
 
-export function generateMetadata({ params }: { params: { outlet: string } }): Metadata {
-  const outlet = findOutlet(params.outlet);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ outlet: string }>;
+}): Promise<Metadata> {
+  const outlet = findOutlet((await params).outlet);
   if (!outlet) return {};
   return {
     title: `${outlet} — Vice City Dispatch Sources`,
@@ -29,8 +33,8 @@ export function generateMetadata({ params }: { params: { outlet: string } }): Me
   };
 }
 
-export default function OutletPage({ params }: { params: { outlet: string } }) {
-  const outlet = findOutlet(params.outlet);
+export default async function OutletPage({ params }: { params: Promise<{ outlet: string }> }) {
+  const outlet = findOutlet((await params).outlet);
   if (!outlet) notFound();
 
   const items = getByOutlet(outlet);

@@ -21,8 +21,12 @@ function findItem(slug: string) {
   return getAllRecords().find((r) => itemSlug(r) === slug);
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const item = findItem(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const item = findItem((await params).slug);
   if (!item) return {};
   return {
     title: `${item.title} — Vice City Dispatch`,
@@ -30,8 +34,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function ItemPage({ params }: { params: { slug: string } }) {
-  const item = findItem(params.slug);
+export default async function ItemPage({ params }: { params: Promise<{ slug: string }> }) {
+  const item = findItem((await params).slug);
   if (!item) notFound();
 
   const outlet = outletFor(item);

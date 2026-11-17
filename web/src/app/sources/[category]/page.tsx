@@ -20,8 +20,12 @@ function findCategory(id: string) {
   return CATEGORIES.find((c) => c.id === id);
 }
 
-export function generateMetadata({ params }: { params: { category: string } }): Metadata {
-  const cat = findCategory(params.category);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ category: string }>;
+}): Promise<Metadata> {
+  const cat = findCategory((await params).category);
   if (!cat) return {};
   return {
     title: `${cat.label} — Vice City Dispatch`,
@@ -29,8 +33,8 @@ export function generateMetadata({ params }: { params: { category: string } }): 
   };
 }
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
-  const cat = findCategory(params.category);
+export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
+  const cat = findCategory((await params).category);
   if (!cat) notFound();
 
   const items = getByCategory(cat.id as CategoryId);
