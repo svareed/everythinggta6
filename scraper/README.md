@@ -39,14 +39,13 @@ site (`SCRAPER_REQUEST_DELAY_SECONDS` in `.env`, default 2s).
 - `youtube_transcripts.py` also now pulls from `CHANNEL_HANDLES`, a seed
   list of popular GTA6-covering creators (~100K+ subscribers per a
   2026-11-17 search, so treat the counts as approximate/stale) added on
-  request to the scrape target list. Each channel's public RSS feed would
-  give its latest uploads with no API key -- but youtube.com's robots.txt
-  currently disallows `/feeds/videos.xml` for anonymous crawlers too, the
-  same policy that blocks `reddit.py`, so this currently contributes 0
-  records honestly rather than overriding that. It'll start working the
-  moment that changes or a `YOUTUBE_API_KEY` is added. Also: the `jellywtf`
-  handle guessed for "Jelly" 404s -- it's wrong and needs the real handle
-  confirmed before it'll resolve at all.
+  request to the scrape target list. This now goes through the official
+  YouTube Data API (`channels.list` + `search.list`) instead of scraping
+  channel pages or the RSS feed, since both of those paths run into
+  youtube.com's robots.txt. It needs `YOUTUBE_API_KEY` set in `.env` --
+  with no key, it contributes 0 records, same as before. Also: the
+  `jellywtf` handle guessed for "Jelly" 404s -- it's wrong and needs the
+  real handle confirmed before it'll resolve at all.
 - `newswire.py`: rockstargames.com/newswire has no RSS feed, and its listing
   page is a client-rendered single-page app -- the server sends back an
   empty `<body>` with JS bundle references, no article content, so a plain

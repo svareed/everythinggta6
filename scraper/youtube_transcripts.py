@@ -1,32 +1,33 @@
 """Fetch transcripts for a configurable list of GTA6-related YouTube videos.
 
-No API key needed: the youtube-transcript-api package pulls publicly
-available captions directly. Swap VIDEO_IDS for a YouTube Data API search
-once a key is configured (see .env.example / README) instead of maintaining
-this list by hand -- that's a config/code change in this one file, nothing
-else needs to move.
+No API key needed for the transcripts themselves: the youtube-transcript-api
+package pulls publicly available captions directly.
 
 Seed list: real, currently-live videos on Rockstar Games' official YouTube
 channel (youtube.com/@RockstarGames), confirmed by fetching that channel's
 page directly while building this.
 
 CHANNEL_HANDLES below extends this to creators, not just Rockstar's own
-videos: each channel's public Atom feed (no API key needed) gives its
-latest uploads, which get the same transcript treatment. Subscriber counts
-are from a 2026-11-17 web search and are approximate/stale by the time you
-read this -- re-check before treating them as current.
+videos: each channel's latest uploads are looked up via the official
+YouTube Data API (channels.list + search.list), which needs YOUTUBE_API_KEY
+set in .env -- without it, this contributes 0 records, same as before.
+Subscriber counts are from a 2026-11-17 web search and are
+approximate/stale by the time you read this -- re-check before treating
+them as current.
 """
 from __future__ import annotations
 
-import re
+import os
 from typing import Any
 
-import feedparser
 import requests
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api._errors import CouldNotRetrieveTranscript
 
-from common import USER_AGENT, now_iso, robots_allowed
+from common import now_iso
+
+YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
+_YT_API = "https://www.googleapis.com/youtube/v3"
 
 VIDEO_IDS = {
     "rz1B4B2yBZY": "Grand Theft Auto VI Launch Trailer",
@@ -47,39 +48,52 @@ CHANNEL_HANDLES = {
     "KaiCenat": "Kai Cenat",
 }
 
-_CHANNEL_ID_RE = re.compile(r'"channelId":"(UC[0-9A-Za-z_-]{22})"')
-
-
 def _resolve_channel_id(handle: str) -> str | None:
-    url = f"https://www.youtube.com/@{handle}"
-    if not robots_allowed(url):
-        print(f"[youtube_transcripts] robots.txt disallows {url}; skipping.")
-        return None
+    """Resolve a @handle to a channel ID via the official Data API."""
     try:
-        resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=10)
+        resp = requests.get(
+            f"{_YT_API}/channels",
+            params={"part": "id", "forHandle": handle, "key": YOUTUBE_API_KEY},
+            timeout=10,
+        )
         resp.raise_for_status()
+        items = resp.json().get("items", [])
+        return items[0]["id"] if items else None
     except requests.RequestException as exc:
         print(f"[youtube_transcripts] failed to resolve channel {handle}: {exc}")
         return None
-    match = _CHANNEL_ID_RE.search(resp.text)
-    return match.group(1) if match else None
 
 
 def _latest_from_channel(handle: str, display_name: str, limit: int = 3) -> dict[str, str]:
-    """Returns {video_id: title} for a channel's most recent uploads."""
+    """Returns {video_id: title} for a channel's most recent uploads, via the Data API."""
+    if not YOUTUBE_API_KEY:
+        return {}
     channel_id = _resolve_channel_id(handle)
     if not channel_id:
         return {}
-    feed_url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
-    if not robots_allowed(feed_url):
-        print(f"[youtube_transcripts] robots.txt disallows {feed_url}; skipping.")
+    try:
+        resp = requests.get(
+            f"{_YT_API}/search",
+            params={
+                "part": "snippet",
+                "channelId": channel_id,
+                "order": "date",
+                "type": "video",
+                "maxResults": limit,
+                "key": YOUTUBE_API_KEY,
+            },
+            timeout=10,
+        )
+        resp.raise_for_status()
+    except requests.RequestException as exc:
+        print(f"[youtube_transcripts] search failed for {handle}: {exc}")
         return {}
-    parsed = feedparser.parse(feed_url, request_headers={"User-Agent": USER_AGENT})
     found = {}
-    for entry in parsed.entries[:limit]:
-        video_id = getattr(entry, "yt_videoid", None)
-        if video_id:
-            found[video_id] = f"{display_name}: {entry.title}"
+    for item in resp.json().get("items", []):
+        video_id = item.get("id", {}).get("videoId")
+        title = item.get("snippet", {}).get("title")
+        if video_id and title:
+            found[video_id] = f"{display_name}: {title}"
     return found
 
 
