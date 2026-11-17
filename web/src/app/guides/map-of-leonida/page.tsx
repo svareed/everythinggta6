@@ -28,6 +28,24 @@ const REGIONS = [
     body: "Island-hopping territory — boats matter more than cars here.",
   },
   {
+    sector: "SECTOR 04",
+    name: "Ambrosia",
+    status: "Confirmed",
+    body: "Named in official Rockstar material; details are still thin.",
+  },
+  {
+    sector: "SECTOR 05",
+    name: "Grassrivers",
+    status: "Confirmed",
+    body: "Everglades-style wetland county named in official press material.",
+  },
+  {
+    sector: "SECTOR 06",
+    name: "Mount Kalaga National Park",
+    status: "Confirmed",
+    body: "A protected wilderness area, officially named alongside Leonida's other counties.",
+  },
+  {
     sector: "SECTOR ??",
     name: "??? Rumored region",
     status: "Unconfirmed",
@@ -58,7 +76,16 @@ export default function MapOfLeonidaGuide() {
             </div>
           ))}
         </div>
-        <p style={{ marginTop: 24 }}>
+        <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 8 }}>
+          Ambrosia, Grassrivers, and Mount Kalaga National Park per{" "}
+          <a href="https://gtaintel.com/news/gta-6-leonida-map-everything-we-know" target="_blank" rel="noopener noreferrer nofollow">
+            GTA Intel&apos;s map coverage
+          </a>
+          , citing Rockstar&apos;s own press material. No complete official map has been released —
+          anything calling itself a &quot;full GTA6 map&quot; online right now is an unverified
+          leak, not something Rockstar has authorized.
+        </p>
+        <p style={{ marginTop: 16 }}>
           More real coverage: <Link href="/sources/news">latest news</Link>,{" "}
           <Link href="/sources/hidden-gems">trailer easter eggs</Link>, or the{" "}
           <Link href="/sources">full Sources hub</Link>.
