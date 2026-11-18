@@ -14,9 +14,18 @@ const PROTAGONIST_IMG: Record<string, string> = {
   "Lucia Caminos": "vault-heist",
 };
 
+// Cards cycle through our own trailer stills as atmosphere, not literal
+// portraits -- Rockstar hasn't published a headshot for every cast member.
+const SUPPORTING_STILLS = [
+  "balcony-sunset", "hawaiian-shirt-truck", "biplane-beach-stunt", "motorcycle-seaplane",
+  "crystal-shop", "red-shootout", "dock-seaplane", "skyscraper-climb",
+];
+
 export default function CharactersPage() {
   const protagonists = characters.filter((c) => c.role === "Protagonist");
-  const supporting = characters.filter((c) => c.role !== "Protagonist");
+  const supporting = characters
+    .filter((c) => c.role !== "Protagonist")
+    .map((c, i) => ({ ...c, img: SUPPORTING_STILLS[i % SUPPORTING_STILLS.length] }));
 
   return (
     <main>
@@ -58,7 +67,11 @@ export default function CharactersPage() {
         </div>
         <div className="coords">
           {supporting.map((c) => (
-            <div className="coord" key={c.name}>
+            <div
+              className="coord has-img"
+              key={c.name}
+              style={{ backgroundImage: `url(/images/trailer-stills/${c.img}.jpg)`, minHeight: 180 }}
+            >
               <span className="xy">{c.sector}</span>
               <h3>{c.name}</h3>
               <span className="status">● {c.role}</span>
@@ -76,8 +89,9 @@ export default function CharactersPage() {
           <a href="https://www.gtaboom.com/every-gta-6-character-confirmed-so-far-156f" target="_blank" rel="noopener noreferrer nofollow">
             GTA BOOM
           </a>
-          , both citing Rockstar&apos;s official press materials. Protagonist images are stills from
-          Rockstar&apos;s own trailers, not confirmed one-to-one portraits of each character.
+          , both citing Rockstar&apos;s official press materials. Every card&apos;s background is a
+          still from Rockstar&apos;s own trailers, used as atmosphere — not a claim that the photo is
+          a portrait of that specific character.
         </p>
         <p style={{ marginTop: 16 }}>
           More on the cast: <Link href="/vehicles">vehicles</Link>,{" "}

@@ -15,6 +15,16 @@ const CATEGORY_IMG: Record<string, string> = {
   Motorcycles: "motorcycle-seaplane",
 };
 
+// Cards cycle through our own trailer stills as atmosphere, not literal
+// photos of each named vehicle -- Rockstar hasn't published per-vehicle art.
+const STILLS = [
+  "balcony-sunset", "hawaiian-shirt-truck", "biplane-beach-stunt", "motorcycle-seaplane",
+  "vault-heist", "bar-standoff", "crystal-shop", "red-shootout",
+  "dock-seaplane", "skyscraper-climb", "nightclub-crowd", "highway-skyline",
+];
+
+const withImg = vehicles.map((v, i) => ({ ...v, img: STILLS[i % STILLS.length] }));
+
 export default function VehiclesPage() {
   return (
     <main>
@@ -34,7 +44,7 @@ export default function VehiclesPage() {
         </div>
 
         {CATEGORIES.map((cat) => {
-          const items = vehicles.filter((v) => v.category === cat);
+          const items = withImg.filter((v) => v.category === cat);
           if (!items.length) return null;
           const img = CATEGORY_IMG[cat];
           return (
@@ -49,9 +59,15 @@ export default function VehiclesPage() {
               </div>
               <div className="coords" style={{ marginTop: 10 }}>
                 {items.map((v) => (
-                  <div className="coord" key={v.name}>
+                  <div
+                    className="coord has-img"
+                    key={v.name}
+                    style={{ backgroundImage: `url(/images/trailer-stills/${v.img}.jpg)`, minHeight: 160 }}
+                  >
+                    <span className="xy">{v.category}</span>
                     <h3>{v.name}</h3>
-                    <p>Based on: {v.inspiration}</p>
+                    <span className="status">● Spotted in trailers</span>
+                    <p>Modeled after the {v.inspiration} — one of the named vehicles fan trackers have confirmed so far.</p>
                   </div>
                 ))}
               </div>
@@ -67,6 +83,8 @@ export default function VehiclesPage() {
           &apos;s vehicle tracker — a fan database built from trailer and screenshot sightings, not
           an official Rockstar list. GTABase and other trackers disagree on the total count (estimates
           range from roughly 260 to 317+), so treat any specific total you see elsewhere with caution.
+          Card backgrounds are stills from Rockstar&apos;s own trailers, used as atmosphere — not a
+          claim that any specific photo shows that exact named vehicle.
         </p>
         <p style={{ marginTop: 16 }}>
           More garage coverage: <Link href="/characters">the cast</Link>,{" "}
