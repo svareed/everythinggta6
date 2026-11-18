@@ -3,6 +3,7 @@ import Countdown from "@/components/Countdown";
 import VisitorCounter from "@/components/VisitorCounter";
 import HeroSkyline from "@/components/HeroSkyline";
 import RadioLeonida from "@/components/RadioLeonida";
+import LiveFeed from "@/components/LiveFeed";
 import Comments from "@/components/Comments";
 import { getAllRecords, itemSlug, outletFor, categoryOf, formatDate, type CategoryId } from "@/lib/sources";
 
@@ -126,6 +127,14 @@ export default function Home() {
             </a>
           ))}
         </div>
+      </section>
+
+      <section className="section wrap">
+        <div className="section-head">
+          <h2>Live Right Now</h2>
+          <p className="lede">Real, live posts tagged #GTA6 — pulled straight from X, not curated by us.</p>
+        </div>
+        <LiveFeed />
       </section>
 
       <div className="wrap dash">
