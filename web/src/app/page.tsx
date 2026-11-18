@@ -31,6 +31,12 @@ const MODULES = [
     body: "Vice City, Port Gellhorn, the Keys — and the rumored fourth zone.",
   },
   {
+    href: "/guides/craziest-gta6-stories",
+    tag: "Launch Week",
+    title: "Craziest launch stories",
+    body: "A rescheduled exam, a marriage truce, a $135K job posting — how far people went.",
+  },
+  {
     href: "/sources/tips",
     tag: "Guides",
     title: "Tips & Guides",

@@ -833,3 +833,15 @@ footer {
   margin: 6px 0 0;
   font-family: var(--font-serif), Georgia, serif;
 }
+.coord .cite {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  text-decoration: none;
+}
+.coord .cite:hover {
+  color: var(--pop);
+}
