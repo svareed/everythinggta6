@@ -23,6 +23,19 @@ const MORE_TRAILERS = [
   { id: "EiQEBYDox_k", title: "Grand Theft Auto VI: Official Cover Art Reveal" },
 ];
 
+// Frames pulled directly from the two trailers above (ffmpeg, local), not
+// official promo stills — hence the per-shot timestamp link back to the source.
+const TRAILER_STILLS = [
+  { file: "balcony-sunset", caption: "Lucia, golden hour", trailerId: "rz1B4B2yBZY", t: 63 },
+  { file: "hawaiian-shirt-truck", caption: "A face from the Keys", trailerId: "VQRLujxTm3c", t: 11 },
+  { file: "biplane-beach-stunt", caption: "Stunt run over the beach", trailerId: "rz1B4B2yBZY", t: 56 },
+  { file: "motorcycle-seaplane", caption: "Ground and air, same shot", trailerId: "VQRLujxTm3c", t: 143 },
+  { file: "vault-heist", caption: "Inside the job", trailerId: "rz1B4B2yBZY", t: 35 },
+  { file: "bar-standoff", caption: "Tension at the bar", trailerId: "rz1B4B2yBZY", t: 42 },
+  { file: "crystal-shop", caption: "A deal in a back room", trailerId: "VQRLujxTm3c", t: 33 },
+  { file: "red-shootout", caption: "Red light, gunfire", trailerId: "VQRLujxTm3c", t: 77 },
+];
+
 const MODULES = [
   {
     href: "/guides/map-of-leonida",
@@ -106,6 +119,30 @@ export default function Home() {
             </a>
           ))}
         </div>
+      </section>
+
+      <section className="section wrap">
+        <div className="section-head">
+          <h2>Scenes from the Trailers</h2>
+        </div>
+        <div className="video-grid">
+          {TRAILER_STILLS.map((s) => (
+            <a
+              className="video-card"
+              href={`https://www.youtube.com/watch?v=${s.trailerId}&t=${s.t}s`}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={s.file}
+            >
+              <img src={`/images/trailer-stills/${s.file}.jpg`} alt={s.caption} loading="lazy" />
+              <p>{s.caption}</p>
+            </a>
+          ))}
+        </div>
+        <p style={{ color: "var(--fg-dim)", fontSize: 12.5, marginTop: 8 }}>
+          Frames pulled directly from Rockstar&apos;s own trailers above — each links back to that
+          exact moment on YouTube.
+        </p>
       </section>
 
       <div className="wrap dash">
