@@ -29,7 +29,7 @@ export async function generateMetadata({
   const outlet = findOutlet((await params).outlet);
   if (!outlet) return {};
   return {
-    title: `${outlet} — Vice City Dispatch Sources`,
+    title: `${outlet} — EverythingGTA6 Sources`,
     description: `Every GTA6 excerpt collected from ${outlet}, with links back to the original articles.`,
   };
 }

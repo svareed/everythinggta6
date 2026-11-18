@@ -30,7 +30,7 @@ export async function generateMetadata({
   const item = findItem((await params).slug);
   if (!item) return {};
   return {
-    title: `${item.title} — Vice City Dispatch`,
+    title: `${item.title} — EverythingGTA6`,
     description: excerptOf(item, 160),
   };
 }

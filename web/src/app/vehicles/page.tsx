@@ -4,7 +4,7 @@ import Comments from "@/components/Comments";
 import vehicles from "@/data/vehicles.json";
 
 export const metadata: Metadata = {
-  title: "GTA6 Vehicles — Vice City Dispatch",
+  title: "GTA6 Vehicles — EverythingGTA6",
   description:
     "Named cars, bikes, boats and aircraft spotted in GTA6's trailers and screenshots so far, with their real-world inspirations, compiled from GTABase.",
 };
@@ -34,7 +34,7 @@ export default function VehiclesPage() {
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/biplane-beach-stunt.jpg)" }}>
           <div className="guide-head">
             <Link href="/" className="back">
-              &larr; Back to The Leonida Dispatch
+              &larr; Back to EverythingGTA6
             </Link>
             <div className="k">Garage</div>
             <h1>GTA6 Vehicles</h1>

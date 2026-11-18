@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 
 export const metadata: Metadata = {
-  title: "Map of Leonida — Vice City Dispatch",
+  title: "Map of Leonida — EverythingGTA6",
   description:
     "A region-by-region primer on GTA6's state of Leonida: Vice City, Port Gellhorn, the Leonida Keys, and the unconfirmed zones fans are tracking.",
 };
@@ -68,7 +68,7 @@ export default function MapOfLeonidaGuide() {
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/biplane-beach-stunt.jpg)" }}>
           <div className="guide-head">
             <Link href="/" className="back">
-              &larr; Back to The Leonida Dispatch
+              &larr; Back to EverythingGTA6
             </Link>
             <div className="k">Guide</div>
             <h1>Map of Leonida</h1>

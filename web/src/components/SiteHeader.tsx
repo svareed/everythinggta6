@@ -9,7 +9,7 @@ export default function SiteHeader() {
       >
         <Link href="/" className="brand">
           <img src="/images/logo-mark.svg" alt="" width={28} height={28} className="brand-mark" />
-          The Leonida Dispatch
+          EverythingGTA6
         </Link>
         <nav className="primary">
           <Link href="/">News</Link>

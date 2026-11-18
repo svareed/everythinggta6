@@ -9,7 +9,7 @@ import {
 } from "@/lib/sources";
 
 export const metadata: Metadata = {
-  title: "Sitemap — Vice City Dispatch",
+  title: "Sitemap — EverythingGTA6",
   description: "Every page on the site, grouped by section, with a link to the machine-readable XML sitemap.",
 };
 
@@ -21,7 +21,7 @@ export default function VisualSitemapPage() {
       <div className="wrap">
         <div className="guide-head">
           <Link href="/" className="back">
-            &larr; Back to The Leonida Dispatch
+            &larr; Back to EverythingGTA6
           </Link>
           <div className="k">Site Index</div>
           <h1>Sitemap</h1>

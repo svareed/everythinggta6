@@ -10,7 +10,7 @@ const bodySerif = Source_Serif_4({ variable: "--font-serif", subsets: ["latin"] 
 const mono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Vice City Dispatch — The GTA6 Hub",
+  title: "EverythingGTA6 — The GTA6 Hub",
   description:
     "News, reviews, characters, map, vehicles and trailer breakdowns for Grand Theft Auto VI — out now on PS5 and Xbox Series X|S.",
 };

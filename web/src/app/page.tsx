@@ -85,9 +85,7 @@ export default function Home() {
         <section className="cover wrap">
           <div className="kicker">Grand Theft Auto VI &middot; Rockstar Games</div>
           <h1>
-            Welcome to
-            <br />
-            <span>Vice City</span>
+            <span>EverythingGTA6</span>
           </h1>
           <p className="dek">
             The most complete GTA6 coverage on the internet — news, leaks, guides and every

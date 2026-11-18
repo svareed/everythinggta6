@@ -29,7 +29,7 @@ export async function generateMetadata({
   const cat = findCategory((await params).category);
   if (!cat) return {};
   return {
-    title: `${cat.label} — Vice City Dispatch`,
+    title: `${cat.label} — EverythingGTA6`,
     description: `Real GTA6 ${cat.label.toLowerCase()} coverage from around the web, with excerpts and links back to each original source.`,
   };
 }

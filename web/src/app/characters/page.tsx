@@ -4,7 +4,7 @@ import Comments from "@/components/Comments";
 import characters from "@/data/characters.json";
 
 export const metadata: Metadata = {
-  title: "GTA6 Characters — Vice City Dispatch",
+  title: "GTA6 Characters — EverythingGTA6",
   description:
     "Jason Duval, Lucia Caminos, and the confirmed supporting cast of Grand Theft Auto VI, sourced from Rockstar's own press-kit bios.",
 };
@@ -34,7 +34,7 @@ export default function CharactersPage() {
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/balcony-sunset.jpg)" }}>
           <div className="guide-head">
             <Link href="/" className="back">
-              &larr; Back to The Leonida Dispatch
+              &larr; Back to EverythingGTA6
             </Link>
             <div className="k">Cast</div>
             <h1>The Cast of GTA6</h1>

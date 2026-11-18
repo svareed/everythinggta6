@@ -4,7 +4,7 @@ import Comments from "@/components/Comments";
 import worldStories from "@/data/launch-stories.json";
 
 export const metadata: Metadata = {
-  title: "The Craziest GTA6 Launch Stories — Vice City Dispatch",
+  title: "The Craziest GTA6 Launch Stories — EverythingGTA6",
   description:
     "30 real, individually-sourced stories of how far people, schools, companies and governments went for GTA6's launch — rescheduled exams, paid days off, a marriage truce, a $135,000 job posting, and a lot more.",
 };
@@ -56,7 +56,7 @@ export default function CraziestGta6Stories() {
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/bar-standoff.jpg)" }}>
           <div className="guide-head">
             <Link href="/" className="back">
-              &larr; Back to The Leonida Dispatch
+              &larr; Back to EverythingGTA6
             </Link>
             <div className="k">Launch Week</div>
             <h1>The Craziest GTA6 Launch Stories</h1>

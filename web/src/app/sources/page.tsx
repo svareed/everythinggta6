@@ -15,7 +15,7 @@ import {
 import Comments from "@/components/Comments";
 
 export const metadata: Metadata = {
-  title: "Sources — Vice City Dispatch",
+  title: "Sources — EverythingGTA6",
   description:
     "Real GTA6 coverage from around the web, browsable by topic or by outlet, with every excerpt linking back to the original article.",
 };
@@ -31,7 +31,7 @@ export default function SourcesPage() {
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/motorcycle-seaplane.jpg)" }}>
           <div className="guide-head">
             <Link href="/" className="back">
-              &larr; Back to The Leonida Dispatch
+              &larr; Back to EverythingGTA6
             </Link>
             <div className="k">Around the Web</div>
             <h1>Sources</h1>
