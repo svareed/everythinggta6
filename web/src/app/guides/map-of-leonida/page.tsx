@@ -14,36 +14,42 @@ const REGIONS = [
     name: "Vice City",
     status: "Confirmed",
     body: "The neon core — downtown towers, beachfront strips, nightlife.",
+    img: "nightclub-crowd",
   },
   {
     sector: "SECTOR 02",
     name: "Port Gellhorn",
     status: "Confirmed",
     body: "Rusted, working-class counterpoint to Vice City's gloss.",
+    img: "red-shootout",
   },
   {
     sector: "SECTOR 03",
     name: "Leonida Keys",
     status: "Confirmed",
     body: "Island-hopping territory — boats matter more than cars here.",
+    img: "dock-seaplane",
   },
   {
     sector: "SECTOR 04",
     name: "Ambrosia",
     status: "Confirmed",
     body: "Named in official Rockstar material; details are still thin.",
+    img: "skyscraper-climb",
   },
   {
     sector: "SECTOR 05",
     name: "Grassrivers",
     status: "Confirmed",
     body: "Everglades-style wetland county named in official press material.",
+    img: "motorcycle-seaplane",
   },
   {
     sector: "SECTOR 06",
     name: "Mount Kalaga National Park",
     status: "Confirmed",
     body: "A protected wilderness area, officially named alongside Leonida's other counties.",
+    img: "biplane-beach-stunt",
   },
   {
     sector: "SECTOR ??",
@@ -51,6 +57,7 @@ const REGIONS = [
     status: "Unconfirmed",
     body: "Dataminers keep pointing at a fourth zone. Nothing official yet.",
     mystery: true,
+    img: "crystal-shop",
   },
 ];
 
@@ -70,7 +77,11 @@ export default function MapOfLeonidaGuide() {
         </div>
         <div className="coords">
           {REGIONS.map((r) => (
-            <div className={`coord${r.mystery ? " mystery" : ""}`} key={r.name}>
+            <div
+              className={`coord has-img${r.mystery ? " mystery" : ""}`}
+              key={r.name}
+              style={{ backgroundImage: `url(/images/trailer-stills/${r.img}.jpg)`, minHeight: 200 }}
+            >
               <span className="xy">{r.sector}</span>
               <h3>{r.name}</h3>
               <span className="status">● {r.status}</span>

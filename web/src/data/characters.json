@@ -1,0 +1,62 @@
+[
+  {
+    "sector": "LEAD 01",
+    "name": "Jason Duval",
+    "role": "Protagonist",
+    "body": "Grew up around grifters and crooks before serving in the Army, then came home to the Keys to work for local drug runners. Meeting Lucia changes his trajectory — the two can take on jobs together or go their separate ways."
+  },
+  {
+    "sector": "LEAD 02",
+    "name": "Lucia Caminos",
+    "role": "Protagonist",
+    "body": "The series' first female lead. Trained to fight from a young age, she served time at Leonida Penitentiary after fighting for her family, and wants to build the life her mother always wanted — through careful, deliberate plans rather than chaos."
+  },
+  {
+    "sector": "CAST 01",
+    "name": "Brian Heder",
+    "role": "Supporting",
+    "body": "A veteran Keys drug runner. Lets Jason live rent-free at one of his properties in exchange for help with local shakedowns, and runs a boat yard with his wife Lori."
+  },
+  {
+    "sector": "CAST 02",
+    "name": "Cal Hampton",
+    "role": "Supporting",
+    "body": "Jason's friend — a conspiracy-minded homebody who monitors Coast Guard radio for kicks. Content with a quiet life while Jason has bigger plans."
+  },
+  {
+    "sector": "CAST 03",
+    "name": "Lori",
+    "role": "Supporting",
+    "body": "Brian's third wife. Helps run the boat yard alongside him, and is known locally for her sangria."
+  },
+  {
+    "sector": "CAST 04",
+    "name": "Boobie Ike",
+    "role": "Supporting",
+    "body": "A Vice City businessman who built a legitimate empire — real estate, the Jack of Hearts strip club, and a recording studio. Partners with Dre'Quan Priest at Only Raw Records, chasing a hit."
+  },
+  {
+    "sector": "CAST 05",
+    "name": "Dre'Quan Priest",
+    "role": "Supporting",
+    "body": "An aspiring music mogul, \"more of a hustler than a gangster.\" Started out booking acts at Boobie's club and signed Real Dimez to Only Raw Records."
+  },
+  {
+    "sector": "CAST 06",
+    "name": "Raul Bautista",
+    "role": "Supporting",
+    "body": "A seasoned, charming bank robber who recruits talented risk-takers for jobs. His recklessness raises the stakes every time."
+  },
+  {
+    "sector": "CAST 07",
+    "name": "Real Dimez (Bae-Luxe & Roxy)",
+    "role": "Supporting",
+    "body": "A rapper-influencer duo, friends since high school, who built a following through tracks and social media. Scored an early hit with local rapper DWNPLY before getting signed to Only Raw Records."
+  },
+  {
+    "sector": "CAST 08",
+    "name": "DWNPLY",
+    "role": "Supporting",
+    "body": "A local rapper and early collaborator with Real Dimez on one of their first tracks."
+  }
+]

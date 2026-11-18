@@ -20,12 +20,27 @@ function timeLeft() {
 
 export default function Countdown() {
   const [t, setT] = useState<ReturnType<typeof timeLeft> | null>(null);
+  const [launched, setLaunched] = useState(false);
 
   useEffect(() => {
     setT(timeLeft());
-    const id = setInterval(() => setT(timeLeft()), 1000);
+    const id = setInterval(() => {
+      setT(timeLeft());
+      setLaunched(Date.now() >= LAUNCH_TARGET);
+    }, 1000);
     return () => clearInterval(id);
   }, []);
+
+  if (launched) {
+    return (
+      <div className="badge">
+        <span className="v mono" style={{ color: "var(--pop)" }}>
+          ● LIVE
+        </span>
+        <span className="l">Out Now</span>
+      </div>
+    );
+  }
 
   const display = t ?? { days: "00", hours: "00", mins: "00", secs: "00" };
 

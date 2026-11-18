@@ -12,7 +12,7 @@ const mono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Vice City Dispatch — The GTA6 Hub",
   description:
-    "News, leaks, guides, characters, map, vehicles and trailer breakdowns for Grand Theft Auto VI, counting down to the November 19, 2026 launch.",
+    "News, reviews, characters, map, vehicles and trailer breakdowns for Grand Theft Auto VI — out now on PS5 and Xbox Series X|S.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

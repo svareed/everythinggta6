@@ -30,7 +30,21 @@ const MODULES = [
     tag: "Map",
     title: "Leonida regions",
     body: "Vice City, Port Gellhorn, the Keys — and the rumored fourth zone.",
+    img: "highway-skyline",
+  },
+  {
+    href: "/characters",
+    tag: "Cast",
+    title: "Characters",
+    body: "Jason, Lucia, and the confirmed supporting cast, from Rockstar's own bios.",
     img: "balcony-sunset",
+  },
+  {
+    href: "/vehicles",
+    tag: "Garage",
+    title: "Vehicles",
+    body: "Named cars, bikes, boats and aircraft spotted so far, with real-world inspirations.",
+    img: "hawaiian-shirt-truck",
   },
   {
     href: "/guides/craziest-gta6-stories",
@@ -44,7 +58,7 @@ const MODULES = [
     tag: "Guides",
     title: "Tips & Guides",
     body: "Real walkthroughs and how-tos, pulled from across the web.",
-    img: "hawaiian-shirt-truck",
+    img: "nightclub-crowd",
   },
   {
     href: "/sources/hidden-gems",

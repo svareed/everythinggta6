@@ -886,3 +886,19 @@ footer {
 .coord .cite:hover {
   color: var(--pop);
 }
+.coord.has-img {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+.coord.has-img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 7, 9, 0.25) 0%, rgba(12, 7, 9, 0.6) 50%, rgba(12, 7, 9, 0.95) 100%);
+}
+.coord.has-img > * {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
