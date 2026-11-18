@@ -42,14 +42,14 @@ const REGIONS = [
     name: "Grassrivers",
     status: "Confirmed",
     body: "Everglades-style wetland county named in official press material.",
-    img: "motorcycle-seaplane",
+    img: null,
   },
   {
     sector: "SECTOR 06",
     name: "Mount Kalaga National Park",
     status: "Confirmed",
     body: "A protected wilderness area, officially named alongside Leonida's other counties.",
-    img: "biplane-beach-stunt",
+    img: null,
   },
   {
     sector: "SECTOR ??",
@@ -78,9 +78,9 @@ export default function MapOfLeonidaGuide() {
         <div className="coords">
           {REGIONS.map((r) => (
             <div
-              className={`coord has-img${r.mystery ? " mystery" : ""}`}
+              className={`coord${r.img ? " has-img" : ""}${r.mystery ? " mystery" : ""}`}
               key={r.name}
-              style={{ backgroundImage: `url(/images/trailer-stills/${r.img}.jpg)`, minHeight: 200 }}
+              style={r.img ? { backgroundImage: `url(/images/trailer-stills/${r.img}.jpg)`, minHeight: 200 } : undefined}
             >
               <span className="xy">{r.sector}</span>
               <h3>{r.name}</h3>

@@ -3,60 +3,80 @@
     "sector": "LEAD 01",
     "name": "Jason Duval",
     "role": "Protagonist",
-    "body": "Grew up around grifters and crooks before serving in the Army, then came home to the Keys to work for local drug runners. Meeting Lucia changes his trajectory — the two can take on jobs together or go their separate ways."
+    "body": "Grew up around grifters and crooks before serving in the Army, then came home to the Keys to work for local drug runners. Meeting Lucia changes his trajectory — the two can take on jobs together or go their separate ways.",
+    "image": "https://media.gtaboom.com/variants/1600/media/images/18/46/Jason_Duval_7.jpg",
+    "imageCaption": "Robbing a store in Vice City"
   },
   {
     "sector": "LEAD 02",
     "name": "Lucia Caminos",
     "role": "Protagonist",
-    "body": "The series' first female lead. Trained to fight from a young age, she served time at Leonida Penitentiary after fighting for her family, and wants to build the life her mother always wanted — through careful, deliberate plans rather than chaos."
+    "body": "The series' first female lead. Trained to fight from a young age, she served time at Leonida Penitentiary after fighting for her family, and wants to build the life her mother always wanted — through careful, deliberate plans rather than chaos.",
+    "image": "https://media.gtaboom.com/variants/1600/media/images/30/ef/Lucia-Caminos-5.jpg",
+    "imageCaption": "Wearing prison clothing"
   },
   {
     "sector": "CAST 01",
     "name": "Brian Heder",
     "role": "Supporting",
-    "body": "A veteran Keys drug runner. Lets Jason live rent-free at one of his properties in exchange for help with local shakedowns, and runs a boat yard with his wife Lori."
+    "body": "A veteran Keys drug runner. Lets Jason live rent-free at one of his properties in exchange for help with local shakedowns, and runs a boat yard with his wife Lori.",
+    "image": "https://media.gtaboom.com/variants/1600/media/images/a4/64/Brian-Heder-2.jpg",
+    "imageCaption": "Alone in a Vice City establishment"
   },
   {
     "sector": "CAST 02",
     "name": "Cal Hampton",
     "role": "Supporting",
-    "body": "Jason's friend — a conspiracy-minded homebody who monitors Coast Guard radio for kicks. Content with a quiet life while Jason has bigger plans."
+    "body": "Jason's friend — a conspiracy-minded homebody who monitors Coast Guard radio for kicks. Content with a quiet life while Jason has bigger plans.",
+    "image": "https://media.gtaboom.com/variants/1600/media/images/78/b6/Cal-Hampton-1.jpg",
+    "imageCaption": "Playing mini golf"
   },
   {
     "sector": "CAST 03",
     "name": "Lori",
     "role": "Supporting",
-    "body": "Brian's third wife. Helps run the boat yard alongside him, and is known locally for her sangria."
+    "body": "Brian's third wife. Helps run the boat yard alongside him, and is known locally for her sangria.",
+    "image": null,
+    "imageCaption": null
   },
   {
     "sector": "CAST 04",
     "name": "Boobie Ike",
     "role": "Supporting",
-    "body": "A Vice City businessman who built a legitimate empire — real estate, the Jack of Hearts strip club, and a recording studio. Partners with Dre'Quan Priest at Only Raw Records, chasing a hit."
+    "body": "A Vice City businessman who built a legitimate empire — real estate, the Jack of Hearts strip club, and a recording studio. Partners with Dre'Quan Priest at Only Raw Records, chasing a hit.",
+    "image": "https://media.gtaboom.com/variants/1600/media/images/6f/70/Boobie-Ike-3.jpg",
+    "imageCaption": "Alone inside the Jack of Hearts club"
   },
   {
     "sector": "CAST 05",
     "name": "Dre'Quan Priest",
     "role": "Supporting",
-    "body": "An aspiring music mogul, \"more of a hustler than a gangster.\" Started out booking acts at Boobie's club and signed Real Dimez to Only Raw Records."
+    "body": "An aspiring music mogul, \"more of a hustler than a gangster.\" Started out booking acts at Boobie's club and signed Real Dimez to Only Raw Records.",
+    "image": "https://media.gtaboom.com/variants/1600/media/images/f4/b5/DreQuan-Priest-1.jpg",
+    "imageCaption": "With Real Dimez"
   },
   {
     "sector": "CAST 06",
     "name": "Raul Bautista",
     "role": "Supporting",
-    "body": "A seasoned, charming bank robber who recruits talented risk-takers for jobs. His recklessness raises the stakes every time."
+    "body": "A seasoned, charming bank robber who recruits talented risk-takers for jobs. His recklessness raises the stakes every time.",
+    "image": "https://media.gtaboom.com/variants/1600/media/images/bf/bf/Raul-Bautista-2.jpg",
+    "imageCaption": "Driving away with a bag of money"
   },
   {
     "sector": "CAST 07",
     "name": "Real Dimez (Bae-Luxe & Roxy)",
     "role": "Supporting",
-    "body": "A rapper-influencer duo, friends since high school, who built a following through tracks and social media. Scored an early hit with local rapper DWNPLY before getting signed to Only Raw Records."
+    "body": "A rapper-influencer duo, friends since high school, who built a following through tracks and social media. Scored an early hit with local rapper DWNPLY before getting signed to Only Raw Records.",
+    "image": "https://media.gtaboom.com/variants/1600/media/images/8f/de/Real-Dimez-1.jpg",
+    "imageCaption": "Dancing on an Obey luxury vehicle"
   },
   {
     "sector": "CAST 08",
     "name": "DWNPLY",
     "role": "Supporting",
-    "body": "A local rapper and early collaborator with Real Dimez on one of their first tracks."
+    "body": "A local rapper and early collaborator with Real Dimez on one of their first tracks.",
+    "image": null,
+    "imageCaption": null
   }
 ]

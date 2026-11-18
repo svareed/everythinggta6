@@ -10,26 +10,28 @@ export const metadata: Metadata = {
 };
 
 const CATEGORIES = ["Cars", "Off-Road & Utility", "Vans", "Motorcycles", "Air & Sea"];
+// One section banner per category, used once each -- no repeats across the page.
 const CATEGORY_IMG: Record<string, string> = {
   Cars: "hawaiian-shirt-truck",
   Motorcycles: "motorcycle-seaplane",
 };
+// Only the vehicles whose real-world type actually appears in one of our
+// trailer stills get a card image -- a pickup truck, a motorcycle, a seaplane
+// on the water, and an aircraft over the skyline. Every other vehicle here
+// has no confirmed photo of its own, so its card stays text-only rather than
+// showing a still that doesn't depict it.
+const VEHICLE_IMG: Record<string, string> = {
+  "Crest Kayak": "dock-seaplane",
+  "Buckingham Volatus (helicopter)": "skyscraper-climb",
+};
 
-// Cards cycle through our own trailer stills as atmosphere, not literal
-// photos of each named vehicle -- Rockstar hasn't published per-vehicle art.
-const STILLS = [
-  "balcony-sunset", "hawaiian-shirt-truck", "biplane-beach-stunt", "motorcycle-seaplane",
-  "vault-heist", "bar-standoff", "crystal-shop", "red-shootout",
-  "dock-seaplane", "skyscraper-climb", "nightclub-crowd", "highway-skyline",
-];
-
-const withImg = vehicles.map((v, i) => ({ ...v, img: STILLS[i % STILLS.length] }));
+const withImg = vehicles.map((v) => ({ ...v, img: VEHICLE_IMG[v.name] }));
 
 export default function VehiclesPage() {
   return (
     <main>
       <div className="wrap">
-        <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/hawaiian-shirt-truck.jpg)" }}>
+        <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/biplane-beach-stunt.jpg)" }}>
           <div className="guide-head">
             <Link href="/" className="back">
               &larr; Back to The Leonida Dispatch
@@ -60,9 +62,9 @@ export default function VehiclesPage() {
               <div className="coords" style={{ marginTop: 10 }}>
                 {items.map((v) => (
                   <div
-                    className="coord has-img"
+                    className={v.img ? "coord has-img" : "coord"}
                     key={v.name}
-                    style={{ backgroundImage: `url(/images/trailer-stills/${v.img}.jpg)`, minHeight: 160 }}
+                    style={v.img ? { backgroundImage: `url(/images/trailer-stills/${v.img}.jpg)`, minHeight: 160 } : undefined}
                   >
                     <span className="xy">{v.category}</span>
                     <h3>{v.name}</h3>
@@ -83,8 +85,10 @@ export default function VehiclesPage() {
           &apos;s vehicle tracker — a fan database built from trailer and screenshot sightings, not
           an official Rockstar list. GTABase and other trackers disagree on the total count (estimates
           range from roughly 260 to 317+), so treat any specific total you see elsewhere with caution.
-          Card backgrounds are stills from Rockstar&apos;s own trailers, used as atmosphere — not a
-          claim that any specific photo shows that exact named vehicle.
+          Most vehicles here have no confirmed photo of their own, so their cards are text-only;
+          a card only gets a background image when that vehicle&apos;s real-world type — a truck, a
+          motorcycle, a seaplane, an aircraft — genuinely appears in one of Rockstar&apos;s own
+          trailers, and each image is used once.
         </p>
         <p style={{ marginTop: 16 }}>
           More garage coverage: <Link href="/characters">the cast</Link>,{" "}
