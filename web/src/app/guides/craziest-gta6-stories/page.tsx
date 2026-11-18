@@ -53,24 +53,26 @@ export default function CraziestGta6Stories() {
   return (
     <main>
       <div className="wrap">
-        <div className="guide-head">
-          <Link href="/" className="back">
-            &larr; Back to The Leonida Dispatch
-          </Link>
-          <div className="k">Launch Week</div>
-          <h1>The Craziest GTA6 Launch Stories</h1>
-          <p>
-            Six real stories — rounded up from{" "}
-            <a
-              href="https://www.instagram.com/reel/Df448EQxbWK/"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-            >
-              Varun Mayya&apos;s viral Instagram reel
-            </a>{" "}
-            — plus 24 more, individually verified across global news coverage: how far
-            people, schools, companies and governments went for GTA6&apos;s launch, worldwide.
-          </p>
+        <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/bar-standoff.jpg)" }}>
+          <div className="guide-head">
+            <Link href="/" className="back">
+              &larr; Back to The Leonida Dispatch
+            </Link>
+            <div className="k">Launch Week</div>
+            <h1>The Craziest GTA6 Launch Stories</h1>
+            <p>
+              Six real stories — rounded up from{" "}
+              <a
+                href="https://www.instagram.com/reel/Df448EQxbWK/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+              >
+                Varun Mayya&apos;s viral Instagram reel
+              </a>{" "}
+              — plus 24 more, individually verified across global news coverage: how far
+              people, schools, companies and governments went for GTA6&apos;s launch, worldwide.
+            </p>
+          </div>
         </div>
         <div className="coords">
           {STORIES.map((s) => (

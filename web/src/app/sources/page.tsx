@@ -28,16 +28,18 @@ export default function SourcesPage() {
   return (
     <main>
       <div className="wrap">
-        <div className="guide-head">
-          <Link href="/" className="back">
-            &larr; Back to The Leonida Dispatch
-          </Link>
-          <div className="k">Around the Web</div>
-          <h1>Sources</h1>
-          <p>
-            {all.length} real excerpts from GTA6 coverage across the web, organized by topic and
-            by outlet. Every card links back to the full piece on the original site.
-          </p>
+        <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/motorcycle-seaplane.jpg)" }}>
+          <div className="guide-head">
+            <Link href="/" className="back">
+              &larr; Back to The Leonida Dispatch
+            </Link>
+            <div className="k">Around the Web</div>
+            <h1>Sources</h1>
+            <p>
+              {all.length} real excerpts from GTA6 coverage across the web, organized by topic and
+              by outlet. Every card links back to the full piece on the original site.
+            </p>
+          </div>
         </div>
 
         <section className="section" style={{ paddingBlock: "8px 32px" }}>

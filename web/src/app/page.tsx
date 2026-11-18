@@ -23,49 +23,42 @@ const MORE_TRAILERS = [
   { id: "EiQEBYDox_k", title: "Grand Theft Auto VI: Official Cover Art Reveal" },
 ];
 
-// Frames pulled directly from the two trailers above (ffmpeg, local), not
-// official promo stills — hence the per-shot timestamp link back to the source.
-const TRAILER_STILLS = [
-  { file: "balcony-sunset", caption: "Lucia, golden hour", trailerId: "rz1B4B2yBZY", t: 63 },
-  { file: "hawaiian-shirt-truck", caption: "A face from the Keys", trailerId: "VQRLujxTm3c", t: 11 },
-  { file: "biplane-beach-stunt", caption: "Stunt run over the beach", trailerId: "rz1B4B2yBZY", t: 56 },
-  { file: "motorcycle-seaplane", caption: "Ground and air, same shot", trailerId: "VQRLujxTm3c", t: 143 },
-  { file: "vault-heist", caption: "Inside the job", trailerId: "rz1B4B2yBZY", t: 35 },
-  { file: "bar-standoff", caption: "Tension at the bar", trailerId: "rz1B4B2yBZY", t: 42 },
-  { file: "crystal-shop", caption: "A deal in a back room", trailerId: "VQRLujxTm3c", t: 33 },
-  { file: "red-shootout", caption: "Red light, gunfire", trailerId: "VQRLujxTm3c", t: 77 },
-];
-
+// Backgrounds pulled directly from the two trailers above (ffmpeg, local).
 const MODULES = [
   {
     href: "/guides/map-of-leonida",
     tag: "Map",
     title: "Leonida regions",
     body: "Vice City, Port Gellhorn, the Keys — and the rumored fourth zone.",
+    img: "balcony-sunset",
   },
   {
     href: "/guides/craziest-gta6-stories",
     tag: "Launch Week",
     title: "Craziest launch stories",
     body: "A rescheduled exam, a marriage truce, a $135K job posting — how far people went.",
+    img: "crystal-shop",
   },
   {
     href: "/sources/tips",
     tag: "Guides",
     title: "Tips & Guides",
     body: "Real walkthroughs and how-tos, pulled from across the web.",
+    img: "hawaiian-shirt-truck",
   },
   {
     href: "/sources/hidden-gems",
     tag: "Hidden Gems",
     title: "Easter eggs & secrets",
     body: "Trailer details and references the community has dug up.",
+    img: "vault-heist",
   },
   {
     href: "/sources/news",
     tag: "News & Leaks",
     title: "News & Leaks",
     body: "Launch coverage, rumor reports, and dev interviews.",
+    img: "red-shootout",
   },
 ];
 
@@ -119,30 +112,6 @@ export default function Home() {
             </a>
           ))}
         </div>
-      </section>
-
-      <section className="section wrap">
-        <div className="section-head">
-          <h2>Scenes from the Trailers</h2>
-        </div>
-        <div className="video-grid">
-          {TRAILER_STILLS.map((s) => (
-            <a
-              className="video-card"
-              href={`https://www.youtube.com/watch?v=${s.trailerId}&t=${s.t}s`}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={s.file}
-            >
-              <img src={`/images/trailer-stills/${s.file}.jpg`} alt={s.caption} loading="lazy" />
-              <p>{s.caption}</p>
-            </a>
-          ))}
-        </div>
-        <p style={{ color: "var(--fg-dim)", fontSize: 12.5, marginTop: 8 }}>
-          Frames pulled directly from Rockstar&apos;s own trailers above — each links back to that
-          exact moment on YouTube.
-        </p>
       </section>
 
       <div className="wrap dash">
@@ -199,7 +168,12 @@ export default function Home() {
         </div>
         <div className="grid4">
           {MODULES.map((m) => (
-            <Link className="module" href={m.href} key={m.title}>
+            <Link
+              className="module has-img"
+              href={m.href}
+              key={m.title}
+              style={{ backgroundImage: `url(/images/trailer-stills/${m.img}.jpg)` }}
+            >
               <span className="mk">{m.tag}</span>
               <h3>{m.title}</h3>
               <p>{m.body}</p>

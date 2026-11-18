@@ -608,6 +608,22 @@ nav.primary .soon {
   color: var(--pop);
   margin-top: auto;
 }
+.module.has-img {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+.module.has-img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 7, 9, 0.3) 0%, rgba(12, 7, 9, 0.55) 45%, rgba(12, 7, 9, 0.94) 100%);
+}
+.module.has-img > * {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
 
 footer {
   border-top: 1px solid var(--line);
@@ -784,6 +800,31 @@ footer {
 }
 .back:hover {
   color: var(--pop);
+}
+.guide-hero {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 16px;
+  background-size: cover;
+  background-position: center;
+}
+.guide-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 7, 9, 0.25) 0%, rgba(12, 7, 9, 0.65) 60%, rgba(12, 7, 9, 0.96) 100%);
+}
+.guide-hero .guide-head {
+  position: relative;
+  z-index: 1;
+  padding-block: 64px 24px;
+}
+.guide-hero .guide-head h1,
+.guide-hero .guide-head p,
+.guide-hero .guide-head .k,
+.guide-hero .guide-head .back {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 .coords {
   display: grid;

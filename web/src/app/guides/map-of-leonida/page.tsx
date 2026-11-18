@@ -58,13 +58,15 @@ export default function MapOfLeonidaGuide() {
   return (
     <main>
       <div className="wrap">
-        <div className="guide-head">
-          <Link href="/" className="back">
-            &larr; Back to The Leonida Dispatch
-          </Link>
-          <div className="k">Guide</div>
-          <h1>Map of Leonida</h1>
-          <p>Region-by-region primer — confirmed from the trailers, flagged where it&apos;s still a rumor.</p>
+        <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/biplane-beach-stunt.jpg)" }}>
+          <div className="guide-head">
+            <Link href="/" className="back">
+              &larr; Back to The Leonida Dispatch
+            </Link>
+            <div className="k">Guide</div>
+            <h1>Map of Leonida</h1>
+            <p>Region-by-region primer — confirmed from the trailers, flagged where it&apos;s still a rumor.</p>
+          </div>
         </div>
         <div className="coords">
           {REGIONS.map((r) => (
