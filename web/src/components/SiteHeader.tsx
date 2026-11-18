@@ -8,7 +8,7 @@ export default function SiteHeader() {
         style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, width: "100%" }}
       >
         <Link href="/" className="brand">
-          <span className="dot" />
+          <img src="/images/logo-mark.svg" alt="" width={28} height={28} className="brand-mark" />
           The Leonida Dispatch
         </Link>
         <nav className="primary">

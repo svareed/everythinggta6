@@ -91,6 +91,10 @@ a {
   background: var(--pop);
   box-shadow: 0 0 8px var(--pop);
 }
+.brand .brand-mark {
+  border-radius: 7px;
+  flex: none;
+}
 nav.primary {
   display: flex;
   gap: 22px;
