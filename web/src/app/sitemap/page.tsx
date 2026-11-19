@@ -37,6 +37,9 @@ export default function VisualSitemapPage() {
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 6 }}>
               <li><Link href="/">Home</Link></li>
               <li><Link href="/guides/map-of-leonida">Map of Leonida</Link></li>
+              <li><Link href="/guides/gta6-launch-day-discoveries">What Players Already Found</Link></li>
+              <li><Link href="/missions">Missions</Link></li>
+              <li><Link href="/cheats">Cheat Codes</Link></li>
               <li><Link href="/sources">Sources (hub)</Link></li>
             </ul>
           </div>

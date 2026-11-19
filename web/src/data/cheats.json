@@ -1,0 +1,24 @@
+[
+  { "name": "Get $250,000", "sequence": "Up, Right, Down, Left, Up, Left, Down, Right", "requirement": "Finish the main story", "confirmed": true },
+  { "name": "Body Armor", "sequence": "Down, Up, Left, Up, Up, Up, Up, Up, Down, Down", "requirement": "Finish the main story, complete 100 workouts", "confirmed": true },
+  { "name": "Attack Force", "sequence": "Down, Up, Left, Left, Right, Down, Down, Up, Down", "requirement": "Finish the main story", "confirmed": true },
+  { "name": "Cataclysm", "sequence": "Down, Down, Up, Right, Right, Up, Left, Left, Right, Right", "requirement": "Finish the main story, find Martha's Vamos in the Progress menu", "confirmed": true },
+  { "name": "Cycle Weather", "sequence": "Down, Right, Up, Down, Right, Up, Right", "requirement": "Finish the main story", "confirmed": true },
+  { "name": "Dollhouse", "sequence": "Down, Down, Up, Right, Right, Up, Left, Left, Down, Right", "requirement": "Finish the main story, spend 8 hours with your partner", "confirmed": true },
+  { "name": "Exploding Balls", "sequence": "Down, Up, Left, Left, Right, Down, Down, Up, Right", "requirement": "Finish the main story, land 20 explosive hits on enemies", "confirmed": true },
+  { "name": "Faded Glory", "sequence": "Down, Down, Up, Right, Right, Up, Left, Left, Left, Right", "requirement": "Finish the main story, complete 50 store robberies with your partner", "confirmed": true },
+  { "name": "Infinite Ammo", "sequence": "Down, Up, Right, Down, Left, Left, Up, Down, Down, Down", "requirement": "Finish the main story, earn 25 silver-or-better shooting range medals", "confirmed": true },
+  { "name": "Max Ammo", "sequence": "Down, Up, Right, Down, Left, Left, Up, Up, Down, Left", "requirement": "Finish the main story, earn 25 bronze-or-better shooting range medals", "confirmed": true },
+  { "name": "No Reload", "sequence": "Down, Up, Right, Down, Left, Left, Up, Down, Down, Up", "requirement": "Finish the main story, earn 25 gold shooting range medals", "confirmed": true },
+  { "name": "Raise Heat Level", "sequence": "Left, Down, Right, Down, Up, Down, Up", "requirement": "Finish the main story, escape a 3-star wanted level 25 times", "confirmed": true },
+  { "name": "Raise Wanted Level", "sequence": "Left, Down, Right, Down, Up, Right, Up", "requirement": "Finish the main story, escape a 3-star wanted level 50 times", "confirmed": true },
+  { "name": "Spawn HVY Bulldozer", "sequence": "Left, Up, Right, Down, Left, Right, Right, Down", "requirement": "Finish the main story, discover it in the Progress menu", "confirmed": true },
+  { "name": "Spawn Maibatsu Boomazoom", "sequence": "Left, Up, Right, Down, Left, Left, Up, Left", "requirement": "Finish the main story, complete 5 shopping challenges", "confirmed": true },
+  { "name": "Spawn MTL Pumper", "sequence": "Left, Up, Right, Down, Left, Right, Right, Up", "requirement": "Finish the main story, discover it in the Progress menu", "confirmed": true },
+  { "name": "Unlimited Focus", "sequence": "Down, Up, Up, Down, Up, Down, Up, Down, Up, Right", "requirement": "Finish the main story", "confirmed": true },
+  { "name": "Vehicle Force", "sequence": "Down, Up, Left, Left, Right, Down, Left, Up, Down", "requirement": "Finish the main story, get 25 vehicle kills", "confirmed": true },
+
+  { "name": "Spawn Hauners Rhino Tank", "sequence": null, "requirement": "Finish the main story, complete all survival challenges — input code not yet public", "confirmed": false },
+  { "name": "Inflatable Flamingo", "sequence": null, "requirement": "Destroy 50 \"cocaine flamingos\" — input code not yet public", "confirmed": false },
+  { "name": "Golden Hour (screen filter)", "sequence": null, "requirement": "Spend 4 hours holding hands with your partner — input code not yet public", "confirmed": false }
+]

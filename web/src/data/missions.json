@@ -1,0 +1,830 @@
+[
+  {
+    "chapter": "Prologue",
+    "name": "Prologue",
+    "optional": false,
+    "img": "/images/missions/lucia-caminos-05-468_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Gone Fishing",
+    "optional": false,
+    "img": "/images/missions/igallery_gta-6-screens_resized_jason-duval-03-468__320x180.avif"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Gear Up",
+    "optional": false,
+    "img": "/images/missions/gear-up_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Unwanted Attention",
+    "optional": false,
+    "img": "/images/missions/unwanted-attention_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Pipework",
+    "optional": false,
+    "img": "/images/missions/mandy_320x180.png"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Lab Fees",
+    "optional": false,
+    "img": "/images/missions/lab-fees_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Just a Scratch",
+    "optional": false,
+    "img": "/images/missions/just-a-scratch_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Get Shirley's Rum",
+    "optional": true,
+    "img": "/images/missions/get-shirleys-rum_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Steal the Scooter",
+    "optional": true,
+    "img": "/images/missions/steal-the-scooter_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Hey Arnold!",
+    "optional": false,
+    "img": "/images/missions/hey-arnold_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Island Dreams",
+    "optional": false,
+    "img": "/images/missions/island-dreams_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Feng Shui",
+    "optional": false,
+    "img": "/images/missions/feng-shui_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Pick Up Groceries",
+    "optional": true,
+    "img": "/images/missions/pick-up-groceries_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Buy Flowers",
+    "optional": true,
+    "img": "/images/missions/buy-flowers_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Buy Lucia a Necklace",
+    "optional": true,
+    "img": "/images/missions/buy-lucia-a-necklace_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Get The Chop",
+    "optional": true,
+    "img": "/images/missions/get-the-chop_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Get Lucia's Clothes",
+    "optional": true,
+    "img": "/images/missions/get-lucias-clothes_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Coming Home",
+    "optional": false,
+    "img": "/images/missions/coming-home-2_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Clean Up After Donnie",
+    "optional": false,
+    "img": "/images/missions/clean-up-after-donnie_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Buck Me",
+    "optional": false,
+    "img": "/images/missions/buck-me_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Down to Earth",
+    "optional": false,
+    "img": "/images/missions/down-to-earth_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Find the Lost Drugs",
+    "optional": true,
+    "img": "/images/missions/find-the-lost-drugs_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Deposit Cash Into BuckMe",
+    "optional": false,
+    "img": "/images/missions/deposit-cash-into-buckme_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Save for the Future",
+    "optional": false,
+    "img": "/images/missions/save-for-the-future_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Day Release",
+    "optional": false,
+    "img": "/images/missions/day-release_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Clock Out",
+    "optional": true,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Clear Skies",
+    "optional": false,
+    "img": "/images/missions/clear-skies_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Building a Life",
+    "optional": false,
+    "img": "/images/missions/building-a-life_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Swamped",
+    "optional": false,
+    "img": "/images/missions/swamped_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Don Gone",
+    "optional": false,
+    "img": "/images/missions/don-gone_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Donnie's Lost Drugs",
+    "optional": true,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Recalibration",
+    "optional": false,
+    "img": "/images/missions/recalibration_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Tourist Trap",
+    "optional": false,
+    "img": "/images/missions/tourist-trap_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Home Sweet Home",
+    "optional": false,
+    "img": "/images/missions/home-sweet-home_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 1",
+    "name": "Discharge Time",
+    "optional": false,
+    "img": "/images/missions/discharge-time_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "What's in the Bag?",
+    "optional": false,
+    "img": "/images/missions/whats-in-the-bag_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Ambulance Chaser",
+    "optional": false,
+    "img": "/images/missions/ambulance-chaser_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Take Care of Jason",
+    "optional": false,
+    "img": "/images/missions/take-care-of-jason-2_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Overnight Charges",
+    "optional": false,
+    "img": "/images/missions/overnight-charges_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Just Moved In",
+    "optional": false,
+    "img": "/images/missions/just-moved-in_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Girls' Trip",
+    "optional": false,
+    "img": "/images/missions/girls-trip_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Pick Up a Gun",
+    "optional": true,
+    "img": "/images/missions/pick-up-a-gun-2_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Moses",
+    "optional": false,
+    "img": "/images/missions/moses_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "New Look",
+    "optional": false,
+    "img": "/images/missions/new-look_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "How Do I Look?",
+    "optional": false,
+    "img": "/images/missions/how-do-i-look_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Painkiller Supplier",
+    "optional": false,
+    "img": "/images/missions/painkiller-supplier_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Daily Driver",
+    "optional": false,
+    "img": "/images/missions/daily-driver_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Behind on Payments",
+    "optional": false,
+    "img": "/images/missions/behind-on-payments_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Slam Dunk",
+    "optional": false,
+    "img": "/images/missions/slam-dunk_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Breakfast Run",
+    "optional": false,
+    "img": "/images/missions/breakfast-run_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Coffee Break",
+    "optional": false,
+    "img": "/images/missions/coffee-break_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Hit Avery Pawn",
+    "optional": true,
+    "img": "/images/missions/hit-avery-pawn_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Hit Kingpin Bowling",
+    "optional": true,
+    "img": "/images/missions/hit-kingpin-bowling_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Impounded Vehicle",
+    "optional": true,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Prepare for Vice City",
+    "optional": false,
+    "img": "/images/missions/prepare-for-vice-city_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Afternoon Delight",
+    "optional": false,
+    "img": "/images/missions/afternoon-delight_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 2",
+    "name": "Checking Out",
+    "optional": false,
+    "img": "/images/missions/checking-out_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Welcome to Vice City",
+    "optional": false,
+    "img": "/images/missions/welcome-to-vice-city_320x180.jpg"
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Dealer's Choice",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Meet the Heders",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Dubious Provenance",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Mami Knows Best",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Get Your Wheels",
+    "optional": true,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "South Leonida Real Estate",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Tyrone",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Here, Kitty Kitty",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Send Money to Lorena",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Encrypted Hard Drive",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Car Service",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Send More Money to Lorena",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Top Billing",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Boobie Time",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "First Impressions",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Caught Slipping",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Crosstown Traffic",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Credit Check",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Steal the Zorrusso for Randy",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Raul's Next Job",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Race Against Yago",
+    "optional": true,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Sinfrontera National Bank",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Security Expert",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Heist Planning",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Ride or Die",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Company Property",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "The Missing Link",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Safe Word",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Cooties",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Bricked Up",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "Hidden Charges",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 3",
+    "name": "The Cartel Heist",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Ocean Beach",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Another Life",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Pool Day",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Company Cars",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Lawyer Up",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "It's a Date!",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Party Hard",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Heavy Lifting",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Pay Abe's Fee",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Photo/Shoot",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Bad Driver!",
+    "optional": true,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Making Gainz",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Blood Sweat and Gear",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Watch It",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Call Nate",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Cash Injections",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Amateur Hour",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Dirty Work",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Nate Will Be in Touch",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Too Much Baggage",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Adventures in Babysitting",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Rafa",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Fresh Evidence",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Power Play",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Child's Play",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "This Is a Free Call From\u2026",
+    "optional": true,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Headliners",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Close Surveillance",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Delivery Method",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Team Building",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Fully Catered",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Heist Plans in Place",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "VCIA Takedown",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Tie Up Loose Ends",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "That's Where the Money Is\u2026",
+    "optional": true,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Call Valentina Back",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Sunset",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 4",
+    "name": "Starting From Zero",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 5",
+    "name": "Bird in the Hand",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 5",
+    "name": "Taking Liberties",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 5",
+    "name": "VC Baby",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 5",
+    "name": "Doggie Bag",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 5",
+    "name": "Operation Savage Glory",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 5",
+    "name": "Honest Abe",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 5",
+    "name": "Unfinished Business",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 5",
+    "name": "Pay Abe's Fee (II)",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 5",
+    "name": "Protective Custody",
+    "optional": false,
+    "img": null
+  },
+  {
+    "chapter": "Chapter 5",
+    "name": "The End of the Road",
+    "optional": false,
+    "img": null
+  }
+]

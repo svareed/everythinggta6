@@ -55,6 +55,27 @@ const MODULES = [
     img: "crystal-shop",
   },
   {
+    href: "/guides/gta6-launch-day-discoveries",
+    tag: "Launch Day",
+    title: "What players already found",
+    body: "Bigfoot in the swamp, a secret in a radio tower nest, and the first viral glitches.",
+    img: "motorcycle-seaplane",
+  },
+  {
+    href: "/missions",
+    tag: "Walkthrough",
+    title: "Every mission",
+    body: "All 138 missions, Prologue through Chapter 5, with real screenshots where they exist.",
+    img: "dock-seaplane",
+  },
+  {
+    href: "/cheats",
+    tag: "Cheats",
+    title: "Cheat codes",
+    body: "18 confirmed D-pad sequences, how to enter them, and what's still unconfirmed.",
+    img: "vault-heist",
+  },
+  {
     href: "/sources/tips",
     tag: "Guides",
     title: "Tips & Guides",

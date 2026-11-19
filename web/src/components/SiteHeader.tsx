@@ -16,6 +16,8 @@ export default function SiteHeader() {
           <Link href="/guides/map-of-leonida">Map</Link>
           <Link href="/characters">Characters</Link>
           <Link href="/vehicles">Vehicles</Link>
+          <Link href="/missions">Missions</Link>
+          <Link href="/cheats">Cheats</Link>
           <Link href="/sources">Sources</Link>
           <span className="soon">Soundtrack</span>
         </nav>

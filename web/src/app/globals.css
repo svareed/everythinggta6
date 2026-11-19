@@ -129,6 +129,23 @@ nav.primary .soon {
   border-radius: 999px;
   white-space: nowrap;
 }
+/* Nav grew to 7 links + a "soon" item -- past ~760px wide there isn't room
+   for brand + nav + tag on one row, so let the row wrap and give nav its
+   own full-width row instead of stacking one link per line. */
+@media (max-width: 760px) {
+  .topbar .wrap {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+  nav.primary {
+    order: 3;
+    width: 100%;
+    gap: 14px 18px;
+  }
+  .issue-tag {
+    display: none;
+  }
+}
 
 /* ---- hero with ambient animated bg ---- */
 .hero-bg {
