@@ -56,6 +56,48 @@ site (`SCRAPER_REQUEST_DELAY_SECONDS` in `.env`, default 2s).
   ever adds an RSS feed or server-rendered markup, this module picks it up
   automatically, no code changes needed.
 
+## Structured data scrapers
+
+Two modules don't fit the generic record shape above, because the pages
+they drive on the fan blog (`/missions`, `/cheats`) need their own
+structured fields rather than a title/author/body excerpt. Each is
+independently runnable and writes straight to its own output file --
+neither is part of `run_all.py` or `SOURCE_MODULES`, since mixing their
+shape into the generic pipeline would break `run_all.py`'s dedup-by-`url`
+step and the category/outlet logic the web app's `sources.ts` runs over
+generic records.
+
+| Module         | What it does                                                     | Needs a key? | Writes             |
+|----------------|-------------------------------------------------------------------|--------------|--------------------|
+| `missions.py`  | Every GTA6 mission from GTABase's mission tracker, by chapter     | No           | `data/missions.json`, `data/images/missions/` |
+| `cheats.py`    | GTA6's confirmed cheat codes from GTABoom's cheat-code hub        | No           | `data/cheats.json` |
+
+```bash
+python missions.py   # -> data/missions.json + mirrored screenshots
+python cheats.py      # -> data/cheats.json
+```
+
+`missions.py` downloads (mirrors) each mission's real screenshot into
+`data/images/missions/` instead of recording GTABase's own URL: GTABase's
+CDN returns 403 for any image request carrying a foreign `Referer`
+header, so a page on this site linking directly to those URLs would show
+broken images for real visitors even though the URL itself is genuine.
+A plain `requests.get()` sends no Referer at all, so the mirror download
+succeeds. `cheats.py` also returns a short, hand-maintained list of named
+cheats that are confirmed to exist but have no public input code yet
+(sourced from TweakTown/Player.one, flagged `confirmed: false`) -- see
+the module's docstring for why those specific few aren't scraped live.
+
+**Publishing a fresh run to the web app** (same manual-copy pattern the
+rest of this scraper already uses for `web/src/data/sources.json`, see
+below): after running `missions.py` / `cheats.py`, copy their output into
+the Next.js app's data folder and public image folder:
+
+```bash
+cp data/missions.json data/cheats.json ../web/src/data/
+rsync -a data/images/missions/ ../web/public/images/missions/
+```
+
 ## Setup & running
 
 ```bash
