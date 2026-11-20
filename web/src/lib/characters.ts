@@ -41,3 +41,17 @@ export function imageFor(c: Pick<Character, "name" | "image" | "imageCaption">) 
   const fb = FALLBACK_IMG[c.name];
   return { src: `/images/trailer-stills/${fb.file}.jpg`, caption: fb.caption, external: false };
 }
+
+// Confirmed per GameSpot's launch-day voice-cast roundup, cross-checked
+// against ScreenRant. Only the two protagonists have a publicly confirmed
+// voice/performance actor as of 2026-11-21 -- no other cast member's actor
+// has surfaced in reputable reporting, so this stays a short, honest list
+// rather than guessing at the rest.
+export const VOICE_ACTORS: Record<string, string> = {
+  "Jason Duval": "Dylan Rourke",
+  "Lucia Caminos": "Manni L. Perez",
+};
+
+export function voiceActorFor(name: string): string | undefined {
+  return VOICE_ACTORS[name];
+}

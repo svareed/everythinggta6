@@ -5,7 +5,9 @@ import HeroSkyline from "@/components/HeroSkyline";
 import RadioLeonida from "@/components/RadioLeonida";
 import LiveFeed from "@/components/LiveFeed";
 import Comments from "@/components/Comments";
+import JsonLd from "@/components/JsonLd";
 import { getAllRecords, itemSlug, outletFor, categoryOf, formatDate, type CategoryId } from "@/lib/sources";
+import { videoGameSchema, breadcrumbSchema, SITE_URL } from "@/lib/seo";
 
 const CATEGORY_TAGS: Record<CategoryId, string> = {
   news: "News",
@@ -101,6 +103,8 @@ const MODULES = [
 export default function Home() {
   return (
     <main>
+      <JsonLd data={videoGameSchema()} />
+      <JsonLd data={breadcrumbSchema([{ name: "Home", url: SITE_URL }])} />
       <div className="hero-bg">
         <HeroSkyline />
         <section className="cover wrap">

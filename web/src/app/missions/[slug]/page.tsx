@@ -2,7 +2,17 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
+import JsonLd from "@/components/JsonLd";
 import { findMission, getAllMissions } from "@/lib/missions";
+import { characterSlug, findCharacter } from "@/lib/characters";
+import { breadcrumbSchema, articleSchema, SITE_URL } from "@/lib/seo";
+
+function characterLink(name: string | null | undefined) {
+  if (!name) return name;
+  const found = findCharacter(characterSlug(name));
+  if (!found) return name;
+  return <Link href={`/characters/${characterSlug(found.name)}`}>{name}</Link>;
+}
 
 export function generateStaticParams() {
   return getAllMissions()
@@ -29,8 +39,26 @@ export default async function MissionPage({ params }: { params: Promise<{ slug: 
 
   const chapterMissions = getAllMissions().filter((m) => m.chapter === mission.chapter);
 
+  const metaDescription = mission.description ?? `${mission.name}, ${mission.chapter} of GTA6.`;
+
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Missions", url: `${SITE_URL}/missions` },
+          { name: mission.name, url: `${SITE_URL}/missions/${mission.slug}` },
+        ])}
+      />
+      <JsonLd
+        data={articleSchema({
+          headline: mission.name,
+          description: metaDescription,
+          url: `${SITE_URL}/missions/${mission.slug}`,
+          image: mission.img ? `${SITE_URL}${mission.img}` : undefined,
+          dateModified: mission.scraped_at,
+        })}
+      />
       <div className="wrap">
         <div
           className={mission.img ? "guide-hero" : undefined}
@@ -47,8 +75,8 @@ export default async function MissionPage({ params }: { params: Promise<{ slug: 
             <h1>{mission.name}</h1>
             <p>
               {mission.optional ? "Optional side mission" : "Main story mission"}
-              {mission.playable_as ? ` — play as ${mission.playable_as}` : ""}
-              {mission.given_by ? `, given by ${mission.given_by}` : ""}.
+              {mission.playable_as ? <> — play as {characterLink(mission.playable_as)}</> : ""}
+              {mission.given_by ? <>, given by {characterLink(mission.given_by)}</> : ""}.
             </p>
           </div>
         </div>

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
+import JsonLd from "@/components/JsonLd";
 import vehicles from "@/data/vehicles.json";
+import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 Vehicles — EverythingGTA6",
@@ -30,6 +32,12 @@ const withImg = vehicles.map((v) => ({ ...v, img: VEHICLE_IMG[v.name] }));
 export default function VehiclesPage() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Vehicles", url: `${SITE_URL}/vehicles` },
+        ])}
+      />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/biplane-beach-stunt.jpg)" }}>
           <div className="guide-head">

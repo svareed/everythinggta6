@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, articleSchema, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 Launch Day: What Players Already Found — EverythingGTA6",
@@ -11,6 +13,21 @@ export const metadata: Metadata = {
 export default function LaunchDayDiscoveriesGuide() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Launch Day Discoveries", url: `${SITE_URL}/guides/gta6-launch-day-discoveries` },
+        ])}
+      />
+      <JsonLd
+        data={articleSchema({
+          headline: "What Players Already Found in GTA6",
+          description:
+            "Bigfoot in the swamp, a secret stashed in a radio tower nest, an unmarketed character gone viral, and the funniest physics glitches — every real, individually-sourced thing players found in GTA6's first hours.",
+          url: `${SITE_URL}/guides/gta6-launch-day-discoveries`,
+          datePublished: "2026-11-19",
+        })}
+      />
       <div className="wrap">
         <div
           className="guide-hero"

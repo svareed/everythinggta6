@@ -2,7 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
-import { characterSlug, findCharacter, getAllCharacters, imageFor } from "@/lib/characters";
+import JsonLd from "@/components/JsonLd";
+import { characterSlug, findCharacter, getAllCharacters, imageFor, voiceActorFor } from "@/lib/characters";
+import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllCharacters().map((c) => ({ slug: characterSlug(c.name) }));
@@ -30,6 +32,13 @@ export default async function CharacterPage({ params }: { params: Promise<{ slug
 
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Characters", url: `${SITE_URL}/characters` },
+          { name: character.name, url: `${SITE_URL}/characters/${characterSlug(character.name)}` },
+        ])}
+      />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: `url(${img.src})` }}>
           <div className="guide-head">
@@ -46,6 +55,11 @@ export default async function CharacterPage({ params }: { params: Promise<{ slug
           <h2 style={{ fontSize: 22, margin: 0 }}>Story</h2>
         </div>
         <p style={{ fontSize: 15, lineHeight: 1.7, maxWidth: 720 }}>{character.body}</p>
+        {voiceActorFor(character.name) && (
+          <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 8 }}>
+            Voiced/performed by {voiceActorFor(character.name)}.
+          </p>
+        )}
         {img.caption && (
           <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 8 }}>{img.caption}</p>
         )}
@@ -68,6 +82,20 @@ export default async function CharacterPage({ params }: { params: Promise<{ slug
             GTA BOOM&apos;s cast roundup
           </a>
           {img.external ? ", which GTA BOOM labels as this specific character." : "."}
+          {voiceActorFor(character.name) && (
+            <>
+              {" "}
+              Voice/performance credit per{" "}
+              <a
+                href="https://www.gamespot.com/articles/gta-6-voice-actors-all-confirmed-and-rumored-cast/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+              >
+                GameSpot
+              </a>
+              .
+            </>
+          )}
         </p>
 
         <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>

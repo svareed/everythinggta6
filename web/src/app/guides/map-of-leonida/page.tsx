@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
+import JsonLd from "@/components/JsonLd";
 import { REGIONS, OFFICIAL_MAP_SOURCE } from "@/lib/maps";
+import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Map of Leonida — EverythingGTA6",
@@ -12,6 +14,12 @@ export const metadata: Metadata = {
 export default function MapOfLeonidaGuide() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Map of Leonida", url: `${SITE_URL}/guides/map-of-leonida` },
+        ])}
+      />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/biplane-beach-stunt.jpg)" }}>
           <div className="guide-head">

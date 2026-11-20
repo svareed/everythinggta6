@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
+import JsonLd from "@/components/JsonLd";
 import { characterSlug, getAllCharacters, imageFor } from "@/lib/characters";
+import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 Characters — EverythingGTA6",
@@ -17,6 +19,12 @@ export default function CharactersPage() {
 
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Characters", url: `${SITE_URL}/characters` },
+        ])}
+      />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/balcony-sunset.jpg)" }}>
           <div className="guide-head">

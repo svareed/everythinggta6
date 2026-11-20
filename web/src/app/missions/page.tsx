@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
+import JsonLd from "@/components/JsonLd";
 import { getAllMissions } from "@/lib/missions";
+import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 Missions — Every Mission, Chapter by Chapter — EverythingGTA6",
@@ -40,6 +42,12 @@ export default function MissionsPage() {
 
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Missions", url: `${SITE_URL}/missions` },
+        ])}
+      />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/skyscraper-climb.jpg)" }}>
           <div className="guide-head">

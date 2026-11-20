@@ -2,7 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import DpadSequence from "@/components/DpadSequence";
+import JsonLd from "@/components/JsonLd";
 import cheats from "@/data/cheats.json";
+import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 Cheat Codes — EverythingGTA6",
@@ -18,6 +20,12 @@ export default function CheatsPage() {
 
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Cheats", url: `${SITE_URL}/cheats` },
+        ])}
+      />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/vault-heist.jpg)" }}>
           <div className="guide-head">

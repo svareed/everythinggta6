@@ -2,7 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
+import JsonLd from "@/components/JsonLd";
 import { findRegion, REGIONS, OFFICIAL_MAP_IMG, OFFICIAL_MAP_SOURCE } from "@/lib/maps";
+import { breadcrumbSchema, articleSchema, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return REGIONS.map((r) => ({ slug: r.slug }));
@@ -30,6 +32,21 @@ export default async function RegionPage({ params }: { params: Promise<{ slug: s
 
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Map of Leonida", url: `${SITE_URL}/guides/map-of-leonida` },
+          { name: region.name, url: `${SITE_URL}/maps/${region.slug}` },
+        ])}
+      />
+      <JsonLd
+        data={articleSchema({
+          headline: region.name,
+          description: region.body,
+          url: `${SITE_URL}/maps/${region.slug}`,
+          image: heroImg ? `${SITE_URL}${heroImg}` : undefined,
+        })}
+      />
       <div className="wrap">
         <div className="guide-hero" style={heroImg ? { backgroundImage: `url(${heroImg})` } : undefined}>
           <div className="guide-head">

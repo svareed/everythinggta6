@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
+import JsonLd from "@/components/JsonLd";
 import worldStories from "@/data/launch-stories.json";
+import { breadcrumbSchema, articleSchema, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "The Craziest GTA6 Launch Stories — EverythingGTA6",
@@ -52,6 +54,20 @@ const STORIES = [
 export default function CraziestGta6Stories() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Craziest Launch Stories", url: `${SITE_URL}/guides/craziest-gta6-stories` },
+        ])}
+      />
+      <JsonLd
+        data={articleSchema({
+          headline: "The Craziest GTA6 Launch Stories",
+          description:
+            "30 real, individually-sourced stories of how far people, schools, companies and governments went for GTA6's launch.",
+          url: `${SITE_URL}/guides/craziest-gta6-stories`,
+        })}
+      />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/bar-standoff.jpg)" }}>
           <div className="guide-head">
