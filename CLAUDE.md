@@ -17,4 +17,4 @@
 - Guide/walkthrough-style content (missions, map regions, launch-day discoveries, craziest-stories): add `articleSchema()` too.
 - Genuinely Q&A-formatted pages (e.g. "Is GTA6 out?"): use `faqSchema()` instead of/alongside Article.
 - The homepage carries `videoGameSchema()` once, for the game itself — don't repeat it on every page.
-- Reuse existing `src/lib/*.ts` slug/lookup helpers (`characterSlug`, `findCharacter`, etc.) to cross-link entities by name wherever the data already connects them (e.g. a mission's `given_by`/`playable_as` linking to the matching `/characters/[slug]` page) — this is the internal-linking half of the same pass, not a separate task.
+- For internal linking, use `src/lib/entity-links.ts` + `<EntityLink type="character|mission|region" name="..." />` (`src/components/EntityLink.tsx`) instead of a one-off `someCondition ? <Link>...</Link> : name` in a page component. It renders a real link when the name matches a character/mission/region on the site, plain text otherwise. Add a new `EntityType` there (vehicles, outlets, etc.) as the site grows rather than re-inventing this per page.
