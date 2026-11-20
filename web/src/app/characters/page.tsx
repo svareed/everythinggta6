@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
-import characters from "@/data/characters.json";
+import { characterSlug, getAllCharacters, imageFor } from "@/lib/characters";
 
 export const metadata: Metadata = {
   title: "GTA6 Characters — EverythingGTA6",
@@ -9,20 +9,7 @@ export const metadata: Metadata = {
     "Jason Duval, Lucia Caminos, and the confirmed supporting cast of Grand Theft Auto VI, sourced from Rockstar's own press-kit bios.",
 };
 
-// Real, per-character screenshots from GTA BOOM's cast roundup (see citation
-// below) wherever one exists. The two with no confirmed photo yet (Lori,
-// DWNPLY) fall back to one of our own trailer stills each, used once, with
-// an honest caption instead of a false character match.
-const FALLBACK_IMG: Record<string, { file: string; caption: string }> = {
-  Lori: { file: "biplane-beach-stunt", caption: "No confirmed photo yet — Keys coastline, from the trailers" },
-  DWNPLY: { file: "nightclub-crowd", caption: "No confirmed photo yet — Vice City nightlife, from the trailers" },
-};
-
-function imageFor(c: { name: string; image: string | null; imageCaption: string | null }) {
-  if (c.image) return { src: c.image, caption: c.imageCaption ?? "", external: true };
-  const fb = FALLBACK_IMG[c.name];
-  return { src: `/images/trailer-stills/${fb.file}.jpg`, caption: fb.caption, external: false };
-}
+const characters = getAllCharacters();
 
 export default function CharactersPage() {
   const protagonists = characters.filter((c) => c.role === "Protagonist");
@@ -54,7 +41,9 @@ export default function CharactersPage() {
             return (
               <div className="coord has-img" key={c.name} style={{ backgroundImage: `url(${img.src})`, minHeight: 240 }}>
                 <span className="xy">{c.sector}</span>
-                <h3>{c.name}</h3>
+                <h3>
+                  <Link href={`/characters/${characterSlug(c.name)}`}>{c.name}</Link>
+                </h3>
                 <span className="status">● {c.role}</span>
                 <p>{c.body}</p>
                 {img.caption && <span className="cite">{img.caption}</span>}
@@ -72,7 +61,9 @@ export default function CharactersPage() {
             return (
               <div className="coord has-img" key={c.name} style={{ backgroundImage: `url(${img.src})`, minHeight: 200 }}>
                 <span className="xy">{c.sector}</span>
-                <h3>{c.name}</h3>
+                <h3>
+                  <Link href={`/characters/${characterSlug(c.name)}`}>{c.name}</Link>
+                </h3>
                 <span className="status">● {c.role}</span>
                 <p>{c.body}</p>
                 {img.caption && <span className="cite">{img.caption}</span>}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
+import DpadSequence from "@/components/DpadSequence";
 import cheats from "@/data/cheats.json";
 
 export const metadata: Metadata = {
@@ -76,7 +77,7 @@ export default function CheatsPage() {
         <div className="coords">
           {confirmed.map((c) => (
             <div className="coord" key={c.name}>
-              <span className="xy mono">{c.sequence}</span>
+              {c.sequence && <DpadSequence sequence={c.sequence} />}
               <h3>{c.name}</h3>
               <span className="status">● Confirmed</span>
               <p>{c.requirement}.</p>

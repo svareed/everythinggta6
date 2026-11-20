@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
 import { CATEGORIES, getAllRecords, getAllOutlets, outletSlug, itemSlug } from "@/lib/sources";
+import { characterSlug, getAllCharacters } from "@/lib/characters";
+import { getAllMissions } from "@/lib/missions";
+import { REGIONS } from "@/lib/maps";
 
 const BASE_URL = "https://www.everythinggta6.com";
 
@@ -47,5 +50,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...staticRoutes, ...categoryRoutes, ...outletRoutes, ...itemRoutes];
+  const characterRoutes: MetadataRoute.Sitemap = getAllCharacters().map((c) => ({
+    url: `${BASE_URL}/characters/${characterSlug(c.name)}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  const missionRoutes: MetadataRoute.Sitemap = getAllMissions()
+    .filter((m) => m.slug)
+    .map((m) => ({
+      url: `${BASE_URL}/missions/${m.slug}`,
+      lastModified: m.scraped_at ? new Date(m.scraped_at) : now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }));
+
+  const mapRoutes: MetadataRoute.Sitemap = REGIONS.map((r) => ({
+    url: `${BASE_URL}/maps/${r.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...categoryRoutes,
+    ...outletRoutes,
+    ...itemRoutes,
+    ...characterRoutes,
+    ...missionRoutes,
+    ...mapRoutes,
+  ];
 }

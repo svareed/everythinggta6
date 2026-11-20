@@ -1,65 +1,13 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
+import { REGIONS, OFFICIAL_MAP_SOURCE } from "@/lib/maps";
 
 export const metadata: Metadata = {
   title: "Map of Leonida — EverythingGTA6",
   description:
-    "A region-by-region primer on GTA6's state of Leonida: Vice City, Port Gellhorn, the Leonida Keys, and the unconfirmed zones fans are tracking.",
+    "A region-by-region primer on GTA6's state of Leonida: Vice City, Port Gellhorn, the Keys, and the unconfirmed zones fans were tracking — now matched against Rockstar's own launch-day map.",
 };
-
-const REGIONS = [
-  {
-    sector: "SECTOR 01",
-    name: "Vice City",
-    status: "Confirmed",
-    body: "The neon core — downtown towers, beachfront strips, nightlife.",
-    img: "nightclub-crowd",
-  },
-  {
-    sector: "SECTOR 02",
-    name: "Port Gellhorn",
-    status: "Confirmed",
-    body: "Rusted, working-class counterpoint to Vice City's gloss.",
-    img: "red-shootout",
-  },
-  {
-    sector: "SECTOR 03",
-    name: "Leonida Keys",
-    status: "Confirmed",
-    body: "Island-hopping territory — boats matter more than cars here.",
-    img: "dock-seaplane",
-  },
-  {
-    sector: "SECTOR 04",
-    name: "Ambrosia",
-    status: "Confirmed",
-    body: "Named in official Rockstar material; details are still thin.",
-    img: "skyscraper-climb",
-  },
-  {
-    sector: "SECTOR 05",
-    name: "Grassrivers",
-    status: "Confirmed",
-    body: "Everglades-style wetland county named in official press material.",
-    img: null,
-  },
-  {
-    sector: "SECTOR 06",
-    name: "Mount Kalaga National Park",
-    status: "Confirmed",
-    body: "A protected wilderness area, officially named alongside Leonida's other counties.",
-    img: null,
-  },
-  {
-    sector: "SECTOR ??",
-    name: "??? Rumored region",
-    status: "Unconfirmed",
-    body: "Dataminers keep pointing at a fourth zone. Nothing official yet.",
-    mystery: true,
-    img: "crystal-shop",
-  },
-];
 
 export default function MapOfLeonidaGuide() {
   return (
@@ -83,20 +31,22 @@ export default function MapOfLeonidaGuide() {
               style={r.img ? { backgroundImage: `url(/images/trailer-stills/${r.img}.jpg)`, minHeight: 200 } : undefined}
             >
               <span className="xy">{r.sector}</span>
-              <h3>{r.name}</h3>
+              <h3>
+                <Link href={`/maps/${r.slug}`}>{r.name}</Link>
+              </h3>
               <span className="status">● {r.status}</span>
               <p>{r.body}</p>
             </div>
           ))}
         </div>
         <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 8 }}>
-          Ambrosia, Grassrivers, and Mount Kalaga National Park per{" "}
-          <a href="https://gtaintel.com/news/gta-6-leonida-map-everything-we-know" target="_blank" rel="noopener noreferrer nofollow">
-            GTA Intel&apos;s map coverage
+          Rockstar released a full, official map of Leonida on launch day (2026-11-19), per{" "}
+          <a href={OFFICIAL_MAP_SOURCE} target="_blank" rel="noopener noreferrer nofollow">
+            RockstarINTEL
           </a>
-          , citing Rockstar&apos;s own press material. No complete official map has been released —
-          anything calling itself a &quot;full GTA6 map&quot; online right now is an unverified
-          leak, not something Rockstar has authorized.
+          — it confirms every region above except the still-unconfirmed seventh one. Click
+          through to any region for the official map and a &quot;how to get there&quot; note
+          grounded in the routes and landmarks actually printed on it.
         </p>
         <p style={{ marginTop: 16 }}>
           More real coverage: <Link href="/sources/news">latest news</Link>,{" "}

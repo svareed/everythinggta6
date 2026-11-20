@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
-import missions from "@/data/missions.json";
+import { getAllMissions } from "@/lib/missions";
 
 export const metadata: Metadata = {
   title: "GTA6 Missions — Every Mission, Chapter by Chapter — EverythingGTA6",
@@ -28,15 +28,15 @@ const CHAPTER_BLURB: Record<string, string> = {
   "Chapter 5": "The endgame.",
 };
 
-type Mission = { chapter: string; name: string; optional: boolean; img: string | null };
+const missions = getAllMissions();
 
 export default function MissionsPage() {
   const byChapter = CHAPTERS.map((ch) => ({
     chapter: ch,
-    items: (missions as Mission[]).filter((m) => m.chapter === ch),
+    items: missions.filter((m) => m.chapter === ch),
   }));
   const total = missions.length;
-  const withImg = (missions as Mission[]).filter((m) => m.img).length;
+  const withImg = missions.filter((m) => m.img).length;
 
   return (
     <main>
@@ -89,7 +89,9 @@ export default function MissionsPage() {
                     <span className="xy">
                       {chapter.toUpperCase()} · {i + 1}
                     </span>
-                    <h3 style={{ fontSize: 16 }}>{m.name}</h3>
+                    <h3 style={{ fontSize: 16 }}>
+                      {m.slug ? <Link href={`/missions/${m.slug}`}>{m.name}</Link> : m.name}
+                    </h3>
                     <span className="status">{m.optional ? "○ Optional" : "● Story Mission"}</span>
                   </div>
                 ))}
