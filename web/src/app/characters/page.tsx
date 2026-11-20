@@ -94,7 +94,8 @@ export default function CharactersPage() {
         </p>
         <p style={{ marginTop: 16 }}>
           More on the cast: <Link href="/vehicles">vehicles</Link>,{" "}
-          <Link href="/guides/map-of-leonida">map of Leonida</Link>, or the{" "}
+          <Link href="/guides/map-of-leonida">map of Leonida</Link>,{" "}
+          <Link href="/guides/gta6-radio-stations">radio stations</Link>, or the{" "}
           <Link href="/sources">full Sources hub</Link>.
         </p>
         <Comments />

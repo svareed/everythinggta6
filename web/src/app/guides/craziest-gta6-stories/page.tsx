@@ -174,7 +174,8 @@ export default function CraziestGta6Stories() {
 
         <p style={{ marginTop: 16 }}>
           More real coverage: <Link href="/sources/news">latest news</Link>,{" "}
-          <Link href="/guides/map-of-leonida">map of Leonida</Link>, or the{" "}
+          <Link href="/guides/map-of-leonida">map of Leonida</Link>,{" "}
+          <Link href="/guides/gta6-faq">launch &amp; platforms FAQ</Link>, or the{" "}
           <Link href="/sources">full Sources hub</Link>.
         </p>
         <Comments />

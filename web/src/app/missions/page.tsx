@@ -122,7 +122,9 @@ export default function MissionsPage() {
         </p>
         <p style={{ marginTop: 16 }}>
           More walkthrough coverage: <Link href="/cheats">cheat codes</Link>,{" "}
-          <Link href="/characters">the cast</Link>, or the <Link href="/sources">full Sources hub</Link>.
+          <Link href="/characters">the cast</Link>,{" "}
+          <Link href="/guides/gta6-budget-and-delays">budget &amp; delay history</Link>, or the{" "}
+          <Link href="/sources">full Sources hub</Link>.
         </p>
         <Comments />
       </div>

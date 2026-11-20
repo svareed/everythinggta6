@@ -100,7 +100,8 @@ export default function VehiclesPage() {
         </p>
         <p style={{ marginTop: 16 }}>
           More garage coverage: <Link href="/characters">the cast</Link>,{" "}
-          <Link href="/guides/map-of-leonida">map of Leonida</Link>, or the{" "}
+          <Link href="/guides/map-of-leonida">map of Leonida</Link>,{" "}
+          <Link href="/guides/gta6-radio-stations">radio stations</Link>, or the{" "}
           <Link href="/sources">full Sources hub</Link>.
         </p>
         <Comments />

@@ -58,7 +58,8 @@ export default function MapOfLeonidaGuide() {
         </p>
         <p style={{ marginTop: 16 }}>
           More real coverage: <Link href="/sources/news">latest news</Link>,{" "}
-          <Link href="/sources/hidden-gems">trailer easter eggs</Link>, or the{" "}
+          <Link href="/sources/hidden-gems">trailer easter eggs</Link>,{" "}
+          <Link href="/guides/gta6-radio-stations">radio stations</Link>, or the{" "}
           <Link href="/sources">full Sources hub</Link>.
         </p>
         <Comments />

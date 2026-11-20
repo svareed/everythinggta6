@@ -452,7 +452,8 @@ export default function LaunchDayDiscoveriesGuide() {
 
         <p style={{ marginTop: 16 }}>
           More real coverage: <Link href="/sources/hidden-gems">trailer easter eggs</Link>,{" "}
-          <Link href="/guides/craziest-gta6-stories">craziest launch stories</Link>, or the{" "}
+          <Link href="/guides/craziest-gta6-stories">craziest launch stories</Link>,{" "}
+          <Link href="/guides/gta6-leaks-timeline">the leaks timeline</Link>, or the{" "}
           <Link href="/sources">full Sources hub</Link>.
         </p>
         <Comments />

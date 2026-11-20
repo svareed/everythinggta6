@@ -118,7 +118,8 @@ export default function CheatsPage() {
         </p>
         <p style={{ marginTop: 16 }}>
           More walkthrough coverage: <Link href="/missions">every mission</Link>,{" "}
-          <Link href="/vehicles">vehicles</Link>, or the <Link href="/sources">full Sources hub</Link>.
+          <Link href="/vehicles">vehicles</Link>, <Link href="/guides/gta6-faq">launch &amp; platforms FAQ</Link>,
+          or the <Link href="/sources">full Sources hub</Link>.
         </p>
         <Comments />
       </div>
