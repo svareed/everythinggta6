@@ -10,6 +10,17 @@ robots.txt reserves text-and-data-mining rights against bulk extraction,
 allowing only "citation with attribution", which rules out crawling its
 whole site).
 
+gta6bible.com is included below at the user's explicit request, but as of
+2026-11-20 Cloudflare returns a hard HTTP 403 block page for every
+request to the domain -- including a plain `requests.get()` of
+/robots.txt itself, with no real site, browser-automated or otherwise,
+able to get past it. `robots_allowed()` fails closed on that 403, so this
+entry currently contributes 0 records, the same honest-failure shape as
+`reddit.py` and `newswire.py` -- it isn't broken, the site is blocking us
+outright. It'll start working the moment that block lifts, no code
+changes needed. We also don't cite gta6bible.com as a source link on the
+live site even if/when this starts returning records.
+
 Each seed site is crawled breadth-first from one known GTA6 hub/article
 URL, following only same-domain links whose path looks GTA6-related,
 capped at MAX_PAGES_PER_SITE pages. For every page we keep a title/
@@ -55,6 +66,7 @@ SEED_SITES = {
     "Tom's Guide": [
         "https://www.tomsguide.com/gaming/gta-6-rumor-report-your-weekly-guide-to-the-latest-grand-theft-auto-updates"
     ],
+    "GTA6Bible": ["https://gta6bible.com/"],
 }
 
 
