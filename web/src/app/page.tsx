@@ -127,6 +127,27 @@ const MODULES = [
     img: "motorcycle-seaplane",
   },
   {
+    href: "/guides/gta6-age-rating",
+    tag: "Rating",
+    title: "GTA6's age rating",
+    body: "M (Mature 17+) in the US, 18 under PEGI — the content behind it.",
+    img: "bar-standoff",
+  },
+  {
+    href: "/guides/gta6-vs-gta5",
+    tag: "Comparison",
+    title: "GTA6 vs GTA5",
+    body: "Map, protagonists, price, and the 13-year gap, point by point.",
+    img: "highway-skyline",
+  },
+  {
+    href: "/guides/gta6-community",
+    tag: "Community",
+    title: "Where players hang out",
+    body: "Rockstar's own official Discord, and the main fan subreddit.",
+    img: "crystal-shop",
+  },
+  {
     href: "/sources/tips",
     tag: "Guides",
     title: "Tips & Guides",
