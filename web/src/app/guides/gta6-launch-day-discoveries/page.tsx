@@ -24,7 +24,7 @@ export default function LaunchDayDiscoveriesGuide() {
             <h1>What Players Already Found in GTA6</h1>
             <p>
               GTA6 shipped on November 19, 2026, and within hours the swamps, radio towers and
-              side missions of Leonida were already giving up secrets. Five real finds so far,
+              side missions of Leonida were already giving up secrets. Eight real finds so far,
               each with a working link back to where it was first reported — nothing here is
               invented.
             </p>
@@ -187,6 +187,92 @@ export default function LaunchDayDiscoveriesGuide() {
               Source: Gulf News &rarr;
             </a>
           </div>
+
+          <div className="coord">
+            <span className="xy">FIND 06</span>
+            <h3>A Fully-Loaded Rocket Launcher in an Unguarded Bunker</h3>
+            <span className="status">● Hidden Weapon</span>
+            <p>
+              In the Keys just west of Vice City, near a Firing Range landmark, there&apos;s an
+              impound lot cluttered with antennas and satellite dishes. Enter from the north and
+              you can walk straight in — the gate&apos;s unlocked and nobody&apos;s guarding it.
+              Inside, a bunker hatch opens onto a rocket launcher already loaded with four
+              rockets, sitting alongside two named collectible weapon variants, &quot;The
+              Conspiracist&quot; and &quot;Zombix.&quot; Fire it out in the open and Jason picks up
+              a &quot;hardened criminal profile&quot; for the aggression, which is presumably why
+              the clip also shows it being stashed in a car trunk instead (vehicles can store
+              weapons) rather than fired on sight. Posted by{" "}
+              <a
+                href="https://www.instagram.com/ai_with.ai/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+              >
+                @ai_with.ai
+              </a>{" "}
+              on Instagram.
+            </p>
+            <a
+              className="cite"
+              href="https://www.instagram.com/reel/Df6NqjVIhUh/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Source: Instagram (@ai_with.ai) &rarr;
+            </a>
+          </div>
+
+          <div className="coord">
+            <span className="xy">FIND 07</span>
+            <h3>A Free, Fully-Kitted Gun Tied to a &quot;Robbery Opportunity&quot; Event</h3>
+            <span className="status">● Side Activity</span>
+            <p>
+              Near Leonida Bay, a random world event called a &quot;Robbery Opportunity&quot; can
+              pop up: a man gets confronted by a gang referred to as the Kingfishers, who mention
+              they&apos;ve been moving drugs on a remote island nearby. Follow the lead and an NPC
+              named Donny hands over a fully-kitted gun for free, early in the game, on a beach.
+              Posted by verified creator{" "}
+              <a
+                href="https://www.instagram.com/farzamplays/"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+              >
+                @farzamplays
+              </a>
+              . We couldn&apos;t confirm the exact trigger conditions for the event from the clip
+              alone, so treat the &quot;how&quot; as unconfirmed even though the find itself is on
+              video.
+            </p>
+            <a
+              className="cite"
+              href="https://www.instagram.com/reel/Df5jL-nslk5/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Source: Instagram (@farzamplays) &rarr;
+            </a>
+          </div>
+
+          <div className="coord">
+            <span className="xy">FIND 08</span>
+            <h3>An &quot;Entire Island for Dogs&quot;? Unverified</h3>
+            <span className="status">● Unverified Claim</span>
+            <p>
+              An Instagram post claims &quot;GTA 6 literally has an entire island dedicated JUST
+              to dogs,&quot; but the attached clip only shows a character swimming offshore with a
+              dog — no island, shelter, or dedicated area is actually visible in the footage, and
+              the account&apos;s own hashtags are about a real-world dog-walking business, not
+              gaming. We&apos;re listing it here rather than silently dropping it, but we
+              can&apos;t verify this one and wouldn&apos;t act on it as fact.
+            </p>
+            <a
+              className="cite"
+              href="https://www.instagram.com/reel/Df5ieMxtr3c/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Source: Instagram (@doggy_walky_bouskoura) &rarr;
+            </a>
+          </div>
         </div>
 
         <div className="guide-head" style={{ paddingBlock: "32px 8px" }}>
@@ -214,7 +300,11 @@ export default function LaunchDayDiscoveriesGuide() {
           A note on sourcing: the Bigfoot encounter is confirmed by three independent outlets plus
           the original Reddit post. The radio tower, monster crab, Mandy, and glitch items are
           each currently reported by a single outlet (Kotaku, KeenGamer, and Gulf News
-          respectively) — real and linked, but not yet cross-confirmed elsewhere. We checked
+          respectively) — real and linked, but not yet cross-confirmed elsewhere. The rocket
+          launcher bunker and the Robbery Opportunity/Donny find (06–07) are each sourced to a
+          single Instagram clip we watched frame-by-frame ourselves — real footage, but
+          single-source like the items above. The &quot;island for dogs&quot; item (08) is flagged
+          as unverified on purpose: the clip doesn&apos;t show what the caption claims. We checked
           several other &quot;discoveries&quot; circulating online (a Pennywise sighting, a UFO
           over Breakwater Quarry) and couldn&apos;t verify any of them as launch-day finds rather
           than years-old pre-launch leak rumors, so they&apos;re left out.
