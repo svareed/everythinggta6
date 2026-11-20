@@ -24,7 +24,7 @@ export default function LaunchDayDiscoveriesGuide() {
             <h1>What Players Already Found in GTA6</h1>
             <p>
               GTA6 shipped on November 19, 2026, and within hours the swamps, radio towers and
-              side missions of Leonida were already giving up secrets. Eight real finds so far,
+              side missions of Leonida were already giving up secrets. Twelve real finds so far,
               each with a working link back to where it was first reported — nothing here is
               invented.
             </p>
@@ -98,8 +98,10 @@ export default function LaunchDayDiscoveriesGuide() {
               >
                 @xGarbett
               </a>{" "}
-              found a literal Easter egg sitting in a bird&apos;s nest. Throwing it back off the
-              tower triggers its own short payoff.
+              found a literal Easter egg sitting in a bird&apos;s nest. Throwing it off the tower
+              and landing it on the road below triggers a short cutscene: the egg splatters across
+              the windshield of a passing car driven by a retro, &apos;80s-styled NPC — a direct
+              callback to a near-identical Easter egg in <em>GTA: Vice City</em> (2002).
             </p>
             <a
               className="cite"
@@ -108,6 +110,14 @@ export default function LaunchDayDiscoveriesGuide() {
               rel="noopener noreferrer nofollow"
             >
               Source: Kotaku &rarr;
+            </a>{" "}
+            <a
+              className="cite"
+              href="https://www.gamingbible.com/news/gta-6-secret-cutscene-seven-minute-tower-easter-egg-795530-20261119"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Source: GamingBible &rarr;
             </a>
           </div>
 
@@ -240,7 +250,11 @@ export default function LaunchDayDiscoveriesGuide() {
               </a>
               . We couldn&apos;t confirm the exact trigger conditions for the event from the clip
               alone, so treat the &quot;how&quot; as unconfirmed even though the find itself is on
-              video.
+              video. Independently, YouTuber MrBossFTW&apos;s money-glitch video (FIND 09, below)
+              names both a &quot;King Fisher Stilt House&quot; location and a fence NPC named
+              &quot;Donnie,&quot; which lines up with the Kingfishers and Donny named here — two
+              unrelated creators landing on the same names is a good sign this is real, even
+              without a confirmed trigger.
             </p>
             <a
               className="cite"
@@ -262,7 +276,13 @@ export default function LaunchDayDiscoveriesGuide() {
               dog — no island, shelter, or dedicated area is actually visible in the footage, and
               the account&apos;s own hashtags are about a real-world dog-walking business, not
               gaming. We&apos;re listing it here rather than silently dropping it, but we
-              can&apos;t verify this one and wouldn&apos;t act on it as fact.
+              can&apos;t verify this one and wouldn&apos;t act on it as fact.{" "}
+              <strong>Update:</strong> ComicBook.com&apos;s own launch-day coverage (FIND 12,
+              below) describes a random &quot;dog on a jet ski&quot; companion encounter whose dog
+              lives on &quot;a small offshore island where other dogs play&quot; — a real detail,
+              but a single small island for one random encounter is a long way from &quot;an
+              entire island dedicated JUST to dogs.&quot; So: there&apos;s a kernel of truth in
+              here, but the original claim is still overstated.
             </p>
             <a
               className="cite"
@@ -271,6 +291,105 @@ export default function LaunchDayDiscoveriesGuide() {
               rel="noopener noreferrer nofollow"
             >
               Source: Instagram (@doggy_walky_bouskoura) &rarr;
+            </a>
+          </div>
+
+          <div className="coord">
+            <span className="xy">FIND 09</span>
+            <h3>An Unlimited Money Glitch Built on Respawning Stash Bags</h3>
+            <span className="status">● Exploit</span>
+            <p>
+              On the border of South Vice-Dale County and Hamlet sits an unmarked warehouse for a
+              construction company called Apollo — behind the garage doors is a van for a front
+              called &quot;Flying Teddies,&quot; packed with cocaine and cash next to several
+              bodies, with no enemies and no wanted stars to deal with. Loot it (a ~$9,000 stash
+              bag, a safe with a $6,000 collectible card, cash from the register), stow everything
+              in your car&apos;s trunk storage, save your game, then reload that exact save: the
+              loot respawns and can be looted again, repeatedly. YouTuber MrBossFTW tested a
+              second location with the same respawn behavior — a &quot;King Fisher Stilt House&quot;
+              off the coast of Kenton — and notes you&apos;ll want to sell stolen goods to the fence
+              NPCs Brian or Donnie (prices vary between them). One real catch: chapter 1 ends by
+              wiping your cash and Jason&apos;s car, except for anything in the &quot;family
+              saver&quot; bank account or already spent on weapons, clothes, and tattoos, which
+              carry over.
+            </p>
+            <a
+              className="cite"
+              href="https://www.youtube.com/watch?v=RLtTRjKOC3w"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Source: MrBossFTW (YouTube) &rarr;
+            </a>
+          </div>
+
+          <div className="coord">
+            <span className="xy">FIND 10</span>
+            <h3>A Dexter Morgan Homage Hidden in a Vice City Apartment</h3>
+            <span className="status">● Easter Egg</span>
+            <p>
+              Head northeast from Penmarch Isle to the Trinity Apartments in Vice City&apos;s
+              Washington Island sub-area, find the shuttered upper-corner unit, and climb to the
+              roof: there&apos;s a kill kit laid out — syringes, a knife, rope, gloves, tool boxes,
+              a rag, and handcuffs — and a boat in the distance that resembles Dexter Morgan&apos;s
+              &quot;Slice of Life.&quot; It reads as a direct homage to the <em>Dexter</em> TV
+              series (which is itself set in Miami, GTA6&apos;s Vice City analogue), possibly with
+              a nod to the show&apos;s Trinity Killer given the apartment&apos;s name.
+            </p>
+            <a
+              className="cite"
+              href="https://comicbook.com/gaming/list/5-most-exciting-gta-6-easter-eggs-players-have-found-after-launch-day/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Source: ComicBook.com &rarr;
+            </a>
+          </div>
+
+          <div className="coord">
+            <span className="xy">FIND 11</span>
+            <h3>An Alien Abduction Questline With a Hidden Trophy</h3>
+            <span className="status">● Secret / Trophy</span>
+            <p>
+              Go outside in Port Gellhorn at 2 a.m. or later and run toward a bright light in the
+              sky to witness a woman being abducted — then it happens to you too. As Lucia, you
+              get a short tour of the UFO before being returned to Earth. As Jason, you wake up the
+              next day and can travel to an abandoned research facility in Pelican Valley, enter
+              the code 2-3-4-1 (reportedly found at a nearby military airfield), pour milk from the
+              facility into a canister to reveal a living alien, and carry it out to a cutscene
+              where the UFO retrieves it. Completing it unlocks a hidden trophy/achievement called
+              &quot;The Truth Is Out There.&quot;
+            </p>
+            <a
+              className="cite"
+              href="https://comicbook.com/gaming/list/5-most-exciting-gta-6-easter-eggs-players-have-found-after-launch-day/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Source: ComicBook.com &rarr;
+            </a>
+          </div>
+
+          <div className="coord">
+            <span className="xy">FIND 12</span>
+            <h3>A Dog Will Jet Ski Alongside You, Once</h3>
+            <span className="status">● Random Encounter</span>
+            <p>
+              While swimming, scuba diving, riding a jet ski, or just exploring the coast as either
+              protagonist, a dog can show up and ride/swim alongside you, leading you along the
+              shoreline — reportedly most common around the Leonida Keys, which has the most water
+              of any region. Its home turns out to be a small offshore island where other dogs
+              play in life jackets and sunglasses, and you can stop to play with them. It&apos;s a
+              one-time encounter per save, so grab a screenshot in Photo Mode if you want to keep
+              it.
+            </p>
+            <a
+              className="cite"
+              href="https://comicbook.com/gaming/list/5-most-exciting-gta-6-easter-eggs-players-have-found-after-launch-day/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Source: ComicBook.com &rarr;
             </a>
           </div>
         </div>
@@ -304,10 +423,14 @@ export default function LaunchDayDiscoveriesGuide() {
           launcher bunker and the Robbery Opportunity/Donny find (06–07) are each sourced to a
           single Instagram clip we watched frame-by-frame ourselves — real footage, but
           single-source like the items above. The &quot;island for dogs&quot; item (08) is flagged
-          as unverified on purpose: the clip doesn&apos;t show what the caption claims. We checked
-          several other &quot;discoveries&quot; circulating online (a Pennywise sighting, a UFO
-          over Breakwater Quarry) and couldn&apos;t verify any of them as launch-day finds rather
-          than years-old pre-launch leak rumors, so they&apos;re left out.
+          as unverified on purpose: the clip doesn&apos;t show what the caption claims, though a
+          related real detail turned up independently (see FIND 12). Items 09–12 come from our own
+          scraper pipeline plus manual research: the money glitch (09) is an original YouTube
+          creator report we read in full via its transcript, and items 10–12 are each reported by
+          ComicBook.com, with no individual player credited — same single-outlet caveat as above.
+          We checked several other &quot;discoveries&quot; circulating online (a Pennywise sighting,
+          a UFO over Breakwater Quarry) and couldn&apos;t verify any of them as launch-day finds
+          rather than years-old pre-launch leak rumors, so they&apos;re left out.
         </p>
 
         <p style={{ marginTop: 16 }}>
