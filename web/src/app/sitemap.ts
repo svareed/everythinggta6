@@ -3,6 +3,7 @@ import { getAllRecords } from "@/lib/sources";
 import { characterSlug, getAllCharacters } from "@/lib/characters";
 import { getAllMissions } from "@/lib/missions";
 import { REGIONS } from "@/lib/maps";
+import { getAllVehicles, vehicleSlug } from "@/lib/vehicles";
 
 const BASE_URL = "https://www.everythinggta6.com";
 
@@ -64,5 +65,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...characterRoutes, ...missionRoutes, ...mapRoutes];
+  const vehicleRoutes: MetadataRoute.Sitemap = getAllVehicles().map((v) => ({
+    url: `${BASE_URL}/vehicles/${vehicleSlug(v)}`,
+    lastModified: v.scraped_at ? new Date(v.scraped_at) : now,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
+  return [...staticRoutes, ...characterRoutes, ...missionRoutes, ...mapRoutes, ...vehicleRoutes];
 }

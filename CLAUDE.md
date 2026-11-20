@@ -17,7 +17,8 @@
 - Guide/walkthrough-style content (missions, map regions, launch-day discoveries, craziest-stories): add `articleSchema()` too.
 - Genuinely Q&A-formatted pages (e.g. "Is GTA6 out?"): use `faqSchema()` instead of/alongside Article.
 - The homepage carries `videoGameSchema()` once, for the game itself — don't repeat it on every page.
-- For internal linking, use `src/lib/entity-links.ts` + `<EntityLink type="character|mission|region" name="..." />` (`src/components/EntityLink.tsx`) instead of a one-off `someCondition ? <Link>...</Link> : name` in a page component. It renders a real link when the name matches a character/mission/region on the site, plain text otherwise. Add a new `EntityType` there (vehicles, outlets, etc.) as the site grows rather than re-inventing this per page.
+- For internal linking, use `src/lib/entity-links.ts` + `<EntityLink type="character|mission|region|vehicle" name="..." />` (`src/components/EntityLink.tsx`) instead of a one-off `someCondition ? <Link>...</Link> : name` in a page component. It renders a real link when the name matches a character/mission/region/vehicle on the site, plain text otherwise. Add a new `EntityType` there (outlets, etc.) as the site grows rather than re-inventing this per page.
+- GTA6's vehicle catalog (`scraper/vehicles.py`, 358 vehicles across 21 GTABase classes, `/vehicles/[slug]`) is scraped the same way as missions: class-list pages carry name/manufacturer/inspiration/ratings/image directly, so no per-vehicle detail-page fetch was needed. Re-run `vehicles.py` if GTABase adds vehicles; it dedupes by detail-page URL automatically.
 
 ## SEO Scaling
 

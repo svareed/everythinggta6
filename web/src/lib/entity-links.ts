@@ -6,8 +6,9 @@
 import { characterSlug, findCharacter } from "@/lib/characters";
 import { findMission, getAllMissions } from "@/lib/missions";
 import { findRegion, REGIONS } from "@/lib/maps";
+import { getAllVehicles, vehicleSlug } from "@/lib/vehicles";
 
-export type EntityType = "character" | "mission" | "region";
+export type EntityType = "character" | "mission" | "region" | "vehicle";
 
 export function entityHref(type: EntityType, name: string): string | undefined {
   switch (type) {
@@ -22,6 +23,10 @@ export function entityHref(type: EntityType, name: string): string | undefined {
     case "region": {
       const match = REGIONS.find((r) => r.name.toLowerCase() === name.toLowerCase());
       return match ? `/maps/${match.slug}` : undefined;
+    }
+    case "vehicle": {
+      const match = getAllVehicles().find((v) => v.name.toLowerCase() === name.toLowerCase());
+      return match ? `/vehicles/${vehicleSlug(match)}` : undefined;
     }
     default:
       return undefined;

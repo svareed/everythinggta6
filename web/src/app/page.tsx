@@ -46,7 +46,7 @@ const MODULES = [
     href: "/vehicles",
     tag: "Garage",
     title: "Vehicles",
-    body: "Named cars, bikes, boats and aircraft spotted so far, with real-world inspirations.",
+    body: "Every named vehicle GTABase has catalogued, across all 21 classes, with real-world inspirations.",
     img: "hawaiian-shirt-truck",
   },
   {
