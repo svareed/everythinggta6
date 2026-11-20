@@ -32,6 +32,7 @@ export async function generateMetadata({
   return {
     title: `${item.title} — EverythingGTA6`,
     description: excerptOf(item, 160),
+    robots: { index: false, follow: true },
   };
 }
 

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { CATEGORIES, getAllRecords, getAllOutlets, outletSlug, itemSlug } from "@/lib/sources";
+import { getAllRecords } from "@/lib/sources";
 import { characterSlug, getAllCharacters } from "@/lib/characters";
 import { getAllMissions } from "@/lib/missions";
 import { REGIONS } from "@/lib/maps";
@@ -25,30 +25,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/vehicles`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/missions`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/cheats`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE_URL}/sources`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
-    { url: `${BASE_URL}/sitemap`, lastModified: now, changeFrequency: "weekly", priority: 0.3 },
   ];
-
-  const categoryRoutes: MetadataRoute.Sitemap = CATEGORIES.map((c) => ({
-    url: `${BASE_URL}/sources/${c.id}`,
-    lastModified: now,
-    changeFrequency: "daily",
-    priority: 0.7,
-  }));
-
-  const outletRoutes: MetadataRoute.Sitemap = getAllOutlets().map((o) => ({
-    url: `${BASE_URL}/sources/outlet/${outletSlug(o)}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.6,
-  }));
-
-  const itemRoutes: MetadataRoute.Sitemap = getAllRecords().map((r) => ({
-    url: `${BASE_URL}/sources/item/${itemSlug(r)}`,
-    lastModified: r.scraped_at ? new Date(r.scraped_at) : now,
-    changeFrequency: "monthly",
-    priority: 0.5,
-  }));
+  // /sources and /sitemap (plus everything under /sources/*) are marked
+  // noindex -- they're thin, scraped-excerpt or pure-navigation pages, not
+  // original content -- so they're deliberately left out of sitemap.xml,
+  // which should only advertise canonical, indexable URLs.
 
   const characterRoutes: MetadataRoute.Sitemap = getAllCharacters().map((c) => ({
     url: `${BASE_URL}/characters/${characterSlug(c.name)}`,
@@ -73,13 +54,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [
-    ...staticRoutes,
-    ...categoryRoutes,
-    ...outletRoutes,
-    ...itemRoutes,
-    ...characterRoutes,
-    ...missionRoutes,
-    ...mapRoutes,
-  ];
+  return [...staticRoutes, ...characterRoutes, ...missionRoutes, ...mapRoutes];
 }

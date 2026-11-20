@@ -31,6 +31,7 @@ export async function generateMetadata({
   return {
     title: `${cat.label} — EverythingGTA6`,
     description: `Real GTA6 ${cat.label.toLowerCase()} coverage from around the web, with excerpts and links back to each original source.`,
+    robots: { index: false, follow: true },
   };
 }
 

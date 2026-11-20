@@ -31,6 +31,7 @@ export async function generateMetadata({
   return {
     title: `${outlet} — EverythingGTA6 Sources`,
     description: `Every GTA6 excerpt collected from ${outlet}, with links back to the original articles.`,
+    robots: { index: false, follow: true },
   };
 }
 

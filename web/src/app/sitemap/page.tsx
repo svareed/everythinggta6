@@ -11,6 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "Sitemap — EverythingGTA6",
   description: "Every page on the site, grouped by section, with a link to the machine-readable XML sitemap.",
+  robots: { index: false, follow: true },
 };
 
 export default function VisualSitemapPage() {

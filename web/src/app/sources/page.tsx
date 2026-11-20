@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: "Sources — EverythingGTA6",
   description:
     "Real GTA6 coverage from around the web, browsable by topic or by outlet, with every excerpt linking back to the original article.",
+  robots: { index: false, follow: true },
 };
 
 export default function SourcesPage() {
