@@ -103,8 +103,8 @@ export default function CheatsPage() {
         <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 20 }}>
           The $250,000 code and the Body Armor unlock condition are each independently matched
           across separate reporting chains (GTA BOOM vs. TweakTown/Player.one), which is why
-          we&apos;re confident in this list — but 18 confirmed codes out of 61 total cheats means
-          most of the system is still unmapped. Be skeptical of any site selling a &quot;complete
+          we&apos;re confident in this list — but {confirmed.length} confirmed codes out of 61 total
+          cheats means most of the system is still unmapped. Be skeptical of any site selling a &quot;complete
           cheat sheet,&quot; a trainer, or a code generator for GTA6 right now — several outlets
           have flagged those as scam bait during launch week.
         </p>
