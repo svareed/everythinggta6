@@ -30,6 +30,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/guides/gta6-budget-and-delays`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/guides/gta6-radio-stations`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/guides/gta6-leaks-timeline`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE_URL}/guides/gta6-file-size`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${BASE_URL}/guides/gta6-confirmed-features`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
   ];
   // /sources and /sitemap (plus everything under /sources/*) are marked
   // noindex -- they're thin, scraped-excerpt or pure-navigation pages, not

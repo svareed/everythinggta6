@@ -113,6 +113,20 @@ const MODULES = [
     img: "red-shootout",
   },
   {
+    href: "/guides/gta6-file-size",
+    tag: "Storage",
+    title: "How many GB is GTA6?",
+    body: "The ~210GB figure everyone cites, where it actually comes from.",
+    img: "skyscraper-climb",
+  },
+  {
+    href: "/guides/gta6-confirmed-features",
+    tag: "Quick Answers",
+    title: "Confirmed features FAQ",
+    body: "Cameos, weapons, animals, money, and the twerk-button question.",
+    img: "motorcycle-seaplane",
+  },
+  {
     href: "/sources/tips",
     tag: "Guides",
     title: "Tips & Guides",
