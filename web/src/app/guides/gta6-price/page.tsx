@@ -2,12 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, faqSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 Price Guide: US, UK & India — EverythingGTA6",
   description:
     "GTA6's real retail price by region — standard and ultimate editions, sourced to Rockstar's own announcement and regional reporting.",
+  alternates: canonical("/guides/gta6-price"),
 };
 
 const PRICES = [

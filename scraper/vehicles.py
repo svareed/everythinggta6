@@ -17,12 +17,18 @@ name, a thumbnail, a "Based on:" real-world-inspiration field, and
 0-2 numeric rating fields (their labels vary by class -- Road/Off-Road
 Rating for off-road vehicles, Speed/Acceleration for some others, none
 at all for several classes) alongside a link to the vehicle's own detail
-page. This script keeps the card-level data only; it does not visit the
-359 individual detail pages for a further excerpt, both to keep the run
-short and because the card already carries real, distinct data per
-vehicle (name, manufacturer, class, inspiration, ratings, a real
-screenshot) -- a meaningful upgrade over the hand-compiled 31-vehicle
-list this replaces, which had only a name and inspiration each.
+page.
+
+Every vehicle's own detail page (verified by hand 2026-11-21, e.g.
+/gta-6/vehicles/benson) carries a further info-box of real, distinct
+specs GTABase doesn't put on the class-list card: Era, Body Condition,
+Specialist, Seats, Mass/Weight, Drive Train, Gears, and a "How To Get"
+field, plus the same Speed/Acceleration/Asphalt Handling/Off-Road
+Handling/Strength stat bars for every vehicle (the class-list card only
+has these for some classes). `_fetch_detail()` visits that page -- a
+second HTTP request per vehicle (358 of them), gated by
+`robots_allowed()` and `REQUEST_DELAY_SECONDS` like missions.py's own
+per-mission detail fetch, so a full run takes several minutes.
 
 Images are mirrored locally for the same reason missions.py mirrors
 them: GTABase's CDN 403s any image request carrying a foreign Referer
@@ -136,6 +142,68 @@ def _parse_card(card, class_slug: str, seen_urls: set[str]) -> dict[str, Any] | 
     }
 
 
+# Labels GTABase repeats in the detail page's main info-box that are
+# already captured from the class-list card (name/manufacturer/class/
+# based_on) -- skipped here rather than duplicated into `specs`. "Rating"
+# is GTABase's own opaque overall composite score, excluded as unhelpful
+# without their own scoring context.
+SKIP_SPEC_LABELS = {"Vehicle Class", "Manufacturer", "Based on (Real Life)", "Rating"}
+
+
+def _parse_detail_fields(soup: BeautifulSoup) -> tuple[dict[str, float], dict[str, str]]:
+    """Splits every `li.field-entry` on a vehicle detail page into numeric
+    stat-bar ratings (Speed/Acceleration/etc -- identified by the
+    `stats-bar` sibling GTABase renders only for those) and the remaining
+    text specs (Era, Body Condition, Seats, Mass, Drive Train, Gears, How
+    To Get...). Entries with no label (e.g. GTABase's internal
+    `rating-asphalt` composite score) are skipped."""
+    ratings: dict[str, float] = {}
+    specs: dict[str, str] = {}
+    for li in soup.select("li.field-entry"):
+        label_el = li.find(class_="field-label")
+        value_el = li.find(class_="field-value")
+        if not label_el or not value_el:
+            continue
+        label = label_el.get_text(" ", strip=True)
+        value = value_el.get_text(" ", strip=True)
+        if not label or not value:
+            continue
+        if li.find(class_="stats-bar") is not None:
+            try:
+                ratings[label] = float(value)
+            except ValueError:
+                pass
+        elif label not in SKIP_SPEC_LABELS:
+            specs[label] = value
+    return ratings, specs
+
+
+def _fetch_detail(url: str) -> dict[str, Any]:
+    """Visit one vehicle's own GTABase detail page for the specs and
+    ratings the class-list card doesn't carry (or only carries for some
+    classes). Returns an empty dict on any failure, same convention as
+    missions.py's own `_fetch_detail`."""
+    if not robots_allowed(url):
+        print(f"[vehicles] robots.txt disallows {url}; skipping detail fetch.")
+        return {}
+    try:
+        resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=10)
+        resp.raise_for_status()
+    except requests.RequestException as exc:
+        print(f"[vehicles] failed to fetch detail {url}: {exc}")
+        return {}
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+    ratings, specs = _parse_detail_fields(soup)
+
+    detail: dict[str, Any] = {}
+    if ratings:
+        detail["ratings"] = ratings
+    if specs:
+        detail["specs"] = specs
+    return detail
+
+
 def fetch() -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     seen_urls: set[str] = set()
@@ -162,6 +230,14 @@ def fetch() -> list[dict[str, Any]]:
                 added += 1
         print(f"[vehicles] {class_slug}: {len(cards)} card(s) on page, {added} new")
         time.sleep(REQUEST_DELAY_SECONDS)
+
+    for record in records:
+        time.sleep(REQUEST_DELAY_SECONDS)
+        detail = _fetch_detail(record["detail_url"])
+        if detail.get("ratings"):
+            record["ratings"] = detail["ratings"]
+        if detail.get("specs"):
+            record["specs"] = detail["specs"]
 
     return records
 

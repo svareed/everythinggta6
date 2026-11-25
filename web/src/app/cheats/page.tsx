@@ -4,12 +4,13 @@ import Comments from "@/components/Comments";
 import DpadSequence from "@/components/DpadSequence";
 import JsonLd from "@/components/JsonLd";
 import cheats from "@/data/cheats.json";
-import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 Cheat Codes — EverythingGTA6",
   description:
     "GTA6's real cheat codes, cross-checked across launch-day reporting: how to enter them, every confirmed D-pad sequence, and what's still unconfirmed.",
+  alternates: canonical("/cheats"),
 };
 
 type Cheat = { name: string; sequence: string | null; requirement: string; confirmed: boolean };

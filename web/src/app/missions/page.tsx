@@ -3,12 +3,13 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import { getAllMissions } from "@/lib/missions";
-import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 Missions — Every Mission, Chapter by Chapter — EverythingGTA6",
   description:
     "Every GTA6 story and optional mission, grouped by chapter, compiled from GTABase's post-launch mission tracker — real per-mission screenshots where GTABase has them.",
+  alternates: canonical("/missions"),
 };
 
 const CHAPTERS = ["Prologue", "Chapter 1", "Chapter 2", "Chapter 3", "Chapter 4", "Chapter 5"];

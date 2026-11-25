@@ -1,4 +1,7 @@
 import type { MetadataRoute } from "next";
+import { execFileSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
 import { getAllRecords } from "@/lib/sources";
 import { characterSlug, getAllCharacters } from "@/lib/characters";
 import { getAllMissions } from "@/lib/missions";
@@ -6,6 +9,86 @@ import { REGIONS } from "@/lib/maps";
 import { getAllVehicles, vehicleSlug } from "@/lib/vehicles";
 
 const BASE_URL = "https://www.everythinggta6.com";
+
+// A page's real lastmod: the commit date of the file(s) that hold its
+// content, not a single build-time timestamp shared by every page.
+function gitLastModified(...relPaths: string[]): string | undefined {
+  let latest: string | undefined;
+  for (const p of relPaths) {
+    try {
+      const out = execFileSync("git", ["log", "-1", "--format=%cI", "--", p], {
+        encoding: "utf8",
+      }).trim();
+      if (out && (!latest || out > latest)) latest = out;
+    } catch {
+      // git unavailable in this environment -- caller falls back to `now`.
+    }
+  }
+  return latest;
+}
+
+type ChangeFreq = MetadataRoute.Sitemap[number]["changeFrequency"];
+
+const APP_DIR = path.join(process.cwd(), "src/app");
+
+// Finds every static (non-dynamic, non-noindex) page.tsx under src/app, so a
+// new static page is picked up automatically instead of needing a manual
+// entry here. Dynamic ([slug]) routes and /sources/* are handled separately
+// below -- /sources is excluded from the sitemap outright (see comment).
+function discoverStaticPages(): { url: string; file: string }[] {
+  const pages: { url: string; file: string }[] = [];
+
+  function walk(dir: string, url: string) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (!entry.isDirectory() || entry.name.startsWith("[") || entry.name === "sources") continue;
+      const childDir = path.join(dir, entry.name);
+      const childUrl = `${url}/${entry.name}`;
+      const pageFile = path.join(childDir, "page.tsx");
+      if (fs.existsSync(pageFile)) {
+        const content = fs.readFileSync(pageFile, "utf8");
+        if (!/robots:\s*{\s*index:\s*false/.test(content)) {
+          pages.push({ url: childUrl, file: path.relative(process.cwd(), pageFile) });
+        }
+      }
+      walk(childDir, childUrl);
+    }
+  }
+
+  const homeFile = path.join(APP_DIR, "page.tsx");
+  if (fs.existsSync(homeFile)) {
+    pages.push({ url: "/", file: path.relative(process.cwd(), homeFile) });
+  }
+  walk(APP_DIR, "");
+
+  return pages;
+}
+
+// Hand-tuned changeFrequency/priority for specific pages; anything not
+// listed here (including every new static page) gets DEFAULT_TUNING.
+const STATIC_TUNING: Record<string, { changeFrequency: ChangeFreq; priority: number }> = {
+  "/": { changeFrequency: "daily", priority: 1 },
+  "/guides/map-of-leonida": { changeFrequency: "weekly", priority: 0.8 },
+  "/guides/craziest-gta6-stories": { changeFrequency: "weekly", priority: 0.7 },
+  "/guides/gta6-launch-day-discoveries": { changeFrequency: "daily", priority: 0.8 },
+  "/characters": { changeFrequency: "weekly", priority: 0.8 },
+  "/vehicles": { changeFrequency: "weekly", priority: 0.8 },
+  "/missions": { changeFrequency: "weekly", priority: 0.8 },
+  "/cheats": { changeFrequency: "weekly", priority: 0.8 },
+  "/guides/gta6-faq": { changeFrequency: "weekly", priority: 0.8 },
+  "/guides/gta6-price": { changeFrequency: "weekly", priority: 0.7 },
+  "/guides/gta6-budget-and-delays": { changeFrequency: "monthly", priority: 0.6 },
+  "/guides/gta6-radio-stations": { changeFrequency: "monthly", priority: 0.6 },
+  "/guides/gta6-leaks-timeline": { changeFrequency: "monthly", priority: 0.6 },
+  "/guides/gta6-file-size": { changeFrequency: "monthly", priority: 0.5 },
+  "/guides/gta6-confirmed-features": { changeFrequency: "monthly", priority: 0.5 },
+  "/guides/gta6-age-rating": { changeFrequency: "monthly", priority: 0.5 },
+  "/guides/gta6-vs-gta5": { changeFrequency: "monthly", priority: 0.5 },
+  "/guides/gta6-community": { changeFrequency: "monthly", priority: 0.4 },
+};
+const DEFAULT_TUNING: { changeFrequency: ChangeFreq; priority: number } = {
+  changeFrequency: "monthly",
+  priority: 0.5,
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Derived from the data's own timestamps, not wall-clock time: Next's
@@ -17,34 +100,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     records[0]?.scraped_at ?? new Date(0).toISOString()
   );
 
-  const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${BASE_URL}/`, lastModified: now, changeFrequency: "daily", priority: 1 },
-    { url: `${BASE_URL}/guides/map-of-leonida`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE_URL}/guides/craziest-gta6-stories`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${BASE_URL}/guides/gta6-launch-day-discoveries`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
-    { url: `${BASE_URL}/characters`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE_URL}/vehicles`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE_URL}/missions`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE_URL}/cheats`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE_URL}/guides/gta6-faq`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE_URL}/guides/gta6-price`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${BASE_URL}/guides/gta6-budget-and-delays`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE_URL}/guides/gta6-radio-stations`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE_URL}/guides/gta6-leaks-timeline`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${BASE_URL}/guides/gta6-file-size`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${BASE_URL}/guides/gta6-confirmed-features`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${BASE_URL}/guides/gta6-age-rating`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${BASE_URL}/guides/gta6-vs-gta5`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${BASE_URL}/guides/gta6-community`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
-  ];
+  const staticRoutes: MetadataRoute.Sitemap = discoverStaticPages().map((p) => {
+    const tuning = STATIC_TUNING[p.url] ?? DEFAULT_TUNING;
+    return {
+      url: `${BASE_URL}${p.url}`,
+      lastModified: gitLastModified(p.file) ?? now,
+      changeFrequency: tuning.changeFrequency,
+      priority: tuning.priority,
+    };
+  });
   // /sources and /sitemap (plus everything under /sources/*) are marked
   // noindex -- they're thin, scraped-excerpt or pure-navigation pages, not
   // original content -- so they're deliberately left out of sitemap.xml,
   // which should only advertise canonical, indexable URLs.
 
+  const characterLastModified = gitLastModified("src/data/characters.json") ?? now;
   const characterRoutes: MetadataRoute.Sitemap = getAllCharacters().map((c) => ({
     url: `${BASE_URL}/characters/${characterSlug(c.name)}`,
-    lastModified: now,
+    lastModified: characterLastModified,
     changeFrequency: "monthly",
     priority: 0.6,
   }));
@@ -58,9 +131,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     }));
 
+  const mapLastModified = gitLastModified("src/lib/maps.ts") ?? now;
   const mapRoutes: MetadataRoute.Sitemap = REGIONS.map((r) => ({
     url: `${BASE_URL}/maps/${r.slug}`,
-    lastModified: now,
+    lastModified: mapLastModified,
     changeFrequency: "monthly",
     priority: 0.6,
   }));

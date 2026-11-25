@@ -13,6 +13,8 @@ import {
   excerptOf,
 } from "@/lib/sources";
 import Comments from "@/components/Comments";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllRecords().map((r) => ({ slug: itemSlug(r) }));
@@ -33,6 +35,7 @@ export async function generateMetadata({
     title: `${item.title} — EverythingGTA6`,
     description: excerptOf(item, 160),
     robots: { index: false, follow: true },
+    alternates: canonical(`/sources/item/${itemSlug(item)}`),
   };
 }
 
@@ -48,6 +51,14 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
 
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Sources", url: `${SITE_URL}/sources` },
+          { name: cat.label, url: `${SITE_URL}/sources/${cat.id}` },
+          { name: item.title, url: `${SITE_URL}/sources/item/${itemSlug(item)}` },
+        ])}
+      />
       <div className="wrap">
         <div className="guide-head">
           <Link href="/sources" className="back">

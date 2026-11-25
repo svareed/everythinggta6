@@ -3,12 +3,13 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import { REGIONS, OFFICIAL_MAP_SOURCE } from "@/lib/maps";
-import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Map of Leonida — EverythingGTA6",
   description:
     "A region-by-region primer on GTA6's state of Leonida: Vice City, Port Gellhorn, the Keys, and the unconfirmed zones fans were tracking — now matched against Rockstar's own launch-day map.",
+  alternates: canonical("/guides/map-of-leonida"),
 };
 
 export default function MapOfLeonidaGuide() {

@@ -19,6 +19,16 @@
 - The homepage carries `videoGameSchema()` once, for the game itself — don't repeat it on every page.
 - For internal linking, use `src/lib/entity-links.ts` + `<EntityLink type="character|mission|region|vehicle" name="..." />` (`src/components/EntityLink.tsx`) instead of a one-off `someCondition ? <Link>...</Link> : name` in a page component. It renders a real link when the name matches a character/mission/region/vehicle on the site, plain text otherwise. Add a new `EntityType` there (outlets, etc.) as the site grows rather than re-inventing this per page.
 - GTA6's vehicle catalog (`scraper/vehicles.py`, 358 vehicles across 21 GTABase classes, `/vehicles/[slug]`) is scraped the same way as missions: class-list pages carry name/manufacturer/inspiration/ratings/image directly, so no per-vehicle detail-page fetch was needed. Re-run `vehicles.py` if GTABase adds vehicles; it dedupes by detail-page URL automatically.
+- Every page also needs `alternates: canonical("/your-path")` in its metadata, using the `canonical()` helper in `src/lib/seo.ts` — the home page's lives on `src/app/layout.tsx` instead, since home has no metadata export of its own.
+
+## SEO Enforcement (canonical, schema, sitemap)
+
+**Canonical tags and breadcrumb schema are checked automatically on every build — you don't have to remember to re-verify them by hand as pages are added.**
+
+- `web/scripts/check-seo.js` walks every `src/app/**/page.tsx`, and fails the build (non-zero exit) if any page is missing `canonical(` in its metadata or `breadcrumbSchema(` in its JSX. It runs as `npm run prebuild`, which `npm run build` (and therefore every Vercel deploy) triggers automatically. Run `npm run seo:check` to check without building.
+- The checker only verifies presence, not correctness — still eyeball that the canonical path and breadcrumb trail you wrote actually match the page's real URL and position in the site.
+- `web/src/app/sitemap.ts` auto-discovers static pages from the filesystem (`discoverStaticPages()`) instead of a hand-maintained array — a new static page under `src/app/` (excluding `/sources/*`, any `[dynamic]` segment, and anything marked `robots: { index: false }`) is picked up with zero sitemap edits. Its `lastModified` comes from that file's real `git log` commit date, not a shared build-time timestamp. Only touch `STATIC_TUNING` in `sitemap.ts` if a new page needs a non-default `changeFrequency`/`priority` (default: `monthly` / `0.5`).
+- Dynamic per-item routes (characters, missions, maps, vehicles) are still driven directly by their data source in `sitemap.ts` and are unaffected by the static-page discovery change.
 
 ## SEO Scaling
 

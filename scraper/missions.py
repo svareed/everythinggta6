@@ -29,6 +29,7 @@ per mission (136 of them), each still gated by `robots_allowed()` and
 """
 from __future__ import annotations
 
+import copy
 import json
 import re
 import time
@@ -124,6 +125,15 @@ def _fetch_detail(url: str) -> dict[str, Any]:
         detail["playable_as"] = m.group("playable_as").strip()
         detail["story_number"] = int(m.group("number"))
 
+    # "Required for 100%" lives in GTABase's own info-box widget (an
+    # `li.field-entry.required-for-100`, same markup vehicles.py's own
+    # detail fetch uses), not in the opening-sentence prose INTRO_RE parses.
+    required_li = soup.select_one("li.field-entry.required-for-100")
+    if required_li:
+        value_el = required_li.find(class_="field-value")
+        if value_el:
+            detail["required_for_100"] = value_el.get_text(strip=True).lower() == "yes"
+
     # Excerpt: the first real walkthrough paragraph (paragraphs[0] is just
     # GTABase's own intro sentence, already captured above), plus one
     # "Tip:" paragraph if there is one, capped to EXCERPT_CHARS.
@@ -170,7 +180,19 @@ def fetch() -> list[dict[str, Any]]:
         if not h3:
             continue
         title_el = h3.find("span", class_="gtm-title")
-        name = NUMBER_PREFIX_RE.sub("", (title_el or h3).get_text(strip=True))
+        if title_el:
+            name_source = title_el
+        else:
+            # No gtm-title wrapper (current markup, verified 2026-11-25):
+            # the name is bare text in the h3 itself, alongside a
+            # "gtm-badges" span -- e.g. GTABase's new post-launch
+            # "CHAPTER 4 POINT OF NO RETURN" marker -- that get_text()
+            # would otherwise concatenate straight onto the name with no
+            # separator. Strip badge spans from a copy before reading text.
+            name_source = copy.copy(h3)
+            for badge in name_source.select("span.gtm-badges"):
+                badge.decompose()
+        name = NUMBER_PREFIX_RE.sub("", name_source.get_text(strip=True))
         # "OPTIONAL"/"MISSABLE" render as their own badge spans inside the
         # h3 -- items-row--opt on the <a> already flags this, but checking
         # the badges directly is the more precise signal and doesn't rely

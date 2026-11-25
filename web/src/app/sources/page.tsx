@@ -13,12 +13,15 @@ import {
   excerptOf,
 } from "@/lib/sources";
 import Comments from "@/components/Comments";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Sources — EverythingGTA6",
   description:
     "Real GTA6 coverage from around the web, browsable by topic or by outlet, with every excerpt linking back to the original article.",
   robots: { index: false, follow: true },
+  alternates: canonical("/sources"),
 };
 
 export default function SourcesPage() {
@@ -28,6 +31,7 @@ export default function SourcesPage() {
 
   return (
     <main>
+      <JsonLd data={breadcrumbSchema([{ name: "Home", url: SITE_URL }, { name: "Sources", url: `${SITE_URL}/sources` }])} />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/motorcycle-seaplane.jpg)" }}>
           <div className="guide-head">

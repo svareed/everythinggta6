@@ -3,12 +3,13 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import worldStories from "@/data/launch-stories.json";
-import { breadcrumbSchema, articleSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "The Craziest GTA6 Launch Stories — EverythingGTA6",
   description:
     "30 real, individually-sourced stories of how far people, schools, companies and governments went for GTA6's launch — rescheduled exams, paid days off, a marriage truce, a $135,000 job posting, and a lot more.",
+  alternates: canonical("/guides/craziest-gta6-stories"),
 };
 
 const STORIES = [
@@ -175,6 +176,7 @@ export default function CraziestGta6Stories() {
         <p style={{ marginTop: 16 }}>
           More real coverage: <Link href="/sources/news">latest news</Link>,{" "}
           <Link href="/guides/map-of-leonida">map of Leonida</Link>,{" "}
+          <Link href="/guides/gta6-cover-girl">who&apos;s the cover girl?</Link>,{" "}
           <Link href="/guides/gta6-faq">launch &amp; platforms FAQ</Link>, or the{" "}
           <Link href="/sources">full Sources hub</Link>.
         </p>

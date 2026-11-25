@@ -70,10 +70,12 @@ generic records.
 | Module         | What it does                                                     | Needs a key? | Writes             |
 |----------------|-------------------------------------------------------------------|--------------|--------------------|
 | `missions.py`  | Every GTA6 mission from GTABase's mission tracker, by chapter     | No           | `data/missions.json`, `data/images/missions/` |
+| `vehicles.py`  | GTA6's full vehicle catalog from GTABase's vehicle database       | No           | `data/vehicles.json`, `data/images/vehicles/` |
 | `cheats.py`    | GTA6's confirmed cheat codes from GTABoom's cheat-code hub        | No           | `data/cheats.json` |
 
 ```bash
 python missions.py   # -> data/missions.json + mirrored screenshots
+python vehicles.py    # -> data/vehicles.json + mirrored screenshots
 python cheats.py      # -> data/cheats.json
 ```
 
@@ -83,19 +85,25 @@ CDN returns 403 for any image request carrying a foreign `Referer`
 header, so a page on this site linking directly to those URLs would show
 broken images for real visitors even though the URL itself is genuine.
 A plain `requests.get()` sends no Referer at all, so the mirror download
-succeeds. `cheats.py` also returns a short, hand-maintained list of named
-cheats that are confirmed to exist but have no public input code yet
-(sourced from TweakTown/Player.one, flagged `confirmed: false`) -- see
-the module's docstring for why those specific few aren't scraped live.
+succeeds. `vehicles.py` mirrors images the same way, and also visits each
+vehicle's own detail page (a second HTTP request per vehicle, 358 of
+them, same `robots_allowed()` + `REQUEST_DELAY_SECONDS` gating as
+`missions.py`'s per-mission detail fetch) for the specs and ratings its
+class-list card doesn't carry. `cheats.py` also returns a short,
+hand-maintained list of named cheats that are confirmed to exist but
+have no public input code yet (sourced from TweakTown/Player.one,
+flagged `confirmed: false`) -- see the module's docstring for why those
+specific few aren't scraped live.
 
 **Publishing a fresh run to the web app** (same manual-copy pattern the
 rest of this scraper already uses for `web/src/data/sources.json`, see
-below): after running `missions.py` / `cheats.py`, copy their output into
-the Next.js app's data folder and public image folder:
+below): after running `missions.py` / `vehicles.py` / `cheats.py`, copy
+their output into the Next.js app's data folder and public image folder:
 
 ```bash
-cp data/missions.json data/cheats.json ../web/src/data/
+cp data/missions.json data/vehicles.json data/cheats.json ../web/src/data/
 rsync -a data/images/missions/ ../web/public/images/missions/
+rsync -a data/images/vehicles/ ../web/public/images/vehicles/
 ```
 
 ## Setup & running

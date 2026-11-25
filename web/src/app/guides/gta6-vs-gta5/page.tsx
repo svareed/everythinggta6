@@ -2,12 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, articleSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 vs GTA5: Map, Protagonists, Price & Gap — EverythingGTA6",
   description:
     "How GTA6 actually compares to GTA5 — map and setting, protagonist count, price, engine, and the 13-year gap between them, each point sourced.",
+  alternates: canonical("/guides/gta6-vs-gta5"),
 };
 
 const COMPARISONS = [

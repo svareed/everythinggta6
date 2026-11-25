@@ -1,6 +1,10 @@
 export const SITE_URL = "https://www.everythinggta6.com";
 export const SITE_NAME = "EverythingGTA6";
 
+export function canonical(path: string) {
+  return { canonical: `${SITE_URL}${path}` };
+}
+
 export type Crumb = { name: string; url: string };
 
 export function breadcrumbSchema(crumbs: Crumb[]) {

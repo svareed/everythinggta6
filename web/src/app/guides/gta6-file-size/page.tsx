@@ -2,12 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, faqSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 File Size: How Many GB Is the Install? — EverythingGTA6",
   description:
     "Rockstar hasn't officially confirmed GTA6's install size. Here's the ~210GB PS5 figure everyone's citing, where it actually comes from, and why to treat it as an estimate.",
+  alternates: canonical("/guides/gta6-file-size"),
 };
 
 const FAQS = [

@@ -12,6 +12,8 @@ import {
   type CategoryId,
 } from "@/lib/sources";
 import Comments from "@/components/Comments";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return CATEGORIES.map((c) => ({ category: c.id }));
@@ -32,6 +34,7 @@ export async function generateMetadata({
     title: `${cat.label} — EverythingGTA6`,
     description: `Real GTA6 ${cat.label.toLowerCase()} coverage from around the web, with excerpts and links back to each original source.`,
     robots: { index: false, follow: true },
+    alternates: canonical(`/sources/${cat.id}`),
   };
 }
 
@@ -44,6 +47,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
 
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Sources", url: `${SITE_URL}/sources` },
+          { name: cat.label, url: `${SITE_URL}/sources/${cat.id}` },
+        ])}
+      />
       <div className="wrap">
         <div className="guide-head">
           <Link href="/sources" className="back">

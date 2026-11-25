@@ -5,7 +5,7 @@ import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import EntityLink from "@/components/EntityLink";
 import { findMission, getAllMissions } from "@/lib/missions";
-import { breadcrumbSchema, articleSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllMissions()
@@ -23,6 +23,7 @@ export async function generateMetadata({
   return {
     title: `${mission.name} — GTA6 Mission Walkthrough — EverythingGTA6`,
     description: mission.description ?? `${mission.name}, ${mission.chapter} of GTA6.`,
+    alternates: canonical(`/missions/${mission.slug}`),
   };
 }
 
@@ -85,6 +86,13 @@ export default async function MissionPage({ params }: { params: Promise<{ slug: 
               )}
               .
             </p>
+            {mission.required_for_100 !== undefined && (
+              <p>
+                {mission.required_for_100
+                  ? "Required for 100% completion."
+                  : "Not required for 100% completion."}
+              </p>
+            )}
           </div>
         </div>
 

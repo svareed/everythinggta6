@@ -2,12 +2,14 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, articleSchema, SITE_URL } from "@/lib/seo";
+import EntityLink from "@/components/EntityLink";
+import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 Launch Day: What Players Already Found — EverythingGTA6",
   description:
-    "Bigfoot in the swamp, a secret stashed in a radio tower nest, an unmarketed character gone viral, and the funniest physics glitches — every real, individually-sourced thing players found in GTA6's first hours.",
+    "Bigfoot in the swamp, a secret stashed in a radio tower nest, an unmarketed character gone viral, a solved three-year trailer mystery, and the funniest physics glitches — every real, individually-sourced thing players found in GTA6's first hours.",
+  alternates: canonical("/guides/gta6-launch-day-discoveries"),
 };
 
 export default function LaunchDayDiscoveriesGuide() {
@@ -23,7 +25,7 @@ export default function LaunchDayDiscoveriesGuide() {
         data={articleSchema({
           headline: "What Players Already Found in GTA6",
           description:
-            "Bigfoot in the swamp, a secret stashed in a radio tower nest, an unmarketed character gone viral, and the funniest physics glitches — every real, individually-sourced thing players found in GTA6's first hours.",
+            "Bigfoot in the swamp, a secret stashed in a radio tower nest, an unmarketed character gone viral, a solved three-year trailer mystery, and the funniest physics glitches — every real, individually-sourced thing players found in GTA6's first hours.",
           url: `${SITE_URL}/guides/gta6-launch-day-discoveries`,
           datePublished: "2026-11-19",
         })}
@@ -41,7 +43,7 @@ export default function LaunchDayDiscoveriesGuide() {
             <h1>What Players Already Found in GTA6</h1>
             <p>
               GTA6 shipped on November 19, 2026, and within hours the swamps, radio towers and
-              side missions of Leonida were already giving up secrets. Twelve real finds so far,
+              side missions of Leonida were already giving up secrets. Thirteen real finds so far,
               each with a working link back to where it was first reported — nothing here is
               invented.
             </p>
@@ -409,6 +411,28 @@ export default function LaunchDayDiscoveriesGuide() {
               Source: ComicBook.com &rarr;
             </a>
           </div>
+
+          <div className="coord">
+            <span className="xy">FIND 13</span>
+            <h3>&quot;Bikini Girl&quot; — a Three-Year Trailer Mystery, Solved</h3>
+            <span className="status">● Mystery Solved</span>
+            <p>
+              A sunglasses-wearing woman glimpsed for two seconds in Rockstar&apos;s December 2023
+              debut trailer had players debating for three years whether she was{" "}
+              <EntityLink type="character" name="Lucia Caminos" /> in different cosmetics. Reddit
+              user u/bubzbeex located her days after launch: she&apos;s an unnamed background NPC
+              at a Vice City yacht party during Chapter 1&apos;s &quot;Day Release&quot; mission,
+              wearing sunglasses just like in the trailer — and not Lucia at all.
+            </p>
+            <a
+              className="cite"
+              href="https://tech.yahoo.com/gaming/articles/gta-vi-bikini-girl-mystery-184347446.html"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              Source: Yahoo Tech &rarr;
+            </a>
+          </div>
         </div>
 
         <div className="guide-head" style={{ paddingBlock: "32px 8px" }}>
@@ -447,12 +471,17 @@ export default function LaunchDayDiscoveriesGuide() {
           ComicBook.com, with no individual player credited — same single-outlet caveat as above.
           We checked several other &quot;discoveries&quot; circulating online (a Pennywise sighting,
           a UFO over Breakwater Quarry) and couldn&apos;t verify any of them as launch-day finds
-          rather than years-old pre-launch leak rumors, so they&apos;re left out.
+          rather than years-old pre-launch leak rumors, so they&apos;re left out. The Bikini Girl
+          find (13) is credited by both Rockstar Intel and Uniladtech to Reddit user u/bubzbeex,
+          and is a separate mystery from the still-unconfirmed{" "}
+          <Link href="/guides/gta6-cover-girl">GTA6 cover art model</Link> — one&apos;s an in-game
+          NPC, the other is a marketing image question.
         </p>
 
         <p style={{ marginTop: 16 }}>
           More real coverage: <Link href="/sources/hidden-gems">trailer easter eggs</Link>,{" "}
           <Link href="/guides/craziest-gta6-stories">craziest launch stories</Link>,{" "}
+          <Link href="/guides/gta6-cover-girl">who&apos;s the cover girl?</Link>,{" "}
           <Link href="/guides/gta6-leaks-timeline">the leaks timeline</Link>, or the{" "}
           <Link href="/sources">full Sources hub</Link>.
         </p>

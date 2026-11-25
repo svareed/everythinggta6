@@ -3,12 +3,13 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import RadioLeonida from "@/components/RadioLeonida";
-import { breadcrumbSchema, articleSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 Radio Stations: Every Confirmed DJ — EverythingGTA6",
   description:
     "The six Rockstar-confirmed GTA6 radio stations and their real-world DJs — Bad Bunny, Morgan Wallen, Lana Del Rey, Burna Boy, Slayer's Kerry King and Tom Araya, Robyn, and more.",
+  alternates: canonical("/guides/gta6-radio-stations"),
 };
 
 const STATIONS = [

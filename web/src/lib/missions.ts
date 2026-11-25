@@ -14,6 +14,7 @@ export type Mission = {
   playable_as?: string;
   story_number?: number;
   description?: string;
+  required_for_100?: boolean;
 };
 
 const missions = rawMissions as Mission[];

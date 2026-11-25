@@ -2,12 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, faqSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 Age Rating: ESRB, PEGI & What's Actually In It — EverythingGTA6",
   description:
     "GTA6 is rated M (Mature 17+) by the ESRB and 18 by PEGI. Here's what's actually confirmed about the content behind that rating, and what's still just reported.",
+  alternates: canonical("/guides/gta6-age-rating"),
 };
 
 const FAQS = [

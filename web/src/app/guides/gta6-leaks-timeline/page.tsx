@@ -2,12 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, articleSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "The GTA6 Leaks Timeline: What Was True — EverythingGTA6",
   description:
     "Every major GTA6 leak, in order, from the September 2022 footage breach to Cyberleek's pre-launch Xbox build — and what each one actually turned out to get right.",
+  alternates: canonical("/guides/gta6-leaks-timeline"),
 };
 
 const LEAKS = [

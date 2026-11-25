@@ -2,12 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, faqSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 Confirmed Features: Cameos, Weapons, Animals & More — EverythingGTA6",
   description:
     "Is Franklin, Michael, or Tommy Vercetti in GTA6? Can you make real money? Is there a twerk button? Quick, honest answers to the odd specific questions people keep searching.",
+  alternates: canonical("/guides/gta6-confirmed-features"),
 };
 
 const FAQS = [

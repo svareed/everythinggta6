@@ -7,11 +7,14 @@ import {
   outletSlug,
   itemSlug,
 } from "@/lib/sources";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Sitemap — EverythingGTA6",
   description: "Every page on the site, grouped by section, with a link to the machine-readable XML sitemap.",
   robots: { index: false, follow: true },
+  alternates: canonical("/sitemap"),
 };
 
 export default function VisualSitemapPage() {
@@ -19,6 +22,7 @@ export default function VisualSitemapPage() {
 
   return (
     <main>
+      <JsonLd data={breadcrumbSchema([{ name: "Home", url: SITE_URL }, { name: "Sitemap", url: `${SITE_URL}/sitemap` }])} />
       <div className="wrap">
         <div className="guide-head">
           <Link href="/" className="back">

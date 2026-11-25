@@ -5,7 +5,7 @@
     "requirement": "Finish the main story",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.235882+00:00"
+    "scraped_at": "2026-11-24T19:28:04.346325+00:00"
   },
   {
     "name": "Body Armor",
@@ -13,7 +13,7 @@
     "requirement": "Finish the main story and complete 100 workouts",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.236015+00:00"
+    "scraped_at": "2026-11-24T19:28:04.346464+00:00"
   },
   {
     "name": "Cataclysm",
@@ -21,7 +21,7 @@
     "requirement": "Finish the main story and discover Martha’s Vamos in the Progress menu",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.236117+00:00"
+    "scraped_at": "2026-11-24T19:28:04.346569+00:00"
   },
   {
     "name": "Cycle Weather",
@@ -29,7 +29,15 @@
     "requirement": "Finish the main story",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.236205+00:00"
+    "scraped_at": "2026-11-24T19:28:04.346659+00:00"
+  },
+  {
+    "name": "Dark Mirror",
+    "sequence": "Down, Down, Up, Right, Right, Up, Left, Left, Right, Left",
+    "requirement": "Finish the main story and earn $500,000 from selling vehicles",
+    "confirmed": true,
+    "source_url": "https://www.gtaboom.com/gta-6-cheats",
+    "scraped_at": "2026-11-24T19:28:04.346756+00:00"
   },
   {
     "name": "Dollhouse",
@@ -37,7 +45,7 @@
     "requirement": "Finish the main story and spend eight hours with your partner",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.236300+00:00"
+    "scraped_at": "2026-11-24T19:28:04.346853+00:00"
   },
   {
     "name": "Drunk",
@@ -45,7 +53,7 @@
     "requirement": "Finish the main story and spend $2,500 on alcohol",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.236397+00:00"
+    "scraped_at": "2026-11-24T19:28:04.346947+00:00"
   },
   {
     "name": "Exploding Balls",
@@ -53,7 +61,7 @@
     "requirement": "Finish the main story and hit 20 enemies with explosive damage",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.236487+00:00"
+    "scraped_at": "2026-11-24T19:28:04.347036+00:00"
   },
   {
     "name": "Faded Glory",
@@ -61,7 +69,7 @@
     "requirement": "Finish the main story and rob 50 stores with your partner",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.236585+00:00"
+    "scraped_at": "2026-11-24T19:28:04.347129+00:00"
   },
   {
     "name": "Get $250,000",
@@ -69,7 +77,7 @@
     "requirement": "Finish the main story",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.236671+00:00"
+    "scraped_at": "2026-11-24T19:28:04.347216+00:00"
   },
   {
     "name": "Infinite Ammo",
@@ -77,7 +85,7 @@
     "requirement": "Finish the main story and earn 25 silver-or-better medals at shooting ranges",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.236761+00:00"
+    "scraped_at": "2026-11-24T19:28:04.347310+00:00"
   },
   {
     "name": "Max Ammo",
@@ -85,7 +93,15 @@
     "requirement": "Finish the main story and earn 25 bronze-or-better medals at shooting ranges",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.236858+00:00"
+    "scraped_at": "2026-11-24T19:28:04.347400+00:00"
+  },
+  {
+    "name": "Move Time Forward",
+    "sequence": "Down, Right, Up, Down, Right, Up, Up",
+    "requirement": "Finish the main story and collect 10 watches",
+    "confirmed": true,
+    "source_url": "https://www.gtaboom.com/gta-6-cheats",
+    "scraped_at": "2026-11-24T19:28:04.347482+00:00"
   },
   {
     "name": "No Reload",
@@ -93,7 +109,15 @@
     "requirement": "Finish the main story and earn 25 gold medals at shooting ranges",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.236951+00:00"
+    "scraped_at": "2026-11-24T19:28:04.347573+00:00"
+  },
+  {
+    "name": "Pinhole",
+    "sequence": "Down, Down, Up, Right, Right, Up, Left, Left, Up, Down",
+    "requirement": "Finish the main story and complete 25 gang operations with your partner",
+    "confirmed": true,
+    "source_url": "https://www.gtaboom.com/gta-6-cheats",
+    "scraped_at": "2026-11-24T19:28:04.347663+00:00"
   },
   {
     "name": "Raise Heat Level",
@@ -101,7 +125,7 @@
     "requirement": "Finish the main story and escape a three-star wanted level 25 times",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.237032+00:00"
+    "scraped_at": "2026-11-24T19:28:04.347749+00:00"
   },
   {
     "name": "Raise Wanted Level",
@@ -109,7 +133,7 @@
     "requirement": "Finish the main story and escape a three-star wanted level 50 times",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.237113+00:00"
+    "scraped_at": "2026-11-24T19:28:04.347832+00:00"
   },
   {
     "name": "Spawn HVY Bulldozer",
@@ -117,7 +141,7 @@
     "requirement": "Finish the main story and discover the HVY Bulldozer in the Progress menu",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.237196+00:00"
+    "scraped_at": "2026-11-24T19:28:04.347917+00:00"
   },
   {
     "name": "Spawn Maibatsu Boomazoom",
@@ -125,7 +149,7 @@
     "requirement": "Finish the main story and finish five shopping challenges",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.237280+00:00"
+    "scraped_at": "2026-11-24T19:28:04.348002+00:00"
   },
   {
     "name": "Spawn MTL Pumper",
@@ -133,7 +157,7 @@
     "requirement": "Finish the main story and discover the MTL Pumper in the Progress menu",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.237365+00:00"
+    "scraped_at": "2026-11-24T19:28:04.348085+00:00"
   },
   {
     "name": "Unlimited Focus",
@@ -141,7 +165,7 @@
     "requirement": "Finish the main story",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.237454+00:00"
+    "scraped_at": "2026-11-24T19:28:04.348175+00:00"
   },
   {
     "name": "Vehicle Force",
@@ -149,7 +173,15 @@
     "requirement": "Finish the main story and kill 25 enemies with a vehicle",
     "confirmed": true,
     "source_url": "https://www.gtaboom.com/gta-6-cheats",
-    "scraped_at": "2026-11-20T18:58:31.237541+00:00"
+    "scraped_at": "2026-11-24T19:28:04.348263+00:00"
+  },
+  {
+    "name": "Videotape",
+    "sequence": "Down, Down, Up, Right, Right, Up, Left, Left, Right, Down",
+    "requirement": "Finish the main story and complete 50 activities with your partner",
+    "confirmed": true,
+    "source_url": "https://www.gtaboom.com/gta-6-cheats",
+    "scraped_at": "2026-11-24T19:28:04.348354+00:00"
   },
   {
     "name": "Spawn Hauners Rhino Tank",
@@ -157,7 +189,7 @@
     "requirement": "Finish the main story, complete all survival challenges — input code not yet public",
     "confirmed": false,
     "source_url": "https://www.tweaktown.com/rss/click/news/114769/?c=news-mf",
-    "scraped_at": "2026-11-20T18:58:29.926995+00:00"
+    "scraped_at": "2026-11-24T19:28:02.815579+00:00"
   },
   {
     "name": "Inflatable Flamingo",
@@ -165,7 +197,7 @@
     "requirement": "Destroy 50 \"cocaine flamingos\" — input code not yet public",
     "confirmed": false,
     "source_url": "https://www.tweaktown.com/rss/click/news/114769/?c=news-mf",
-    "scraped_at": "2026-11-20T18:58:29.927142+00:00"
+    "scraped_at": "2026-11-24T19:28:02.815776+00:00"
   },
   {
     "name": "Golden Hour (screen filter)",
@@ -173,6 +205,6 @@
     "requirement": "Spend 4 hours holding hands with your partner — input code not yet public",
     "confirmed": false,
     "source_url": "https://www.tweaktown.com/rss/click/news/114769/?c=news-mf",
-    "scraped_at": "2026-11-20T18:58:29.927144+00:00"
+    "scraped_at": "2026-11-24T19:28:02.815785+00:00"
   }
 ]

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import { findVehicle, getAllVehicles, vehicleSlug } from "@/lib/vehicles";
-import { breadcrumbSchema, articleSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllVehicles().map((v) => ({ slug: vehicleSlug(v) }));
@@ -22,6 +22,7 @@ export async function generateMetadata({
     description: vehicle.based_on
       ? `${vehicle.name}, modeled after ${vehicle.based_on} — a GTA6 ${vehicle.class.toLowerCase()} vehicle.`
       : `${vehicle.name}, a GTA6 ${vehicle.class.toLowerCase()} vehicle.`,
+    alternates: canonical(`/vehicles/${vehicleSlug(vehicle)}`),
   };
 }
 
@@ -88,6 +89,22 @@ export default async function VehiclePage({ params }: { params: Promise<{ slug: 
                 <div className="coord" key={label}>
                   <span className="xy">{label.toUpperCase()}</span>
                   <h3 style={{ fontSize: 22 }}>{value}</h3>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {vehicle.specs && Object.keys(vehicle.specs).length > 0 && (
+          <>
+            <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+              <h2 style={{ fontSize: 22, margin: 0 }}>Specs</h2>
+            </div>
+            <div className="coords">
+              {Object.entries(vehicle.specs).map(([label, value]) => (
+                <div className="coord" key={label}>
+                  <span className="xy">{label.toUpperCase()}</span>
+                  <h3 style={{ fontSize: 16 }}>{value}</h3>
                 </div>
               ))}
             </div>

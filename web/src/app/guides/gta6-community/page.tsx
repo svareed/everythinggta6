@@ -2,12 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Where to Find the GTA6 Community: Reddit & Discord — EverythingGTA6",
   description:
     "Where real GTA6 discussion actually happens — the main subreddit, and Rockstar's own official Discord server with a dedicated GTA6 channel.",
+  alternates: canonical("/guides/gta6-community"),
 };
 
 export default function Gta6CommunityGuide() {

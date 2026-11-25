@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import { findRegion, REGIONS, OFFICIAL_MAP_IMG, OFFICIAL_MAP_SOURCE } from "@/lib/maps";
-import { breadcrumbSchema, articleSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return REGIONS.map((r) => ({ slug: r.slug }));
@@ -20,6 +20,7 @@ export async function generateMetadata({
   return {
     title: `${region.name} — Map of Leonida — EverythingGTA6`,
     description: region.body,
+    alternates: canonical(`/maps/${region.slug}`),
   };
 }
 

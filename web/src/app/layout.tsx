@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Anton, Inter, JetBrains_Mono, Source_Serif_4 } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import { canonical } from "@/lib/seo";
 import "./globals.css";
 
 const anton = Anton({ variable: "--font-anton", weight: "400", subsets: ["latin"] });
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   title: "EverythingGTA6 — The GTA6 Hub",
   description:
     "News, reviews, characters, map, vehicles and trailer breakdowns for Grand Theft Auto VI — out now on PS5 and Xbox Series X|S.",
+  alternates: canonical("/"),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

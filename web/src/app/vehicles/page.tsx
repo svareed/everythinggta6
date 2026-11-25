@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import { getAllVehicles, getVehicleClasses, vehicleSlug } from "@/lib/vehicles";
-import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
 
 const vehicles = getAllVehicles();
 const total = vehicles.length;
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: `GTA6 Vehicles: All ${total}, by Class — EverythingGTA6`,
   description:
     "Every named GTA6 vehicle GTABase has catalogued so far, grouped by class, with real-world inspirations, ratings, and screenshots where confirmed.",
+  alternates: canonical("/vehicles"),
 };
 
 export default function VehiclesPage() {

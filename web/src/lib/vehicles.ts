@@ -6,6 +6,7 @@ export type Vehicle = {
   class: string;
   based_on: string | null;
   ratings: Record<string, number> | null;
+  specs?: Record<string, string>;
   img: string | null;
   detail_url: string;
   source_url: string;

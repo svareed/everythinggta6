@@ -12,6 +12,8 @@ import {
   excerptOf,
 } from "@/lib/sources";
 import Comments from "@/components/Comments";
+import JsonLd from "@/components/JsonLd";
+import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllOutlets().map((o) => ({ outlet: outletSlug(o) }));
@@ -32,6 +34,7 @@ export async function generateMetadata({
     title: `${outlet} — EverythingGTA6 Sources`,
     description: `Every GTA6 excerpt collected from ${outlet}, with links back to the original articles.`,
     robots: { index: false, follow: true },
+    alternates: canonical(`/sources/outlet/${outletSlug(outlet)}`),
   };
 }
 
@@ -43,6 +46,13 @@ export default async function OutletPage({ params }: { params: Promise<{ outlet:
 
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", url: SITE_URL },
+          { name: "Sources", url: `${SITE_URL}/sources` },
+          { name: outlet, url: `${SITE_URL}/sources/outlet/${outletSlug(outlet)}` },
+        ])}
+      />
       <div className="wrap">
         <div className="guide-head">
           <Link href="/sources" className="back">
