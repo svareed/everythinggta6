@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import { findRegion, REGIONS, OFFICIAL_MAP_IMG, OFFICIAL_MAP_SOURCE } from "@/lib/maps";
-import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return REGIONS.map((r) => ({ slug: r.slug }));
@@ -31,6 +31,18 @@ export default async function RegionPage({ params }: { params: Promise<{ slug: s
   const heroImg = region.onOfficialMap ? OFFICIAL_MAP_IMG : region.img ? `/images/trailer-stills/${region.img}.jpg` : undefined;
   const others = REGIONS.filter((r) => r.slug !== region.slug);
 
+  const faqs = [
+    {
+      q: `Is ${region.name} confirmed on GTA6's official map?`,
+      a: region.onOfficialMap
+        ? `Yes — ${region.name} appears on the official Leonida map Rockstar released on launch day.`
+        : `Not on the official map art Rockstar released. Status: ${region.status}.`,
+    },
+    ...(region.getThere
+      ? [{ q: `How do you get to ${region.name} in GTA6?`, a: region.getThere }]
+      : []),
+  ];
+
   return (
     <main>
       <JsonLd
@@ -48,6 +60,7 @@ export default async function RegionPage({ params }: { params: Promise<{ slug: s
           image: heroImg ? `${SITE_URL}${heroImg}` : undefined,
         })}
       />
+      <JsonLd data={faqSchema(faqs.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div className="guide-hero" style={heroImg ? { backgroundImage: `url(${heroImg})` } : undefined}>
           <div className="guide-head">
@@ -83,6 +96,18 @@ export default async function RegionPage({ params }: { params: Promise<{ slug: s
             . Click the map image above for the full state of Leonida.
           </p>
         )}
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {faqs.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </div>
 
         <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
           <h2 style={{ fontSize: 22, margin: 0 }}>Rest of Leonida</h2>

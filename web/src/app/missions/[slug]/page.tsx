@@ -5,7 +5,7 @@ import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import EntityLink from "@/components/EntityLink";
 import { findMission, getAllMissions } from "@/lib/missions";
-import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllMissions()
@@ -35,6 +35,27 @@ export default async function MissionPage({ params }: { params: Promise<{ slug: 
 
   const metaDescription = mission.description ?? `${mission.name}, ${mission.chapter} of GTA6.`;
 
+  const faqs = [
+    ...(mission.playable_as
+      ? [{ q: `Who do you play as in ${mission.name}?`, a: `You play as ${mission.playable_as} in ${mission.name}.` }]
+      : []),
+    ...(mission.given_by
+      ? [{ q: `Who gives you the ${mission.name} mission?`, a: `${mission.given_by} gives you ${mission.name}.` }]
+      : []),
+    {
+      q: `Is ${mission.name} a main story mission or a side mission?`,
+      a: mission.optional
+        ? `${mission.name} is an optional side mission.`
+        : `${mission.name} is a main story mission.`,
+    },
+    {
+      q: `Is ${mission.name} required for 100% completion in GTA6?`,
+      a: mission.required_for_100
+        ? `Yes, ${mission.name} is required for 100% completion.`
+        : `No, ${mission.name} is not required for 100% completion.`,
+    },
+  ];
+
   return (
     <main>
       <JsonLd
@@ -53,6 +74,7 @@ export default async function MissionPage({ params }: { params: Promise<{ slug: 
           dateModified: mission.scraped_at,
         })}
       />
+      <JsonLd data={faqSchema(faqs.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div
           className={mission.img ? "guide-hero" : undefined}
@@ -127,6 +149,18 @@ export default async function MissionPage({ params }: { params: Promise<{ slug: 
           short summary of the opening beats and any tip GTABase calls out — the full
           step-by-step walkthrough stays on GTABase&apos;s own page, linked above.
         </p>
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {faqs.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </div>
 
         <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
           <h2 style={{ fontSize: 22, margin: 0 }}>Rest of {mission.chapter}</h2>

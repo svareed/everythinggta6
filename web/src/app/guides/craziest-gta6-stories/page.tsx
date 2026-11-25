@@ -3,7 +3,22 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import worldStories from "@/data/launch-stories.json";
-import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
+
+const FAQS = [
+  {
+    q: "Did a company really give employees a day off for GTA6's launch?",
+    a: "Yes — Logitech gave all 7,000 of its employees a paid day off specifically to play the game on launch day, and interior design firm Inday by Chezkart declared it an official company holiday in India.",
+  },
+  {
+    q: "How much UK sick leave was expected on GTA6's launch day?",
+    a: "An estimated 900,000 UK workers could call in sick for launch day, per IBTimes UK.",
+  },
+  {
+    q: "Was there really a paid job to study GTA6's economy?",
+    a: "Yes — prediction-market company Kalshi posted a 'GTA6 researcher' job paying up to $135,000 to stream the entire game and study how its in-game money works.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "The Craziest GTA6 Launch Stories — EverythingGTA6",
@@ -69,6 +84,7 @@ export default function CraziestGta6Stories() {
           url: `${SITE_URL}/guides/craziest-gta6-stories`,
         })}
       />
+      <JsonLd data={faqSchema(FAQS.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/bar-standoff.jpg)" }}>
           <div className="guide-head">
@@ -141,6 +157,18 @@ export default function CraziestGta6Stories() {
               >
                 Source: {s.source_name} &rarr;
               </a>
+            </div>
+          ))}
+        </div>
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {FAQS.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
             </div>
           ))}
         </div>

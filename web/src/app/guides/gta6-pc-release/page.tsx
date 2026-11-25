@@ -2,7 +2,22 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
+
+const FAQS = [
+  {
+    q: "Is GTA6 confirmed for PC?",
+    a: "Not yet — Rockstar has never announced a PC version, release window, storefront, or system requirements.",
+  },
+  {
+    q: "When will GTA6 release on PC?",
+    a: "No official date. GamesBeat reported, citing four industry sources, that Rockstar is targeting Q1 2027 — that's reporting, not a Rockstar announcement.",
+  },
+  {
+    q: "How long did GTA5 take to arrive on PC?",
+    a: "About 19 months — GTA5 launched on consoles September 17, 2013, and its PC version arrived April 14, 2015.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "GTA6 PC Release Date: What's Confirmed and What's Rumored — EverythingGTA6",
@@ -34,6 +49,7 @@ export default function Gta6PcReleaseGuide() {
           url: `${SITE_URL}/guides/gta6-pc-release`,
         })}
       />
+      <JsonLd data={faqSchema(FAQS.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/skyscraper-climb.jpg)" }}>
           <div className="guide-head">
@@ -83,6 +99,18 @@ export default function Gta6PcReleaseGuide() {
           not slower. That&apos;s a real comparison, not a promise — Rockstar hasn&apos;t confirmed
           either timeline moves the same way twice.
         </p>
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {FAQS.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </div>
 
         <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 20 }}>
           Platform confirmation per{" "}

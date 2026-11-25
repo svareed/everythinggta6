@@ -3,7 +3,22 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import { characterSlug } from "@/lib/characters";
-import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
+
+const FAQS = [
+  {
+    q: "Who voices Jason Duval in GTA6?",
+    a: "Dylan Rourke, confirmed via Rockstar's own launch-day credits.",
+  },
+  {
+    q: "Who voices Lucia Caminos in GTA6?",
+    a: "Manni L. Perez is widely reported as the performer, reinforced by a Best Performance nomination at The Game Awards 2026 tied to GTA6 — though Rockstar hasn't issued a standalone confirmation the way it did for Rourke.",
+  },
+  {
+    q: "Has the rest of the GTA6 cast's actors been revealed?",
+    a: "Not as of this writing — no other cast member's performer has surfaced in reputable reporting.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Who Plays Jason and Lucia in GTA6? The Voice Cast, Explained — EverythingGTA6",
@@ -29,6 +44,7 @@ export default function Gta6VoiceCastGuide() {
           url: `${SITE_URL}/guides/gta6-voice-cast`,
         })}
       />
+      <JsonLd data={faqSchema(FAQS.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/balcony-sunset.jpg)" }}>
           <div className="guide-head">
@@ -85,6 +101,18 @@ export default function Gta6VoiceCastGuide() {
           full <Link href="/characters">cast page</Link> for everyone Rockstar has confirmed by
           character name, voice credits or not.
         </p>
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {FAQS.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </div>
 
         <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 20 }}>
           Dylan Rourke&apos;s launch-day credit per{" "}

@@ -3,7 +3,22 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import RadioLeonida from "@/components/RadioLeonida";
-import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
+
+const FAQS = [
+  {
+    q: "How many radio stations has Rockstar confirmed for GTA6?",
+    a: "Six so far. Rockstar has said more exist, including talk and classic rock, but hasn't detailed them yet.",
+  },
+  {
+    q: "Who are the real-world DJs on GTA6's radio stations?",
+    a: "Bad Bunny and RaiNao on Cocoteo FM, Morgan Wallen and Lana Del Rey on Back Country Radio, Burna Boy on AfroBank FM, Slayer's Kerry King and Tom Araya on The Chamber 106.6, Robyn on Flash FM, and Trick Daddy and Trina on Dirty South Classics.",
+  },
+  {
+    q: "Are the 20+ station lists circulating online accurate?",
+    a: "No — those come from fan aggregators, not Rockstar press materials. Only six stations are actually Rockstar-confirmed.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "GTA6 Radio Stations: Every Confirmed DJ — EverythingGTA6",
@@ -38,6 +53,7 @@ export default function Gta6RadioStations() {
           url: `${SITE_URL}/guides/gta6-radio-stations`,
         })}
       />
+      <JsonLd data={faqSchema(FAQS.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/nightclub-crowd.jpg)" }}>
           <div className="guide-head">
@@ -68,6 +84,18 @@ export default function Gta6RadioStations() {
           <h2 style={{ fontSize: 22, margin: 0 }}>Can&apos;t wait for the game to load Leonida radio?</h2>
         </div>
         <RadioLeonida />
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {FAQS.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </div>
 
         <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 20 }}>
           Station and DJ details per{" "}

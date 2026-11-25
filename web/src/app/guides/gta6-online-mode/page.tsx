@@ -2,7 +2,22 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
+
+const FAQS = [
+  {
+    q: "Does GTA6 have online multiplayer at launch?",
+    a: "No — GTA6 launched November 19, 2026 as a singleplayer-only experience.",
+  },
+  {
+    q: "Is a GTA6 Online mode coming?",
+    a: "Nothing official. Bloomberg's Jason Schreier reported an online component planned for 2027, and Twitch CEO Dan Clancy suggested a similar timeframe — neither is a Rockstar statement.",
+  },
+  {
+    q: "Is the original GTA Online still supported?",
+    a: "Yes — Take-Two has said it will continue supporting the existing GTA Online, the separate multiplayer game built on GTA5.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Does GTA6 Have an Online Mode? What's Confirmed So Far — EverythingGTA6",
@@ -28,6 +43,7 @@ export default function Gta6OnlineModeGuide() {
           url: `${SITE_URL}/guides/gta6-online-mode`,
         })}
       />
+      <JsonLd data={faqSchema(FAQS.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/red-shootout.jpg)" }}>
           <div className="guide-head">
@@ -75,6 +91,18 @@ export default function Gta6OnlineModeGuide() {
           than the 2027 reporting, it would look very different — a short gap, not a year-plus wait.
           Rockstar hasn&apos;t said which pattern GTA6 follows; this is a comparison, not a prediction.
         </p>
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {FAQS.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </div>
 
         <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 20 }}>
           Singleplayer framing and Take-Two&apos;s continued-support statement per{" "}

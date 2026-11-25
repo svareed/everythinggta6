@@ -4,7 +4,8 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import { characterSlug, findCharacter, getAllCharacters, imageFor, voiceActorFor } from "@/lib/characters";
-import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
+import { getAllMissions } from "@/lib/missions";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllCharacters().map((c) => ({ slug: characterSlug(c.name) }));
@@ -30,6 +31,30 @@ export default async function CharacterPage({ params }: { params: Promise<{ slug
 
   const img = imageFor(character);
   const others = getAllCharacters().filter((c) => c.name !== character.name);
+  const slug = characterSlug(character.name);
+  const missionsAs = getAllMissions().filter((m) => m.playable_as?.includes(character.name));
+  const actor = voiceActorFor(character.name);
+
+  const faqs = [
+    {
+      q: `Who plays ${character.name} in GTA6?`,
+      a: actor
+        ? `${character.name} is voiced/performed by ${actor}.`
+        : `Not publicly confirmed as of this writing — see the full voice cast breakdown for what is and isn't confirmed.`,
+    },
+    {
+      q: `Is ${character.name} a protagonist or part of the supporting cast in GTA6?`,
+      a: `${character.name} is a GTA6 ${character.role.toLowerCase()} character.`,
+    },
+    ...(missionsAs.length > 0
+      ? [
+          {
+            q: `How many GTA6 missions do you play as ${character.name}?`,
+            a: `${character.name} is a playable character in ${missionsAs.length} of GTA6's 135 missions.`,
+          },
+        ]
+      : []),
+  ];
 
   return (
     <main>
@@ -37,9 +62,18 @@ export default async function CharacterPage({ params }: { params: Promise<{ slug
         data={breadcrumbSchema([
           { name: "Home", url: SITE_URL },
           { name: "Characters", url: `${SITE_URL}/characters` },
-          { name: character.name, url: `${SITE_URL}/characters/${characterSlug(character.name)}` },
+          { name: character.name, url: `${SITE_URL}/characters/${slug}` },
         ])}
       />
+      <JsonLd
+        data={articleSchema({
+          headline: character.name,
+          description: character.body,
+          url: `${SITE_URL}/characters/${slug}`,
+          image: img.src.startsWith("http") ? img.src : `${SITE_URL}${img.src}`,
+        })}
+      />
+      <JsonLd data={faqSchema(faqs.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: `url(${img.src})` }}>
           <div className="guide-head">
@@ -99,6 +133,40 @@ export default async function CharacterPage({ params }: { params: Promise<{ slug
             </>
           )}
         </p>
+
+        {missionsAs.length > 0 && (
+          <>
+            <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+              <h2 style={{ fontSize: 22, margin: 0 }}>
+                Missions You Play As {character.name} ({missionsAs.length})
+              </h2>
+            </div>
+            <div className="coords">
+              {missionsAs.map((m, i) =>
+                m.slug ? (
+                  <div className="coord" key={`${m.name}-${i}`}>
+                    <span className="xy">{m.chapter.toUpperCase()}</span>
+                    <h3 style={{ fontSize: 16 }}>
+                      <Link href={`/missions/${m.slug}`}>{m.name}</Link>
+                    </h3>
+                  </div>
+                ) : null
+              )}
+            </div>
+          </>
+        )}
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {faqs.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </div>
 
         <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
           <h2 style={{ fontSize: 22, margin: 0 }}>Rest of the Cast</h2>

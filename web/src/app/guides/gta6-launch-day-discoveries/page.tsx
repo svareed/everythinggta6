@@ -3,7 +3,22 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import EntityLink from "@/components/EntityLink";
-import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
+
+const FAQS = [
+  {
+    q: "Is Bigfoot really in GTA6?",
+    a: "Yes — a Florida-flavored Bigfoot ('Skunk Ape') encounter south of Grassrivers was independently confirmed by three outlets plus the original Reddit post within hours of launch.",
+  },
+  {
+    q: "Did players find an island just for dogs in GTA6?",
+    a: "Not confirmed as described — the viral claim's own video doesn't actually show an island, though a related, smaller detail (a dog that leads you to a small offshore island where other dogs play) was independently confirmed by ComicBook.com.",
+  },
+  {
+    q: "Who is the woman from GTA6's 2023 debut trailer nicknamed 'Bikini Girl'?",
+    a: "She's an unnamed background NPC at a Vice City yacht party in Chapter 1's 'Day Release' mission — not Lucia Caminos, despite years of fan speculation. Located by Reddit user u/bubzbeex days after launch.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "GTA6 Launch Day: What Players Already Found — EverythingGTA6",
@@ -30,6 +45,7 @@ export default function LaunchDayDiscoveriesGuide() {
           datePublished: "2026-11-19",
         })}
       />
+      <JsonLd data={faqSchema(FAQS.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div
           className="guide-hero"
@@ -433,6 +449,18 @@ export default function LaunchDayDiscoveriesGuide() {
               Source: Yahoo Tech &rarr;
             </a>
           </div>
+        </div>
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {FAQS.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
         </div>
 
         <div className="guide-head" style={{ paddingBlock: "32px 8px" }}>

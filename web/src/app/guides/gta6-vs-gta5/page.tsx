@@ -2,7 +2,22 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
+
+const FAQS = [
+  {
+    q: "How many protagonists does GTA6 have compared to GTA5?",
+    a: "GTA5 had three — Michael, Franklin, and Trevor. GTA6 has two: Jason Duval and Lucia Caminos, the series' first female protagonist.",
+  },
+  {
+    q: "How many years passed between GTA5 and GTA6?",
+    a: "13 years — GTA5 launched September 17, 2013, and GTA6 launched November 19, 2026, the longest gap between mainline GTA titles.",
+  },
+  {
+    q: "Is GTA6 more expensive than GTA5 was at launch?",
+    a: "Yes — GTA5 launched at $59.99 in 2013; GTA6 launched at $79.99.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "GTA6 vs GTA5: Map, Protagonists, Price & Gap — EverythingGTA6",
@@ -56,6 +71,7 @@ export default function Gta6VsGta5Guide() {
           url: `${SITE_URL}/guides/gta6-vs-gta5`,
         })}
       />
+      <JsonLd data={faqSchema(FAQS.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/highway-skyline.jpg)" }}>
           <div className="guide-head">
@@ -78,6 +94,18 @@ export default function Gta6VsGta5Guide() {
               <p>
                 <strong>GTA6:</strong> {c.gta6}
               </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {FAQS.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
             </div>
           ))}
         </div>

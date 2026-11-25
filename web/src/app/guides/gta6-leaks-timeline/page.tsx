@@ -2,7 +2,19 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
+
+const FAQS = [
+  { q: "When did Rockstar confirm GTA6 was in development?", a: "February 2022 — after years of speculation, Rockstar officially confirmed GTA6 was in active development." },
+  {
+    q: "What was the biggest GTA6 leak?",
+    a: "The September 2022 footage breach, where a hacker leaked dozens of clips of unfinished, early-build gameplay. It remains the single largest GTA6 leak to date, and Rockstar confirmed it was genuine at the time.",
+  },
+  {
+    q: "Was there a leak right before GTA6 launched?",
+    a: "Yes — days before the November 19, 2026 launch, a leaker going by Cyberleek torrented what was claimed to be GTA6's Xbox build.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "The GTA6 Leaks Timeline: What Was True — EverythingGTA6",
@@ -56,6 +68,7 @@ export default function Gta6LeaksTimeline() {
           url: `${SITE_URL}/guides/gta6-leaks-timeline`,
         })}
       />
+      <JsonLd data={faqSchema(FAQS.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/red-shootout.jpg)" }}>
           <div className="guide-head">
@@ -77,6 +90,18 @@ export default function Gta6LeaksTimeline() {
               <span className="xy">{l.date.toUpperCase()}</span>
               <h3 style={{ fontSize: 16 }}>{l.title}</h3>
               <p>{l.body}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {FAQS.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
             </div>
           ))}
         </div>

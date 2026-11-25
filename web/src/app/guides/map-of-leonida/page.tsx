@@ -3,7 +3,18 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import { REGIONS, OFFICIAL_MAP_SOURCE } from "@/lib/maps";
-import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
+
+const FAQS = [
+  {
+    q: "Did Rockstar release an official map of Leonida?",
+    a: "Yes — Rockstar released a full, official map of Leonida on launch day (November 19, 2026), confirming every region on this page except the still-unconfirmed seventh one.",
+  },
+  {
+    q: "How many confirmed regions does GTA6's map have?",
+    a: "Six Rockstar-confirmed regions, plus one still-unconfirmed seventh region fans had been tracking before launch.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Map of Leonida — EverythingGTA6",
@@ -21,6 +32,15 @@ export default function MapOfLeonidaGuide() {
           { name: "Map of Leonida", url: `${SITE_URL}/guides/map-of-leonida` },
         ])}
       />
+      <JsonLd
+        data={articleSchema({
+          headline: "Map of Leonida",
+          description:
+            "A region-by-region primer on GTA6's state of Leonida, matched against Rockstar's own launch-day map.",
+          url: `${SITE_URL}/guides/map-of-leonida`,
+        })}
+      />
+      <JsonLd data={faqSchema(FAQS.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/biplane-beach-stunt.jpg)" }}>
           <div className="guide-head">
@@ -48,6 +68,18 @@ export default function MapOfLeonidaGuide() {
             </div>
           ))}
         </div>
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {FAQS.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </div>
+
         <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 8 }}>
           Rockstar released a full, official map of Leonida on launch day (2026-11-19), per{" "}
           <a href={OFFICIAL_MAP_SOURCE} target="_blank" rel="noopener noreferrer nofollow">

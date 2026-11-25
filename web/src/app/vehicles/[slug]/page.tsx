@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import { findVehicle, getAllVehicles, vehicleSlug } from "@/lib/vehicles";
-import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllVehicles().map((v) => ({ slug: vehicleSlug(v) }));
@@ -35,6 +35,29 @@ export default async function VehiclePage({ params }: { params: Promise<{ slug: 
     .filter((v) => v.class === vehicle.class && vehicleSlug(v) !== slug)
     .slice(0, 6);
 
+  const faqs = [
+    ...(vehicle.based_on
+      ? [{ q: `What is the GTA6 ${vehicle.name} based on?`, a: `It's modeled after the ${vehicle.based_on}.` }]
+      : []),
+    ...(vehicle.manufacturer
+      ? [{ q: `Who makes the ${vehicle.name} in GTA6?`, a: `The ${vehicle.name} is made by ${vehicle.manufacturer} in GTA6.` }]
+      : []),
+    { q: `What class of vehicle is the ${vehicle.name}?`, a: `The ${vehicle.name} is a ${vehicle.class} vehicle.` },
+    ...(vehicle.specs?.["Seats"]
+      ? [{ q: `How many seats does the ${vehicle.name} have?`, a: `The ${vehicle.name} has ${vehicle.specs["Seats"]} seats.` }]
+      : []),
+    ...(vehicle.ratings && Object.keys(vehicle.ratings).length > 0
+      ? [
+          {
+            q: `What are the ${vehicle.name}'s stats in GTA6?`,
+            a: `${vehicle.name}: ${Object.entries(vehicle.ratings)
+              .map(([label, value]) => `${label} ${value}`)
+              .join(", ")}.`,
+          },
+        ]
+      : []),
+  ];
+
   return (
     <main>
       <JsonLd
@@ -53,6 +76,7 @@ export default async function VehiclePage({ params }: { params: Promise<{ slug: 
           dateModified: vehicle.scraped_at,
         })}
       />
+      <JsonLd data={faqSchema(faqs.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div
           className={vehicle.img ? "guide-hero" : undefined}
@@ -119,6 +143,18 @@ export default async function VehiclePage({ params }: { params: Promise<{ slug: 
           , a fan-built database built from trailer and screenshot sightings, not an official
           Rockstar list.
         </p>
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {faqs.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </div>
 
         {sameClass.length > 0 && (
           <>

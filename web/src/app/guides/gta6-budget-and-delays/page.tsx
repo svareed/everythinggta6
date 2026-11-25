@@ -2,7 +2,22 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
+
+const FAQS = [
+  {
+    q: "How much did GTA6 cost to make?",
+    a: "Rockstar and Take-Two have never given an exact figure — Take-Two's CEO only said it 'was expensive.' Analyst estimates commonly cited in the press range from $1-1.5 billion.",
+  },
+  {
+    q: "How many times was GTA6 delayed?",
+    a: "Twice — first pushed from its original Fall 2025 target to May 26, 2026, then delayed again to the actual November 19, 2026 launch.",
+  },
+  {
+    q: "Is GTA6 coming to PC?",
+    a: "Not confirmed — Rockstar hasn't announced a PC version, date, or system requirements. See the full PC release breakdown for what's known versus rumored.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "GTA6's Budget, Development Cost & Delay History — EverythingGTA6",
@@ -35,6 +50,7 @@ export default function Gta6BudgetAndDelays() {
           url: `${SITE_URL}/guides/gta6-budget-and-delays`,
         })}
       />
+      <JsonLd data={faqSchema(FAQS.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/bar-standoff.jpg)" }}>
           <div className="guide-head">
@@ -84,6 +100,18 @@ export default function Gta6BudgetAndDelays() {
           &quot;system requirements&quot; list circulating online right now is unofficial
           speculation, not a real spec sheet. We&apos;d rather say that plainly than invent one.
         </p>
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {FAQS.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </div>
 
         <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 20 }}>
           Development-cost estimates per{" "}

@@ -2,7 +2,18 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
+
+const FAQS = [
+  {
+    q: "Is there an official GTA6 Discord server?",
+    a: "Yes — Rockstar Games runs its own Discord server with a dedicated GTA6 channel, reportedly drawing over 300,000 members within 24 hours of launching.",
+  },
+  {
+    q: "Is r/GTA6 run by Rockstar?",
+    a: "No — r/GTA6 is the main fan-run subreddit for GTA6 discussion and is explicitly not affiliated with Rockstar Games.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Where to Find the GTA6 Community: Reddit & Discord — EverythingGTA6",
@@ -20,6 +31,7 @@ export default function Gta6CommunityGuide() {
           { name: "Community", url: `${SITE_URL}/guides/gta6-community` },
         ])}
       />
+      <JsonLd data={faqSchema(FAQS.map(({ q, a }) => ({ question: q, answer: a })))} />
       <div className="wrap">
         <div className="guide-hero" style={{ backgroundImage: "url(/images/trailer-stills/crystal-shop.jpg)" }}>
           <div className="guide-head">
@@ -71,6 +83,18 @@ export default function Gta6CommunityGuide() {
               Visit r/GTA6 &rarr;
             </a>
           </div>
+        </div>
+
+        <div className="guide-head" style={{ paddingBlock: "28px 8px" }}>
+          <h2 style={{ fontSize: 22, margin: 0 }}>Frequently Asked Questions</h2>
+        </div>
+        <div className="coords">
+          {FAQS.map((f) => (
+            <div className="coord" key={f.q}>
+              <h3 style={{ fontSize: 16 }}>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
         </div>
 
         <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 20 }}>
