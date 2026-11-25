@@ -2,12 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, articleSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, articleSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6's Budget, Development Cost & Delay History — EverythingGTA6",
   description:
     "How much GTA6 reportedly cost to make, and the full, dated history of its delays — from its December 2023 reveal to the actual November 19, 2026 launch.",
+  alternates: canonical("/guides/gta6-budget-and-delays"),
 };
 
 const DELAYS = [
@@ -78,9 +79,10 @@ export default function Gta6BudgetAndDelays() {
         </div>
         <p style={{ fontSize: 15, lineHeight: 1.7, maxWidth: 720 }}>
           There&apos;s nothing to publish here yet: GTA6 isn&apos;t confirmed for PC at all (see
-          our <Link href="/guides/gta6-faq">launch &amp; platforms FAQ</Link>), so any &quot;system
-          requirements&quot; list circulating online right now is unofficial speculation, not a
-          real spec sheet. We&apos;d rather say that plainly than invent one.
+          our <Link href="/guides/gta6-faq">launch &amp; platforms FAQ</Link> or the{" "}
+          <Link href="/guides/gta6-pc-release">full PC release breakdown</Link>), so any
+          &quot;system requirements&quot; list circulating online right now is unofficial
+          speculation, not a real spec sheet. We&apos;d rather say that plainly than invent one.
         </p>
 
         <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 20 }}>

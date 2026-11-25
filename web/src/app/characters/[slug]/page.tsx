@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import { characterSlug, findCharacter, getAllCharacters, imageFor, voiceActorFor } from "@/lib/characters";
-import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllCharacters().map((c) => ({ slug: characterSlug(c.name) }));
@@ -20,6 +20,7 @@ export async function generateMetadata({
   return {
     title: `${character.name} — GTA6 Characters — EverythingGTA6`,
     description: character.body,
+    alternates: canonical(`/characters/${characterSlug(character.name)}`),
   };
 }
 
@@ -57,7 +58,8 @@ export default async function CharacterPage({ params }: { params: Promise<{ slug
         <p style={{ fontSize: 15, lineHeight: 1.7, maxWidth: 720 }}>{character.body}</p>
         {voiceActorFor(character.name) && (
           <p style={{ color: "var(--fg-dim)", fontSize: 13, marginTop: 8 }}>
-            Voiced/performed by {voiceActorFor(character.name)}.
+            Voiced/performed by {voiceActorFor(character.name)}. See the{" "}
+            <Link href="/guides/gta6-voice-cast">full voice-cast breakdown</Link>.
           </p>
         )}
         {img.caption && (

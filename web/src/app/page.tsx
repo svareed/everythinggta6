@@ -67,7 +67,7 @@ const MODULES = [
     href: "/missions",
     tag: "Walkthrough",
     title: "Every mission",
-    body: "All 136 missions, Prologue through Chapter 5, with real screenshots where they exist.",
+    body: "All 135 missions, Prologue through Chapter 5, with real screenshots where they exist.",
     img: "dock-seaplane",
   },
   {
@@ -146,6 +146,34 @@ const MODULES = [
     title: "Where players hang out",
     body: "Rockstar's own official Discord, and the main fan subreddit.",
     img: "crystal-shop",
+  },
+  {
+    href: "/guides/gta6-cover-girl",
+    tag: "Launch Week Mystery",
+    title: "Who's the GTA6 cover girl?",
+    body: "The leading fan theory, the copycat claims since launch, and what's confirmed.",
+    img: "nightclub-crowd",
+  },
+  {
+    href: "/guides/gta6-pc-release",
+    tag: "PC Port",
+    title: "Is GTA6 coming to PC?",
+    body: "What Rockstar's confirmed, what's rumored, and GTA5's own PC-port wait as a comparison.",
+    img: "skyscraper-climb",
+  },
+  {
+    href: "/guides/gta6-online-mode",
+    tag: "Online Mode",
+    title: "Does GTA6 have online multiplayer?",
+    body: "Singleplayer at launch — what's confirmed, and what's only been reported for 2027.",
+    img: "red-shootout",
+  },
+  {
+    href: "/guides/gta6-voice-cast",
+    tag: "Voice Cast",
+    title: "Who plays Jason and Lucia?",
+    body: "Dylan Rourke and Manni L. Perez — what's confirmed about each, sourced and dated.",
+    img: "balcony-sunset",
   },
   {
     href: "/sources/tips",

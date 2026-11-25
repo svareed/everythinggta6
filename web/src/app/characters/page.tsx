@@ -3,12 +3,13 @@ import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
 import { characterSlug, getAllCharacters, imageFor } from "@/lib/characters";
-import { breadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 Characters — EverythingGTA6",
   description:
     "Jason Duval, Lucia Caminos, and the confirmed supporting cast of Grand Theft Auto VI, sourced from Rockstar's own press-kit bios.",
+  alternates: canonical("/characters"),
 };
 
 const characters = getAllCharacters();
@@ -93,7 +94,8 @@ export default function CharactersPage() {
           confirmed photo yet, so their cards use a trailer still with an honest caption instead.
         </p>
         <p style={{ marginTop: 16 }}>
-          More on the cast: <Link href="/vehicles">vehicles</Link>,{" "}
+          More on the cast: <Link href="/guides/gta6-voice-cast">who plays Jason and Lucia?</Link>,{" "}
+          <Link href="/vehicles">vehicles</Link>,{" "}
           <Link href="/guides/map-of-leonida">map of Leonida</Link>,{" "}
           <Link href="/guides/gta6-radio-stations">radio stations</Link>, or the{" "}
           <Link href="/sources">full Sources hub</Link>.

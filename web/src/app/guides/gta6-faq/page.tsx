@@ -2,12 +2,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Comments from "@/components/Comments";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema, faqSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, faqSchema, canonical, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "GTA6 FAQ: Is It Out, What Platforms, Is There Online? — EverythingGTA6",
   description:
     "Quick, sourced answers to the questions people are still searching most: is GTA6 out, what it's on, and whether it has online multiplayer.",
+  alternates: canonical("/guides/gta6-faq"),
 };
 
 const FAQS = [
@@ -21,7 +22,7 @@ const FAQS = [
   },
   {
     q: "Is GTA6 coming to PC?",
-    a: "Not yet, and no PC release has been officially confirmed. Take-Two's own leadership has framed a PC port as something that would come later rather than at launch, with outside speculation (not an official date) putting it roughly a year or more out, following the pattern set by GTA5's PC release.",
+    a: "Not yet, and Rockstar hasn't officially confirmed a PC release or date. GamesBeat reported in October 2026, citing four industry sources, that Rockstar is targeting Q1 2027 for the PC version — a few months after the console launch, and much quicker than GTA5's roughly year-and-a-half wait. That's investigative reporting, not a Rockstar announcement, so treat the window as likely rather than locked in.",
   },
   {
     q: "Is there a difference between the Xbox Series S and Series X versions?",
@@ -88,14 +89,21 @@ export default function Gta6FaqGuide() {
           <a href="https://www.pcgamer.com/no-gta-6-pc-release-announced" target="_blank" rel="noopener noreferrer nofollow">
             PCGamer
           </a>
-          . We&apos;re not repeating the specific &quot;GTA Online basically confirmed for 2027&quot;
+          . The Q1 2027 PC window is{" "}
+          <a href="https://gamesbeat.com/grand-theft-auto-vis-pc-release-is-slated-for-q1-2027/" target="_blank" rel="noopener noreferrer nofollow">
+            GamesBeat&apos;s
+          </a>{" "}
+          own reporting, citing four industry sources — not a Rockstar statement. We&apos;re not
+          repeating the specific &quot;GTA Online basically confirmed for 2027&quot;
           headline some outlets ran — it traced back to a Twitch executive&apos;s comment, not a
           Rockstar statement, and a separate viral claim about this turned out to be about
           Rockstar&apos;s unrelated support for GTA Online roleplay servers. Nothing here is from
           gta6bible.com.
         </p>
         <p style={{ marginTop: 16 }}>
-          More: <Link href="/guides/gta6-price">price guide</Link>,{" "}
+          More: <Link href="/guides/gta6-pc-release">full PC release breakdown</Link>,{" "}
+          <Link href="/guides/gta6-online-mode">full online-mode breakdown</Link>,{" "}
+          <Link href="/guides/gta6-price">price guide</Link>,{" "}
           <Link href="/guides/gta6-budget-and-delays">budget &amp; delay history</Link>, or the{" "}
           <Link href="/sources">full Sources hub</Link>.
         </p>
