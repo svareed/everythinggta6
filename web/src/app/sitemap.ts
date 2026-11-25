@@ -145,6 +145,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly",
     priority: 0.5,
   }));
-
-  return [...staticRoutes, ...characterRoutes, ...missionRoutes, ...mapRoutes, ...vehicleRoutes];
+  void missionRoutes;
+  void vehicleRoutes;
+  // Per a 2026-11-26 GSC diagnosis, ~94% of the submitted sitemap was
+  // vehicle/mission detail pages, almost all stuck "Discovered -- currently
+  // not indexed": 493 near-identical templated pages added in bulk to a
+  // brand-new, zero-authority domain reads to Google as low-value, so it's
+  // holding off crawling them. Per that diagnosis's recommendation,
+  // missionRoutes/vehicleRoutes are deliberately left out of the submitted
+  // sitemap for now -- NOT noindexed, NOT disallowed, so Google can still
+  // find and index them via normal crawling from the /vehicles and
+  // /missions hub pages (both of which remain in staticRoutes) -- just not
+  // asked to crawl all ~493 of them in one shot. Re-add
+  // `...missionRoutes, ...vehicleRoutes` to the return below once the
+  // first (smaller) batch of pages is actually indexed.
+  return [...staticRoutes, ...characterRoutes, ...mapRoutes];
 }
